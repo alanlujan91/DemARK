@@ -1,14 +1,14 @@
 # ---
 # jupyter:
 #   jupytext:
+#     cell_metadata_filter: collapsed,code_folding
 #     formats: ipynb,py:percent
-#     metadata_filter:
-#       cells: collapsed
+#     notebook_metadata_filter: all
 #     text_representation:
 #       extension: .py
 #       format_name: percent
-#       format_version: '1.1'
-#       jupytext_version: 0.8.3
+#       format_version: '1.2'
+#       jupytext_version: 1.2.3
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
@@ -22,39 +22,18 @@
 #     name: python
 #     nbconvert_exporter: python
 #     pygments_lexer: ipython3
-#     version: 3.6.7
-#   varInspector:
-#     cols:
-#       lenName: 16
-#       lenType: 16
-#       lenVar: 40
-#     kernels_config:
-#       python:
-#         delete_cmd_postfix: ''
-#         delete_cmd_prefix: 'del '
-#         library: var_list.py
-#         varRefreshCmd: print(var_dic_list())
-#       r:
-#         delete_cmd_postfix: ') '
-#         delete_cmd_prefix: rm(
-#         library: var_list.r
-#         varRefreshCmd: 'cat(var_dic_list()) '
-#     types_to_exclude:
-#     - module
-#     - function
-#     - builtin_function_or_method
-#     - instance
-#     - _Feature
-#     window_display: false
+#     version: 3.7.6
 # ---
 
 # %% [markdown]
 # # Micro- and Macroeconomic Implications of Very Impatient Households
+#
+# <p style="text-align: center;"><small><small><small>Generator: QuARK-make/notebooks_byname</small></small></small></p>
 
 # %% [markdown]
 # ## Introduction
 #
-# Buffer stock saving models of the kind implemented in $\texttt{ConsIndShockModel}$ say that, if a standard ['Growth Impatience Condition'](https://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#Growth-Modified-Conditions) holds:
+# Buffer stock saving models of the kind implemented in $\texttt{ConsIndShockType}$ say that, if a standard ['Growth Impatience Condition'](https://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#Growth-Modified-Conditions), holds:
 #
 # \begin{eqnarray}
 # \newcommand{\Rfree}{\mathsf{R}}\newcommand{\DiscFac}{\beta}\newcommand{\PermGroFac}{\Gamma}\newcommand{\PermShk}{\psi}\newcommand{\CRRA}{\rho}
@@ -67,24 +46,21 @@
 #
 # ["The Distribution of Wealth and the Marginal Propensity to Consume"](http://econ.jhu.edu/people/ccarroll/papers/cstwMPC) (Carroll, Slacalek, Tokuoka, and White 2017; hereafter: "cstwMPC") shows that, when such a model is simulated and agents draw their idiosyncratic shocks (so, agents are _ex post_ heterogeneous -- see the definition in [Intro-To-HARK](http://github.com/econ-ark/PARK/tree/master/Intro-To-HARK.pdf)) -- asset inequality is indeed close to $\pLev$ inequality even though everyone is not always at exactly their target $a$.
 #
-# But a large body of evidence shows that _actual_ inequality in assets is much greater than _actual_ inequality in permanent income.  Thus, to make a model that qualifies as what cstwMPC call a 'serious' microfounded macro model of consumption (one that matches the key facts that _theory says_ should be first-order important), the model must be modified to incorporate some form of _ex ante_ heterogeneity: That is, there must be differences across people in $\DiscFac$ or $\Rfree$ or $\CRRA$ or $\PermGroFac$ or $\sigma^{2}_{\PermShk}$.
+# But a large body of evidence shows that _actual_ inequality in assets is much greater than _actual_ inequality in permanent income.  Thus, to make a model that qualifies as what cstwMPC call a 'serious' microfounded macro model of consumption (one that matches the key facts _theory says_ should be first-order important), the model must be modified to incorporate some form of _ex ante_ heterogeneity: That is, there must be differences across people in $\DiscFac$ or $\Rfree$ or $\CRRA$ or $\PermGroFac$ or $\sigma^{2}_{\PermShk}$.
 #
 # The most transparent and simplest of these to change is the time preference factor $\beta$.  So that is what the paper does.  The main results are:
 #
-# 1. The distribution of $\DiscFac$ need not be particularly wide to match the extreme concentration of wealth: roughly 0.91 to 0.98 (annual); that is, the most impatient person discounts the future about 6 percentage points more per year than the most patient agent agent
-# 2. With such a distribution of $\DiscFac$, simulated agents' (annual) marginal propensity to consume (MPC) from transitory income shocks to income matches large body of microeconomic evidence that typically finds evidence of MPC's in the range of 0.2 to 0.6.  This is much better than RA macro models that typically yield MPC's in the range of 0.01 to 0.05.
+# 1. The distribution of $\beta$ need not be particularly wide to match the extreme concentration of wealth: roughly 0.91 to 0.98 (annual); that is, the most impatient person discounts the future about 6 percentage points more per year than the most patient agent agent
+# 2. With such a distribution of $\beta$, simulated agents' (annual) marginal propensity to consume (MPC) from transitory income shocks to income matches large body of microeconomic evidence that typically finds evidence of MPC's in the range of 0.2 to 0.6.  This is much better than RA macro models that typically yield MPC's in the range of 0.01 to 0.05.
 #
-# While the most impatient agents in the cstwMPC model have fairly high MPCs (~0.6 annual), there is microeconomic evidence that a significant fraction of households have *even higher* MPCs than the model predicts, especially at the quarterly frequency.  This group of households is commonly referred to as "hand-to-mouth" -- they consume most of their transitory shocks to income not long after they receive them (mostly within a quarter).  There are several reasons why a household could be hand-to-mouth, but one plausible explanation is that these households are *even more impatient* than estimated by cstwMPC for the most impatient agent.
+# While the most impatient agents in the cstwMPC model have fairly high MPCs (~0.6 annual), there is microeconomic evidence that a significant fraction of households have *even higher* MPCs than the model predicts, especially at the quarterly frequency.  This group of households is commonly referred to as "hand-to-mouth" -- they consume most of their transitory shocks to income not too long after they receive them (mostly within a quarter).  There are several reasons why a household could be hand-to-mouth, but one plausible explanation is that these households are *even more impatient* than estimated by cstwMPC for the most impatient agent.
 #
 
 # %% {"code_folding": [25]}
 # This cell does some setup and imports generic tools used to produce the figures
 
-import sys 
-import os
-sys.path.insert(0, os.path.abspath('../lib'))
+from tqdm import tqdm
 
-from util import log_progress
 import numpy as np
 from copy import deepcopy
 
@@ -96,7 +72,6 @@ Generator=False # Is this notebook the master or is it generated?
 # Import related generic python packages
 
 # Set how many digits past the decimal point should be printed?
-from time import clock
 mystr   = lambda number : "{:.4f}".format(number)
 decfmt4 = lambda number : "{:.4f}".format(number)
 decfmt3 = lambda number : "{:.3f}".format(number)
@@ -221,14 +196,14 @@ cstwMPC_calibrated_parameters = {
 
 # %%
 # This cell constructs seven instances of IndShockConsumerType with different discount factors
-from HARK.utilities import approxUniform
+from HARK.distribution import Uniform
 BaselineType = IndShockConsumerType(**cstwMPC_calibrated_parameters)
 
 # Specify the distribution of the discount factor
 num_types = 7              # number of types we want
 DiscFac_mean   = 0.9855583 # center of beta distribution 
 DiscFac_spread = 0.0085    # spread of beta distribution
-DiscFac_dstn = approxUniform(num_types, DiscFac_mean-DiscFac_spread, DiscFac_mean+DiscFac_spread)[1]
+DiscFac_dstn = Uniform(DiscFac_mean-DiscFac_spread, DiscFac_mean+DiscFac_spread).approx(num_types).X
 
 MyTypes = [] # initialize an empty list to hold our consumer types
 for nn in range(num_types):
@@ -247,7 +222,7 @@ for nn in range(num_types):
 
 # %%
 # Progress bar keeps track interactively of how many have been made
-for ThisType in log_progress(MyTypes, every=1):
+for ThisType in tqdm(MyTypes):
     ThisType.solve()
     ThisType.initializeSim()
     ThisType.simulate()
@@ -266,8 +241,10 @@ print('The ratio of aggregate capital to permanent income is ' + decfmt2(np.mean
 
 # %%
 # Plot Lorenz curves for model with uniform distribution of time preference
-from HARK.cstwMPC.SetupParamsCSTW import SCF_wealth, SCF_weights
+from HARK.datasets import load_SCF_wealth_weights
 from HARK.utilities import getLorenzShares, getPercentiles
+
+SCF_wealth, SCF_weights = load_SCF_wealth_weights()
 
 pctiles = np.linspace(0.001,0.999,200)
 sim_wealth = np.concatenate([ThisType.aLvlNow for ThisType in MyTypes])
@@ -332,3 +309,5 @@ MPCpercentiles_annual = 1.0 - (1.0 - MPCpercentiles_quarterly)**4
 print('The MPC at the 10th percentile of the distribution is '+str(decfmt2(MPCpercentiles_annual[0])))
 print('The MPC at the 50th percentile of the distribution is '+str(decfmt2(MPCpercentiles_annual[4])))
 print('The MPC at the 90th percentile of the distribution is '+str(decfmt2(MPCpercentiles_annual[-1])))
+
+# %%

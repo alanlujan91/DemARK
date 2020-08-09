@@ -2,11 +2,12 @@
 # jupyter:
 #   jupytext:
 #     formats: ipynb,py:percent
+#     notebook_metadata_filter: all
 #     text_representation:
 #       extension: .py
 #       format_name: percent
-#       format_version: '1.1'
-#       jupytext_version: 0.8.3
+#       format_version: '1.2'
+#       jupytext_version: 1.2.4
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
@@ -20,45 +21,45 @@
 #     name: python
 #     nbconvert_exporter: python
 #     pygments_lexer: ipython3
-#     version: 3.6.6
-#   varInspector:
-#     cols:
-#       lenName: 16
-#       lenType: 16
-#       lenVar: 40
-#     kernels_config:
-#       python:
-#         delete_cmd_postfix: ''
-#         delete_cmd_prefix: 'del '
-#         library: var_list.py
-#         varRefreshCmd: print(var_dic_list())
-#       r:
-#         delete_cmd_postfix: ') '
-#         delete_cmd_prefix: rm(
-#         library: var_list.r
-#         varRefreshCmd: 'cat(var_dic_list()) '
-#     types_to_exclude:
-#     - module
-#     - function
-#     - builtin_function_or_method
-#     - instance
-#     - _Feature
-#     window_display: false
+#     version: 3.7.5
+#   latex_envs:
+#     LaTeX_envs_menu_present: true
+#     autoclose: false
+#     autocomplete: true
+#     bibliofile: biblio.bib
+#     cite_by: apalike
+#     current_citInitial: 1
+#     eqLabelWithNumbers: true
+#     eqNumInitial: 1
+#     hotkeys:
+#       equation: Ctrl-E
+#       itemize: Ctrl-I
+#     labels_anchors: false
+#     latex_user_defs: false
+#     report_style_numbering: false
+#     user_envs_cfg: false
+#   toc:
+#     base_numbering: 1
+#     nav_menu: {}
+#     number_sections: true
+#     sideBar: true
+#     skip_h1_title: false
+#     title_cell: Table of Contents
+#     title_sidebar: Contents
+#     toc_cell: false
+#     toc_position: {}
+#     toc_section_display: true
+#     toc_window_display: false
 # ---
 
-# %% {"code_folding": [0]}
+# %% {"code_folding": []}
 # Initial imports and notebook setup, click arrow to show
-%matplotlib inline
-# The first step is to be able to bring things in from different directories
-import sys 
-import os
-sys.path.insert(0, os.path.abspath('../lib'))
+# %matplotlib inline
 
 import matplotlib.pyplot as plt
 import numpy as np
 from copy import deepcopy
-from util import log_progress
-import HARK # Prevents import error from Demos repo
+from tqdm import tqdm
 
 # %% [markdown]
 # # Do Precautionary Motives Explain China's High Saving Rate?
@@ -93,7 +94,7 @@ import HARK # Prevents import error from Demos repo
 #
 # HARK's $\texttt{MarkovConsumerType}$ is the right tool for this experiment.  So we need to prepare the parameters to create that ConsumerType, and then create it.
 
-# %% {"code_folding": [0]}
+# %% {"code_folding": []}
 # Initialize the cstwMPC parameters
 init_China_parameters = {
     "CRRA":1.0,                    # Coefficient of relative risk aversion   
@@ -168,7 +169,7 @@ ChinaExample = MarkovConsumerType(**init_China_parameters)
 # %%
 GrowthFastAnn = 1.06 # Six percent annual growth 
 GrowthSlowAnn = 1.00 # Stagnation
-ChinaExample.assignParameters(PermGroFac = [np.array([GrowthSlow.,GrowthFast ** (.25)])], #needs to be a list, with 0th element of shape of shape (StateCount,)
+ChinaExample.assignParameters(PermGroFac = [np.array([GrowthSlowAnn,GrowthFastAnn ** (.25)])], #needs to be a list, with 0th element of shape of shape (StateCount,)
                               Rfree      =  np.array(StateCount*[init_China_parameters['Rfree']]), #needs to be an array, of shape (StateCount,)
                               LivPrb     = [np.array(StateCount*[init_China_parameters['LivPrb']][0])], #needs to be a list, with 0th element of shape of shape (StateCount,)
                               cycles     = 0)
@@ -197,11 +198,11 @@ for nn in range(num_consumer_types):
 # First, decide the discount factors to assign:
 
 # %%
-from HARK.utilities import approxUniform
+from HARK.distribution import Uniform
 
 bottomDiscFac = 0.9800
 topDiscFac    = 0.9934 
-DiscFac_list  = approxUniform(N=num_consumer_types,bot=bottomDiscFac,top=topDiscFac)[1]
+DiscFac_list  = Uniform(bot=bottomDiscFac,top=topDiscFac).approx(N=num_consumer_types).X
 
 # Now, assign the discount factors we want to the ChineseConsumerTypes
 for j in range(num_consumer_types):
@@ -220,13 +221,13 @@ for j in range(num_consumer_types):
 
 # %% {"code_folding": []}
 # First create the income distribution in the low-growth state, which we will not change
-from HARK.ConsumptionSaving.ConsIndShockModel import constructLognormalIncomeProcessUnemployment
-import HARK.ConsumptionSaving.ConsumerParameters as IncomeParams
+from HARK.ConsumptionSaving.ConsIndShockModel import IndShockConsumerType
 
-LowGrowthIncomeDstn  = constructLognormalIncomeProcessUnemployment(IncomeParams)[0][0]
+low_growth_model = IndShockConsumerType()
+LowGrowthIncomeDstn  = low_growth_model.constructLognormalIncomeProcessUnemployment()[0][0]
 
 # Remember the standard deviation of the permanent income shock in the low-growth state for later
-LowGrowth_PermShkStd = IncomeParams.PermShkStd
+LowGrowth_PermShkStd = low_growth_model.PermShkStd
 
 
 
@@ -257,10 +258,10 @@ def calcNatlSavingRate(PrmShkVar_multiplier,RNG_seed = 0):
     # Set the uncertainty in the high-growth state to the desired amount, keeping in mind
     # that PermShkStd is a list of length 1
     PrmShkStd_multiplier    = PrmShkVar_multiplier ** .5
-    IncomeParams.PermShkStd = [LowGrowth_PermShkStd[0] * PrmShkStd_multiplier] 
+    low_growth_model.PermShkStd = [LowGrowth_PermShkStd[0] * PrmShkStd_multiplier] 
 
     # Construct the appropriate income distributions
-    HighGrowthIncomeDstn = constructLognormalIncomeProcessUnemployment(IncomeParams)[0][0]
+    HighGrowthIncomeDstn = low_growth_model.constructLognormalIncomeProcessUnemployment()[0][0]
 
     # To calculate the national saving rate, we need national income and national consumption
     # To get those, we are going to start national income and consumption at 0, and then
@@ -325,11 +326,11 @@ def calcNatlSavingRate(PrmShkVar_multiplier,RNG_seed = 0):
         ChineseConsumerTypeNew.simulate(160)   # Simulate 160 quarders of data
     
         # Now, get the aggregate income and consumption of this ConsumerType over time
-        IncomeOfThisConsumerType = np.sum((ChineseConsumerTypeNew.aNrmNow_hist*ChineseConsumerTypeNew.pLvlNow_hist*
+        IncomeOfThisConsumerType = np.sum((ChineseConsumerTypeNew.history['aNrmNow']*ChineseConsumerTypeNew.history['pLvlNow']*
                                           (ChineseConsumerTypeNew.Rfree[0] - 1.)) +
-                                           ChineseConsumerTypeNew.pLvlNow_hist, axis=1)
+                                           ChineseConsumerTypeNew.history['pLvlNow'], axis=1)
         
-        ConsOfThisConsumerType = np.sum(ChineseConsumerTypeNew.cNrmNow_hist*ChineseConsumerTypeNew.pLvlNow_hist,axis=1)
+        ConsOfThisConsumerType = np.sum(ChineseConsumerTypeNew.history['cNrmNow']*ChineseConsumerTypeNew.history['pLvlNow'],axis=1)
         
         # Add the income and consumption of this ConsumerType to national income and consumption
         NatlIncome     += IncomeOfThisConsumerType
@@ -364,7 +365,7 @@ PermShkVarMultipliers = (1.,2.,4.,8.,11.)
 # following economic reforms, assuming that the variance of the permanent income shock
 # was multiplied by the given multiplier
 index = 0
-for PermShkVarMultiplier in log_progress(PermShkVarMultipliers, every=1):
+for PermShkVarMultiplier in tqdm(PermShkVarMultipliers):
     NatlSavingsRates.append(calcNatlSavingRate(PermShkVarMultiplier,RNG_seed = index)[-160 - quarters_before_reform_to_plot :])
     index +=1
 
