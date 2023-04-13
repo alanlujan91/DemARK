@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Perfect Foresight CRRA Model - Saving Rate &#8212; My sample book</title>
+    <title>Perfect Foresight CRRA Model - Saving Rate &#8212; DemARK</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -63,6 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/PerfForesightCRRA-SavingRate';</script>
+    <link rel="shortcut icon" href="../_static/econ-ark-logo-small.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Making Structural Estimates From Empirical Results" href="Structural-Estimates-From-Empirical-MPCs-Fagereng-et-al.html" />
@@ -137,8 +138,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/econ-ark-logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/econ-ark-logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
-    <p class="title logo__title">My sample book</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -236,53 +243,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/PerfForesightCRRA-SavingRate.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
 
 
 
@@ -413,12 +373,9 @@ document.write(`
 <span class="kn">from</span> <span class="nn">HARK.ConsumptionSaving.ConsIndShockModel</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">PerfForesightConsumerType</span><span class="p">,</span>
 <span class="p">)</span>  <span class="c1"># Import the consumer type</span>
-<span class="kn">from</span> <span class="nn">HARK.utilities</span> <span class="kn">import</span> <span class="n">plot_funcs</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">HARK</span>
-<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 
 
 <span class="k">def</span> <span class="nf">mystr</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
@@ -432,7 +389,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\alujan\AppData\Local\Temp\ipykernel_83472\596033664.py:20: MatplotlibDeprecationWarning: The seaborn styles shipped by Matplotlib are deprecated since 3.6, as they no longer correspond to the styles shipped by seaborn. However, they will remain available as &#39;seaborn-v0_8-&lt;style&gt;&#39;. Alternatively, directly use the seaborn API instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\alujan\AppData\Local\Temp\ipykernel_209308\596033664.py:20: MatplotlibDeprecationWarning: The seaborn styles shipped by Matplotlib are deprecated since 3.6, as they no longer correspond to the styles shipped by seaborn. However, they will remain available as &#39;seaborn-v0_8-&lt;style&gt;&#39;. Alternatively, directly use the seaborn API instead.
   plt.style.use(&quot;seaborn-darkgrid&quot;)
 </pre></div>
 </div>
@@ -503,16 +460,18 @@ document.write(`
 </div>
 <p>We are now ready to think about the saving rate of the consumer.</p>
 <p>Remember that the saving rate of an agent at time <span class="math notranslate nohighlight">\(t\)</span> is</p>
-<p>\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0a92ce2d-0977-4de3-ab73-7b395ab8d54c">
+<span class="eqno">(22)<a class="headerlink" href="#equation-0a92ce2d-0977-4de3-ab73-7b395ab8d54c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \text{Saving Rate}_t = \frac{\text{Capital Income}_t + \text{Labor Income}_t - \text{Consumption_t}}{\text{Capital Income}_t + \text{Labor Income}_t}
-\end{equation}</p>
+\end{equation}\]</div>
 <p>Dividing both the numerator and denominator by the agent’s permanent income <span class="math notranslate nohighlight">\(\textbf{P}_t\)</span> and adopting the notation in <a class="reference external" href="https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/Consumption/PerfForesightCRRA/">the course’s lecture notes</a> we have</p>
-<p>\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1df74edc-fc15-4ddc-9954-03a32bd74956">
+<span class="eqno">(23)<a class="headerlink" href="#equation-1df74edc-fc15-4ddc-9954-03a32bd74956" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
-\text{Saving Rate}<em>t &amp;= \frac{a</em>{t-1}*r/\Gamma + 1 - c(m_t)}{a_{t-1}*r/\Gamma + 1}\
+\text{Saving Rate}_t &amp;= \frac{a_{t-1}*r/\Gamma + 1 - c(m_t)}{a_{t-1}*r/\Gamma + 1}\\
 &amp;=\frac{a_{t-1}*r/\Gamma + 1 - c(a_{t-1}*R/\Gamma + 1)}{a_{t-1}*r/\Gamma + 1}
 \end{split}
-\end{equation}</p>
+\end{equation}\]</div>
 <p>We now have an expression for the saving rate as a function of the previous period’s end-of-period normalized assets <span class="math notranslate nohighlight">\(a_t\)</span>. The cell below calculates and plots this relationship for different levels of <span class="math notranslate nohighlight">\(a_t\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -543,7 +502,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Saving Rate&#39;)
 </pre></div>
 </div>
-<img alt="../_images/24cb0f3a09ebd90206da2a45471a4061960bcc01f31d48b571f08999564f2e0c.png" src="../_images/24cb0f3a09ebd90206da2a45471a4061960bcc01f31d48b571f08999564f2e0c.png" />
+<img alt="../_images/2d349bbf3bfb564c385a687d8c77907bea0157ab95c7f8fb972e9d14c958c4b8.png" src="../_images/2d349bbf3bfb564c385a687d8c77907bea0157ab95c7f8fb972e9d14c958c4b8.png" />
 </div>
 </div>
 </section>
@@ -575,7 +534,10 @@ document.write(`
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="PerfForesightCRRA-Approximation.html"
@@ -595,7 +557,10 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -620,13 +585,13 @@ document.write(`
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By The Econ-ARK Team
 </p>
 
   </div>
@@ -635,7 +600,7 @@ By The Jupyter Book Community
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -650,7 +615,7 @@ By The Jupyter Book Community
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -659,8 +624,8 @@ By The Jupyter Book Community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Expectated vs Realized Income Growth in A Standard Life Cycle Model &#8212; My sample book</title>
+    <title>Expectated vs Realized Income Growth in A Standard Life Cycle Model &#8212; DemARK</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -63,6 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/LC-Model-Expected-Vs-Realized-Income-Growth';</script>
+    <link rel="shortcut icon" href="../_static/econ-ark-logo-small.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="The Life Cycle Model: Theory vs Data" href="LifeCycleModelTheoryVsData.html" />
@@ -137,8 +138,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/econ-ark-logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/econ-ark-logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
-    <p class="title logo__title">My sample book</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -236,53 +243,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/LC-Model-Expected-Vs-Realized-Income-Growth.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
 
 
 
@@ -411,8 +371,6 @@ document.write(`
 <span class="p">)</span>
 
 <span class="kn">from</span> <span class="nn">HARK.datasets.life_tables.us_ssa.SSATools</span> <span class="kn">import</span> <span class="n">parse_ssa_life_table</span>
-<span class="kn">from</span> <span class="nn">HARK.datasets.SCF.WealthIncomeDist.SCFDistTools</span> <span class="kn">import</span> <span class="n">income_wealth_dists_from_scf</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">copy</span>
 </pre></div>
@@ -491,13 +449,15 @@ document.write(`
 <span class="math notranslate nohighlight">\(\newcommand{\UnempPrb}{\wp}\)</span>
 <span class="math notranslate nohighlight">\(\newcommand{\TranShk}{\theta}\)</span></p>
 <p>We assume a standard income process with transitory and permanent shocks:  The consumer’s Permanent noncapital income <span class="math notranslate nohighlight">\(\pLvl\)</span> grows by a predictable factor <span class="math notranslate nohighlight">\(\PermGroFac\)</span> and is subject to an unpredictable multiplicative shock <span class="math notranslate nohighlight">\(\Ex_{t}[\PermShk_{t+1}]=1\)</span>,</p>
-<p>\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-4116840b-c60f-4c31-abfa-942a461fa03b">
+<span class="eqno">(18)<a class="headerlink" href="#equation-4116840b-c60f-4c31-abfa-942a461fa03b" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \pLvl_{t+1} &amp; = &amp; \pLvl_{t} \PermGroFac_{t+1} \PermShk_{t+1}, \notag
-\end{eqnarray}
-and, if the consumer is employed, actual income <span class="math notranslate nohighlight">\(Y\)</span> is permanent income multiplied by a transitory shock <span class="math notranslate nohighlight">\(\Ex_{t}[\TranShk_{t+1}]=1\)</span>,
-\begin{eqnarray}
+\end{eqnarray}\]</div>
+<p>and, if the consumer is employed, actual income <span class="math notranslate nohighlight">\(Y\)</span> is permanent income multiplied by a transitory shock <span class="math notranslate nohighlight">\(\Ex_{t}[\TranShk_{t+1}]=1\)</span>,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-81eb47dd-8344-4a9d-a52a-72c9b1b0d150">
+<span class="eqno">(19)<a class="headerlink" href="#equation-81eb47dd-8344-4a9d-a52a-72c9b1b0d150" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \yLvl_{t+1} &amp; = &amp; \pLvl_{t+1} \TranShk_{t+1}, \notag
-\end{eqnarray}</p>
+\end{eqnarray}\]</div>
 <!--- There is also a probability $\UnempPrb$ that the consumer will be temporarily unemployed and experience income of $\TranShk^{\large u}  = 0$.  We construct $\TranShk^{\large e}$ so that its mean value is $1/(1-\UnempPrb)$ because in that case the mean level of the transitory shock (accounting for both unemployed and employed states) is exactly
 
 \begin{eqnarray}
@@ -508,14 +468,15 @@ and, if the consumer is employed, actual income <span class="math notranslate no
 --->
 <p><span class="math notranslate nohighlight">\(\Gamma_{t}\)</span> captures the predictable life cycle profile of income growth (faster when young, slower when old).  See <a class="reference external" href="https://github.com/econ-ark/CGMPortfolio/blob/master/Code/Python/CGMPortfolio.ipynb">our replication of CGM-2005</a> for a detailed account of how these objects map to CGM’s notation.</p>
 <p>Now define <span class="math notranslate nohighlight">\(\newcommand{\yLog}{y}\newcommand{\pLog}{p}\yLog = \log \yLvl,\pLog=\log \pLvl\)</span> and similarly for other variables.</p>
-<p>Using this notation, we construct all the necessary inputs to the regressors. The main input is the expected income growth of every agent at every time period, which is given by
-\begin{equation}
+<p>Using this notation, we construct all the necessary inputs to the regressors. The main input is the expected income growth of every agent at every time period, which is given by</p>
+<div class="amsmath math notranslate nohighlight" id="equation-dd814fe9-6347-4b5d-9b78-8986d3bf9ae7">
+<span class="eqno">(20)<a class="headerlink" href="#equation-dd814fe9-6347-4b5d-9b78-8986d3bf9ae7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
-\Ex_t[\yLvl_{t+1}/\yLvl_{t}] &amp;= \mathbb{E}<em>t[\left(\frac{\theta</em>{t+1}\pLvl_{t} \PermGroFac_{t+1} \PermShk_{t+1}}{\theta_{t}P_{t}}\right)]\
-&amp;= \left(\frac{\PermGroFac_{t+1}}{\theta_{t}}\right)\
+\Ex_t[\yLvl_{t+1}/\yLvl_{t}] &amp;= \mathbb{E}_t[\left(\frac{\theta_{t+1}\pLvl_{t} \PermGroFac_{t+1} \PermShk_{t+1}}{\theta_{t}P_{t}}\right)]\\
+ &amp;= \left(\frac{\PermGroFac_{t+1}}{\theta_{t}}\right)\\
 \Ex_t[\yLog_{t+1} - \yLog_{t}] &amp; = \log \Gamma_{t+1}-\log \theta_t
 \end{split}
-\end{equation}</p>
+\end{equation}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span> <span class="o">=</span> <span class="p">[</span>
@@ -555,11 +516,12 @@ and, if the consumer is employed, actual income <span class="math notranslate no
 </div>
 </div>
 </div>
-<p>A corresponding version of this relationship can be estimated in simulated data:
-\begin{equation*}
-\Ex_t[\Delta y_{i,t+1}] = \gamma_{0} + \gamma_{1} \Delta y_{i,t} + f_i + \epsilon_{i,t}
-\end{equation*}
-We now estimate an analogous regression in our simulated population.</p>
+<p>A corresponding version of this relationship can be estimated in simulated data:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+        \Ex_t[\Delta y_{i,t+1}] = \gamma_{0} + \gamma_{1} \Delta y_{i,t} + f_i + \epsilon_{i,t}
+\end{equation*}\]</div>
+<p>We now estimate an analogous regression in our simulated population.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Data</span> <span class="o">=</span> <span class="n">Data</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">])</span>
@@ -585,8 +547,8 @@ We now estimate an analogous regression in our simulated population.</p>
 Dep. Variable:                 ExpBin   R-squared:                        0.1955
 Estimator:                   PanelOLS   R-squared (Between):             -0.0730
 No. Observations:              100000   R-squared (Within):               0.1955
-Date:                Wed, Mar 29 2023   R-squared (Overall):              0.1889
-Time:                        15:28:20   Log-likelihood                -1.288e+05
+Date:                Fri, Jan 20 2023   R-squared (Overall):              0.1889
+Time:                        15:52:35   Log-likelihood                -1.288e+05
 Cov. Estimator:            Unadjusted                                           
                                         F-statistic:                   2.371e+04
 Entities:                        2422   P-value                           0.0000
@@ -697,8 +659,8 @@ Included effects: Entity
 Dep. Variable:                 ExpBin   R-squared:                        0.0086
 Estimator:                   PanelOLS   R-squared (Between):             -0.0259
 No. Observations:              100000   R-squared (Within):               0.0086
-Date:                Wed, Mar 29 2023   R-squared (Overall):              0.0088
-Time:                        15:28:23   Log-likelihood                -1.394e+05
+Date:                Fri, Jan 20 2023   R-squared (Overall):              0.0088
+Time:                        15:52:39   Log-likelihood                -1.394e+05
 Cov. Estimator:            Unadjusted                                           
                                         F-statistic:                      848.82
 Entities:                        2422   P-value                           0.0000
@@ -757,7 +719,10 @@ Included effects: Entity
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="KeynesFriedmanModigliani.html"
@@ -777,7 +742,10 @@ Included effects: Entity
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -787,13 +755,13 @@ Included effects: Entity
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By The Econ-ARK Team
 </p>
 
   </div>
@@ -802,7 +770,7 @@ By The Jupyter Book Community
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -817,7 +785,7 @@ By The Jupyter Book Community
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -826,8 +794,8 @@ By The Jupyter Book Community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

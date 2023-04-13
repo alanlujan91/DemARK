@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Spending on Nondurables During the Great Recession &#8212; My sample book</title>
+    <title>Spending on Nondurables During the Great Recession &#8212; DemARK</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -63,6 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/Nondurables-During-Great-Recession';</script>
+    <link rel="shortcut icon" href="../_static/econ-ark-logo-small.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Perfect Foresight CRRA Model - Approximation" href="PerfForesightCRRA-Approximation.html" />
@@ -137,8 +138,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/econ-ark-logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/econ-ark-logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
-    <p class="title logo__title">My sample book</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -236,53 +243,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/Nondurables-During-Great-Recession.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
 
 
 
@@ -422,7 +382,6 @@ document.write(`
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 
-<span class="kn">import</span> <span class="nn">HARK</span>  <span class="c1"># Prevents import error from Demos repo</span>
 <span class="kn">from</span> <span class="nn">HARK.utilities</span> <span class="kn">import</span> <span class="n">plot_funcs</span>
 </pre></div>
 </div>
@@ -572,95 +531,34 @@ Q4: (773.038+786.175+302.043+621.773+387.206)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                                                                                                  | 0/7 [00:00&lt;?, ?it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                                                                           | 0/7 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 14%|███████████████████▋                                                                                                                      | 1/7 [00:05&lt;00:32,  5.50s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 14%|████████████████▍                                                                                                  | 1/7 [00:05&lt;00:31,  5.31s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 29%|███████████████████████████████████████▍                                                                                                  | 2/7 [00:10&lt;00:27,  5.46s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 29%|████████████████████████████████▊                                                                                  | 2/7 [00:10&lt;00:27,  5.41s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 43%|███████████████████████████████████████████████████████████▏                                                                              | 3/7 [00:16&lt;00:22,  5.55s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 43%|█████████████████████████████████████████████████▎                                                                 | 3/7 [00:16&lt;00:21,  5.49s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 57%|██████████████████████████████████████████████████████████████████████████████▊                                                           | 4/7 [00:22&lt;00:16,  5.65s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 57%|█████████████████████████████████████████████████████████████████▋                                                 | 4/7 [00:22&lt;00:16,  5.62s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 57%|██████████████████████████████████████████████████████████████████████████████▊                                                           | 4/7 [00:30&lt;00:22,  7.50s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 71%|██████████████████████████████████████████████████████████████████████████████████▏                                | 5/7 [00:30&lt;00:12,  6.49s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 86%|██████████████████████████████████████████████████████████████████████████████████████████████████▌                | 6/7 [00:38&lt;00:07,  7.08s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:47&lt;00:00,  7.69s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:47&lt;00:00,  6.77s/it]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">ConsumerType</span><span class="o">.</span><span class="n">T_sim</span> <span class="o">=</span> <span class="mi">2000</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">ConsumerType</span><span class="o">.</span><span class="n">initialize_sim</span><span class="p">()</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">ConsumerType</span><span class="o">.</span><span class="n">simulate</span><span class="p">()</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\HARK\core.py:945,</span> in <span class="ni">AgentType.simulate</span><span class="nt">(self, sim_periods)</span>
-<span class="g g-Whitespace">    </span><span class="mi">942</span>     <span class="n">sim_periods</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">T_sim</span>
-<span class="g g-Whitespace">    </span><span class="mi">944</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">sim_periods</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">945</span>     <span class="bp">self</span><span class="o">.</span><span class="n">sim_one_period</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">947</span>     <span class="k">for</span> <span class="n">var_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_vars</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">948</span>         <span class="k">if</span> <span class="n">var_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">state_now</span><span class="p">:</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\HARK\core.py:577,</span> in <span class="ni">AgentType.sim_one_period</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">571</span>     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">572</span>         <span class="s2">&quot;Model instance does not have a solution stored. To simulate, it is necessary&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">573</span>         <span class="s2">&quot; to run the `solve()` method of the class first.&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">574</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">576</span> <span class="c1"># Mortality adjusts the agent population</span>
-<span class="ne">--&gt; </span><span class="mi">577</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_mortality</span><span class="p">()</span>  <span class="c1"># Replace some agents with &quot;newborns&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">579</span> <span class="c1"># state_{t-1}</span>
-<span class="g g-Whitespace">    </span><span class="mi">580</span> <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">state_now</span><span class="p">:</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\HARK\core.py:743,</span> in <span class="ni">AgentType.get_mortality</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">741</span>         <span class="bp">self</span><span class="o">.</span><span class="n">t_cycle</span><span class="p">[</span><span class="n">who_dies</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="g g-Whitespace">    </span><span class="mi">742</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">743</span>     <span class="n">who_dies</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim_death</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">744</span>     <span class="bp">self</span><span class="o">.</span><span class="n">sim_birth</span><span class="p">(</span><span class="n">who_dies</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">745</span> <span class="bp">self</span><span class="o">.</span><span class="n">who_dies</span> <span class="o">=</span> <span class="n">who_dies</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\HARK\ConsumptionSaving\ConsIndShockModel.py:1792,</span> in <span class="ni">PerfForesightConsumerType.sim_death</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1782</span> <span class="n">DiePrb</span> <span class="o">=</span> <span class="n">DiePrb_by_t_cycle</span><span class="p">[</span>
-<span class="g g-Whitespace">   </span><span class="mi">1783</span>     <span class="bp">self</span><span class="o">.</span><span class="n">t_cycle</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cycles</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">t_cycle</span>
-<span class="g g-Whitespace">   </span><span class="mi">1784</span> <span class="p">]</span>  <span class="c1"># Time has already advanced, so look back one</span>
-<span class="g g-Whitespace">   </span><span class="mi">1786</span> <span class="c1"># In finite-horizon problems the previous line gives newborns the</span>
-<span class="g g-Whitespace">   </span><span class="mi">1787</span> <span class="c1"># survival probability of the last non-terminal period. This is okay,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1788</span> <span class="c1"># however, since they will be instantly replaced by new newborns if</span>
-<span class="g g-Whitespace">   </span><span class="mi">1789</span> <span class="c1"># they die.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1790</span> <span class="c1"># See: https://github.com/econ-ark/HARK/pull/981</span>
-<span class="ne">-&gt; </span><span class="mi">1792</span> <span class="n">DeathShks</span> <span class="o">=</span> <span class="n">Uniform</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">RNG</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="mi">31</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1793</span>     <span class="n">N</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">AgentCount</span>
-<span class="g g-Whitespace">   </span><span class="mi">1794</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1795</span> <span class="n">which_agents</span> <span class="o">=</span> <span class="n">DeathShks</span> <span class="o">&lt;</span> <span class="n">DiePrb</span>
-<span class="g g-Whitespace">   </span><span class="mi">1796</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">T_age</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># Kill agents that have lived for too many periods</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\HARK\distribution.py:122,</span> in <span class="ni">Distribution.draw</span><span class="nt">(self, N)</span>
-<span class="g g-Whitespace">    </span><span class="mi">120</span> <span class="n">mean</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">mean</span>
-<span class="g g-Whitespace">    </span><span class="mi">121</span> <span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">mean</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> <span class="k">if</span> <span class="n">mean</span><span class="o">.</span><span class="n">size</span> <span class="o">!=</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">N</span>
-<span class="ne">--&gt; </span><span class="mi">122</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_rng</span><span class="p">)</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\scipy\stats\_distn_infrastructure.py:468,</span> in <span class="ni">rv_frozen.rvs</span><span class="nt">(self, size, random_state)</span>
-<span class="g g-Whitespace">    </span><span class="mi">466</span> <span class="n">kwds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwds</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">467</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="n">size</span><span class="p">,</span> <span class="s1">&#39;random_state&#39;</span><span class="p">:</span> <span class="n">random_state</span><span class="p">})</span>
-<span class="ne">--&gt; </span><span class="mi">468</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\scipy\stats\_distn_infrastructure.py:1048,</span> in <span class="ni">rv_generic.rvs</span><span class="nt">(self, *args, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1045</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1046</span>     <span class="n">random_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_random_state</span>
-<span class="ne">-&gt; </span><span class="mi">1048</span> <span class="n">vals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rvs</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1050</span> <span class="n">vals</span> <span class="o">=</span> <span class="n">vals</span> <span class="o">*</span> <span class="n">scale</span> <span class="o">+</span> <span class="n">loc</span>
-<span class="g g-Whitespace">   </span><span class="mi">1052</span> <span class="c1"># do not forget to restore the _random_state</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\scipy\stats\_continuous_distns.py:9011,</span> in <span class="ni">uniform_gen._rvs</span><span class="nt">(self, size, random_state)</span>
-<span class="g g-Whitespace">   </span><span class="mi">9010</span> <span class="k">def</span> <span class="nf">_rvs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">9011</span>     <span class="k">return</span> <span class="n">random_state</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -887,7 +785,10 @@ To keep the code block below (mostly) clean, we’ll describe the procedure belo
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="Micro-and-Macro-Implications-of-Very-Impatient-HHs.html"
@@ -907,7 +808,10 @@ To keep the code block below (mostly) clean, we’ll describe the procedure belo
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -935,13 +839,13 @@ To keep the code block below (mostly) clean, we’ll describe the procedure belo
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By The Econ-ARK Team
 </p>
 
   </div>
@@ -950,7 +854,7 @@ By The Jupyter Book Community
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -965,7 +869,7 @@ By The Jupyter Book Community
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -974,8 +878,8 @@ By The Jupyter Book Community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

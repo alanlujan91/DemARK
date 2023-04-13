@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>A Gentle Introduction to HARK: The Perfect Foresight Model &#8212; My sample book</title>
+    <title>A Gentle Introduction to HARK: The Perfect Foresight Model &#8212; DemARK</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -63,6 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/Gentle-Intro-To-HARK-PerfForesightCRRA';</script>
+    <link rel="shortcut icon" href="../_static/econ-ark-logo-small.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="A Demonstration of the Harmenberg (2021) Aggregation Method" href="Harmenberg-Aggregation.html" />
@@ -137,8 +138,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/econ-ark-logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/econ-ark-logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
-    <p class="title logo__title">My sample book</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -236,53 +243,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/Gentle-Intro-To-HARK-PerfForesightCRRA.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
 
 
 
@@ -420,10 +380,7 @@ document.write(`
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">from</span> <span class="nn">HARK.ConsumptionSaving.ConsIndShockModel</span> <span class="kn">import</span> <span class="n">PerfForesightConsumerType</span>
 <span class="kn">from</span> <span class="nn">HARK.utilities</span> <span class="kn">import</span> <span class="n">plot_funcs</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">HARK</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 
 
@@ -437,12 +394,14 @@ document.write(`
 <h2>Your First HARK Model: Perfect Foresight<a class="headerlink" href="#your-first-hark-model-perfect-foresight" title="Permalink to this headline">#</a></h2>
 <p>We are studying a consumer with constant relative risk aversion utility <span class="math notranslate nohighlight">\(U(C) = \frac{C^{1-\rho}}{1-\rho}\)</span> who has perfect foresight about everything except the (stochastic) date of death; death occurs with probability <span class="math notranslate nohighlight">\(\mathsf{D}\)</span>, implying  a “survival probability” <span class="math notranslate nohighlight">\((1-\mathsf{D}) &lt; 1\)</span>.  Permanent labor income <span class="math notranslate nohighlight">\(P_t\)</span> grows from period to period by a factor <span class="math notranslate nohighlight">\(\Gamma_t\)</span>.  At the beginning of each period <span class="math notranslate nohighlight">\(t\)</span>, the consumer has some amount of market resources <span class="math notranslate nohighlight">\(M_t\)</span> (which includes both market wealth and currrent income - think of it as bank balances after you have received your paycheck).  The consumer must choose how much of those resources to consume <span class="math notranslate nohighlight">\(C_t\)</span> and how much to retain in a riskless asset <span class="math notranslate nohighlight">\(A_t\)</span> which will earn return factor <span class="math notranslate nohighlight">\(R\)</span>. The agent receives a flow of utility <span class="math notranslate nohighlight">\(U(C_t)\)</span> from consumption and geometrically discounts future utility flows by factor <span class="math notranslate nohighlight">\(\beta\)</span>. Between periods, the agent dies with probability <span class="math notranslate nohighlight">\(\mathsf{D}_t\)</span>, ending his problem.  (This means that the possibility of death is merely another reason to discount the future more – you might not be there to enjoy it!)</p>
 <p>The agent’s problem can be written in Bellman form as:</p>
-<p>\begin{eqnarray*}
-V_t(M_t,P_t) &amp;=&amp; \max_{C_t} U(C_t) + \beta (1-\mathsf{D}<em>{t+1}) V</em>{t+1}(M_{t+1},P_{t+1}), \
-&amp; s.t. &amp; \</p>
-<p>M_{t+1} &amp;=&amp; R (M_{t}-C_{t}) + Y_{t+1}, \
-P_{t+1} &amp;=&amp; \Gamma_{t+1} P_t, \
-\end{eqnarray*}</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+V_t(M_t,P_t) &amp;=&amp; \max_{C_t} U(C_t) + \beta (1-\mathsf{D}_{t+1}) V_{t+1}(M_{t+1},P_{t+1}), \\
+&amp; s.t. &amp; \\
+%A_t &amp;=&amp; M_t - C_t, \\
+M_{t+1} &amp;=&amp; R (M_{t}-C_{t}) + Y_{t+1}, \\
+P_{t+1} &amp;=&amp; \Gamma_{t+1} P_t, \\
+\end{eqnarray*}\]</div>
 <p>A particular perfect foresight agent’s problem can be characterized by values of risk aversion <span class="math notranslate nohighlight">\(\rho\)</span>, discount factor <span class="math notranslate nohighlight">\(\beta\)</span>, and return factor <span class="math notranslate nohighlight">\(R\)</span>, along with sequences of income growth factors <span class="math notranslate nohighlight">\(\{ \Gamma_t \}\)</span> and death probabilities <span class="math notranslate nohighlight">\(\{\mathsf{D}_t\}\)</span>.  To keep things simple, let’s forget about “sequences” of income growth and mortality, and just think about an <em>infinite horizon</em> consumer with constant income growth and survival probability.</p>
 </section>
 <section id="representing-agents-in-hark">
@@ -538,7 +497,7 @@ P_{t+1} &amp;=&amp; \Gamma_{t+1} P_t, \
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;HARK.interpolation.LinearInterp at 0x268e2cca830&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;HARK.interpolation.LinearInterp at 0x7f3638021100&gt;
 </pre></div>
 </div>
 </div>
@@ -553,7 +512,7 @@ P_{t+1} &amp;=&amp; \Gamma_{t+1} P_t, \
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/677d2396bbea202a96417164801adc54490fa437f8a3688500854d50e2388ab8.png" src="../_images/677d2396bbea202a96417164801adc54490fa437f8a3688500854d50e2388ab8.png" />
+<img alt="../_images/7e33edcd54466a3617810d766680787c7d5dcd9413885f93d0f717c5ffca5c7e.png" src="../_images/7e33edcd54466a3617810d766680787c7d5dcd9413885f93d0f717c5ffca5c7e.png" />
 </div>
 </div>
 <p>The figure illustrates one of the surprising features of the perfect foresight model: A person with zero money should be spending at a rate more than double their income (<span class="math notranslate nohighlight">\(\texttt{cFunc}(0.) \approx 2.08\)</span>). What gives?</p>
@@ -590,7 +549,7 @@ This agent&#39;s consumption function is defined down to m_t = -50.4999499255166
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/677d2396bbea202a96417164801adc54490fa437f8a3688500854d50e2388ab8.png" src="../_images/677d2396bbea202a96417164801adc54490fa437f8a3688500854d50e2388ab8.png" />
+<img alt="../_images/4d4387bcaebff4b1929e1ba1616a6abd861a1773106fb2f9d8619b10cd4b0da8.png" src="../_images/4d4387bcaebff4b1929e1ba1616a6abd861a1773106fb2f9d8619b10cd4b0da8.png" />
 </div>
 </div>
 </section>
@@ -611,13 +570,13 @@ This agent&#39;s consumption function is defined down to m_t = -50.4999499255166
 <span class="n">NewExample</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
 <span class="n">mPlotBottom</span> <span class="o">=</span> <span class="n">NewExample</span><span class="o">.</span><span class="n">solution</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mNrmMin</span>
 <span class="n">plot_funcs</span><span class="p">(</span>
-    <span class="p">[</span><span class="n">NewExample</span><span class="o">.</span><span class="n">solution</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cFunc</span><span class="p">,</span><span class="n">PFexample</span><span class="o">.</span><span class="n">solution</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cFunc</span><span class="p">],</span> <span class="n">mPlotBottom</span><span class="p">,</span> <span class="n">mPlotTop</span>
+    <span class="p">[</span><span class="n">NewExample</span><span class="o">.</span><span class="n">solution</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cFunc</span><span class="p">,</span> <span class="n">PFexample</span><span class="o">.</span><span class="n">solution</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cFunc</span><span class="p">],</span> <span class="n">mPlotBottom</span><span class="p">,</span> <span class="n">mPlotTop</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/788a015ac109ae73fec2498a8e27bed3ed29e173da2c4168f864cf44bb1e5363.png" src="../_images/788a015ac109ae73fec2498a8e27bed3ed29e173da2c4168f864cf44bb1e5363.png" />
+<img alt="../_images/dcdeea6f41a70b0c5bb129528115b0bb658b034d49ca76cb12b0422e57fa2195.png" src="../_images/dcdeea6f41a70b0c5bb129528115b0bb658b034d49ca76cb12b0422e57fa2195.png" />
 </div>
 </div>
 <p>(Note that you can pass a list of functions to <span class="math notranslate nohighlight">\(\texttt{plot_funcs}\)</span> as the first argument rather than just a single function. Lists are written inside of [square brackets].)</p>
@@ -635,7 +594,7 @@ This agent&#39;s consumption function is defined down to m_t = -50.4999499255166
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ff093db40d6f9a253f014e8edba0ffacfc82ec9014aae39a5dc0fdf53fe3e3fa.png" src="../_images/ff093db40d6f9a253f014e8edba0ffacfc82ec9014aae39a5dc0fdf53fe3e3fa.png" />
+<img alt="../_images/ee63a37075e4746c1267767ad3a3082d3d67d426694e3f0d60244e1259af8b8d.png" src="../_images/ee63a37075e4746c1267767ad3a3082d3d67d426694e3f0d60244e1259af8b8d.png" />
 </div>
 </div>
 <p>Now <span class="math notranslate nohighlight">\(\texttt{NewExample}\)</span>’s consumption function has the same slope (MPC) as <span class="math notranslate nohighlight">\(\texttt{PFexample}\)</span>, but it emanates from (almost) zero– he has basically no future income to borrow against!</p>
@@ -669,7 +628,10 @@ This agent&#39;s consumption function is defined down to m_t = -50.4999499255166
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="Gentle-Intro-To-HARK-Buffer-Stock-Model.html"
@@ -689,7 +651,10 @@ This agent&#39;s consumption function is defined down to m_t = -50.4999499255166
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -716,13 +681,13 @@ This agent&#39;s consumption function is defined down to m_t = -50.4999499255166
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By The Econ-ARK Team
 </p>
 
   </div>
@@ -731,7 +696,7 @@ By The Jupyter Book Community
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -746,7 +711,7 @@ By The Jupyter Book Community
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -755,8 +720,8 @@ By The Jupyter Book Community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

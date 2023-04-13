@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>The Persistent Shock Model and Income Expectations &#8212; My sample book</title>
+    <title>The Persistent Shock Model and Income Expectations &#8212; DemARK</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -63,6 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/IncExpectationExample';</script>
+    <link rel="shortcut icon" href="../_static/econ-ark-logo-small.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Introduction: Keynes, Friedman, Modigliani" href="KeynesFriedmanModigliani.html" />
@@ -137,8 +138,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/econ-ark-logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/econ-ark-logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
-    <p class="title logo__title">My sample book</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -236,53 +243,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/IncExpectationExample.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
 
 
 
@@ -416,8 +376,6 @@ document.write(`
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">copy</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -599,7 +557,7 @@ document.write(`
         <span class="n">type_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ThisType</span><span class="p">)</span>
 
     <span class="c1"># Get the most recent simulated values of X = cLvl, MPCnow, aLvl, pLvl for all types</span>
-    <span class="n">cLvl_all</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">ThisType</span><span class="o">.</span><span class="n">controls</span><span class="p">[</span><span class="s2">&quot;cLvl&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">ThisType</span> <span class="ow">in</span> <span class="n">type_list</span><span class="p">])</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">ThisType</span><span class="o">.</span><span class="n">controls</span><span class="p">[</span><span class="s2">&quot;cLvl&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">ThisType</span> <span class="ow">in</span> <span class="n">type_list</span><span class="p">])</span>
     <span class="n">aLvl_all</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">ThisType</span><span class="o">.</span><span class="n">state_now</span><span class="p">[</span><span class="s2">&quot;aLvl&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">ThisType</span> <span class="ow">in</span> <span class="n">type_list</span><span class="p">])</span>
     <span class="n">MPC_all</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">ThisType</span><span class="o">.</span><span class="n">MPCnow</span> <span class="k">for</span> <span class="n">ThisType</span> <span class="ow">in</span> <span class="n">type_list</span><span class="p">])</span>
     <span class="n">pLvl_all</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">ThisType</span><span class="o">.</span><span class="n">state_now</span><span class="p">[</span><span class="s2">&quot;pLvl&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">ThisType</span> <span class="ow">in</span> <span class="n">type_list</span><span class="p">])</span>
@@ -659,158 +617,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Call the function with test values for (CorrAct, CorrPcvd, DiscFac_center, DiscFac_spread)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">AggWealthRatio</span><span class="p">,</span> <span class="n">Lorenz</span><span class="p">,</span> <span class="n">Gini</span><span class="p">,</span> <span class="n">Avg_MPC</span> <span class="o">=</span> <span class="n">runRoszypalSchlaffmanExperiment</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="mf">0.97</span><span class="p">,</span> <span class="mf">0.9831</span><span class="p">,</span> <span class="mf">0.9867</span><span class="p">,</span> <span class="mf">0.0067</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Plot the Lorenz curve</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Lorenz curve for assests is&quot;</span><span class="p">)</span>
-
-<span class="nn">Cell In[4], line 59,</span> in <span class="ni">runRoszypalSchlaffmanExperiment</span><span class="nt">(CorrAct, CorrPcvd, DiscFac_center, DiscFac_spread)</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span> <span class="n">ThisType</span><span class="o">.</span><span class="n">update_pLvlNextFunc</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span> <span class="c1"># Solve the consumer&#39;s problem with *perceived* persistence</span>
-<span class="ne">---&gt; </span><span class="mi">59</span> <span class="n">ThisType</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">61</span> <span class="c1"># Make the consumer type experience the true level of persistence during simulation</span>
-<span class="g g-Whitespace">     </span><span class="mi">62</span> <span class="n">ThisType</span><span class="o">.</span><span class="n">PrstIncCorr</span> <span class="o">=</span> <span class="n">CorrAct</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\HARK\core.py:410,</span> in <span class="ni">AgentType.solve</span><span class="nt">(self, verbose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">406</span> <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">407</span>     <span class="n">divide</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">over</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">under</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">408</span> <span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">409</span>     <span class="bp">self</span><span class="o">.</span><span class="n">pre_solve</span><span class="p">()</span>  <span class="c1"># Do pre-solution stuff</span>
-<span class="ne">--&gt; </span><span class="mi">410</span>     <span class="bp">self</span><span class="o">.</span><span class="n">solution</span> <span class="o">=</span> <span class="n">solve_agent</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">411</span>         <span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span>
-<span class="g g-Whitespace">    </span><span class="mi">412</span>     <span class="p">)</span>  <span class="c1"># Solve the model by backward induction</span>
-<span class="g g-Whitespace">    </span><span class="mi">413</span>     <span class="bp">self</span><span class="o">.</span><span class="n">post_solve</span><span class="p">()</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\HARK\core.py:1018,</span> in <span class="ni">solve_agent</span><span class="nt">(agent, verbose)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1015</span>     <span class="n">t_last</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1016</span> <span class="k">while</span> <span class="n">go</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1017</span>     <span class="c1"># Solve a cycle of the model, recording it if horizon is finite</span>
-<span class="ne">-&gt; </span><span class="mi">1018</span>     <span class="n">solution_cycle</span> <span class="o">=</span> <span class="n">solve_one_cycle</span><span class="p">(</span><span class="n">agent</span><span class="p">,</span> <span class="n">solution_last</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1019</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">infinite_horizon</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1020</span>         <span class="n">solution</span> <span class="o">=</span> <span class="n">solution_cycle</span> <span class="o">+</span> <span class="n">solution</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\HARK\core.py:1142,</span> in <span class="ni">solve_one_cycle</span><span class="nt">(agent, solution_last)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1139</span> <span class="n">temp_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">solve_dict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">these_args</span><span class="p">}</span>
-<span class="g g-Whitespace">   </span><span class="mi">1141</span> <span class="c1"># Solve one period, add it to the solution, and move to the next period</span>
-<span class="ne">-&gt; </span><span class="mi">1142</span> <span class="n">solution_t</span> <span class="o">=</span> <span class="n">solve_one_period</span><span class="p">(</span><span class="o">**</span><span class="n">temp_dict</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1143</span> <span class="n">solution_cycle</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">solution_t</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1144</span> <span class="n">solution_next</span> <span class="o">=</span> <span class="n">solution_t</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\HARK\core.py:1170,</span> in <span class="ni">make_one_period_oo_solver.&lt;locals&gt;.one_period_solver</span><span class="nt">(**kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1167</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">solver</span><span class="p">,</span> <span class="s2">&quot;prepare_to_solve&quot;</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1168</span>     <span class="n">solver</span><span class="o">.</span><span class="n">prepare_to_solve</span><span class="p">()</span>
-<span class="ne">-&gt; </span><span class="mi">1170</span> <span class="n">solution_now</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1171</span> <span class="k">return</span> <span class="n">solution_now</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\HARK\ConsumptionSaving\ConsGenIncProcessModel.py:829,</span> in <span class="ni">ConsGenIncProcessSolver.solve</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">827</span> <span class="n">EndOfPrdvP</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calc_EndOfPrdvP</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">828</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">vFuncBool</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">829</span>     <span class="bp">self</span><span class="o">.</span><span class="n">make_EndOfPrdvFunc</span><span class="p">(</span><span class="n">EndOfPrdvP</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">830</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">CubicBool</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">831</span>     <span class="n">interpolator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_cubic_cFunc</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\HARK\ConsumptionSaving\ConsGenIncProcessModel.py:382,</span> in <span class="ni">ConsGenIncProcessSolver.make_EndOfPrdvFunc</span><span class="nt">(self, EndOfPrdvP)</span>
-<span class="g g-Whitespace">    </span><span class="mi">379</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">vFuncNext</span><span class="p">(</span><span class="n">mLvlNext</span><span class="p">,</span> <span class="n">pLvlNext</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">381</span> <span class="c1"># value in many possible future states</span>
-<span class="ne">--&gt; </span><span class="mi">382</span> <span class="n">vLvlNext</span> <span class="o">=</span> <span class="n">calc_expectation</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">383</span>     <span class="bp">self</span><span class="o">.</span><span class="n">IncShkDstn</span><span class="p">,</span> <span class="n">v_lvl_next</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">aLvlNow</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pLvlNow</span>
-<span class="g g-Whitespace">    </span><span class="mi">384</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">386</span> <span class="c1"># expected value, averaging across states</span>
-<span class="g g-Whitespace">    </span><span class="mi">387</span> <span class="n">EndOfPrdv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">DiscFacEff</span> <span class="o">*</span> <span class="n">vLvlNext</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\HARK\distribution.py:1870,</span> in <span class="ni">calc_expectation</span><span class="nt">(dstn, func, *args)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1844</span> <span class="k">def</span> <span class="nf">calc_expectation</span><span class="p">(</span><span class="n">dstn</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1845</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1846</span><span class="sd">     Expectation of a function, given an array of configurations of its inputs</span>
-<span class="g g-Whitespace">   </span><span class="mi">1847</span><span class="sd">     along with a DiscreteDistribution object that specifies the probability</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1867</span><span class="sd">         Scalar if only one value.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1868</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1870</span>     <span class="n">f_query</span> <span class="o">=</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="n">dstn</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">i</span><span class="p">],</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dstn</span><span class="o">.</span><span class="n">pmv</span><span class="p">))]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1872</span>     <span class="n">f_query</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">f_query</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1874</span>     <span class="c1"># From the numpy.dot documentation:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1875</span>     <span class="c1"># If both a and b are 1-D arrays, it is inner product of vectors (without complex conjugation).</span>
-<span class="g g-Whitespace">   </span><span class="mi">1876</span>     <span class="c1"># If a is an N-D array and b is a 1-D array, it is a sum product over the last axis of a and b.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1877</span>     <span class="c1"># Thus, if func returns scalars, f_exp will be a scalar and if it returns arrays f_exp</span>
-<span class="g g-Whitespace">   </span><span class="mi">1878</span>     <span class="c1"># will be an array of the same shape.</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\HARK\distribution.py:1870,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1844</span> <span class="k">def</span> <span class="nf">calc_expectation</span><span class="p">(</span><span class="n">dstn</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1845</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1846</span><span class="sd">     Expectation of a function, given an array of configurations of its inputs</span>
-<span class="g g-Whitespace">   </span><span class="mi">1847</span><span class="sd">     along with a DiscreteDistribution object that specifies the probability</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1867</span><span class="sd">         Scalar if only one value.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1868</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1870</span>     <span class="n">f_query</span> <span class="o">=</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="n">dstn</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">i</span><span class="p">],</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dstn</span><span class="o">.</span><span class="n">pmv</span><span class="p">))]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1872</span>     <span class="n">f_query</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">f_query</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1874</span>     <span class="c1"># From the numpy.dot documentation:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1875</span>     <span class="c1"># If both a and b are 1-D arrays, it is inner product of vectors (without complex conjugation).</span>
-<span class="g g-Whitespace">   </span><span class="mi">1876</span>     <span class="c1"># If a is an N-D array and b is a 1-D array, it is a sum product over the last axis of a and b.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1877</span>     <span class="c1"># Thus, if func returns scalars, f_exp will be a scalar and if it returns arrays f_exp</span>
-<span class="g g-Whitespace">   </span><span class="mi">1878</span>     <span class="c1"># will be an array of the same shape.</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\HARK\ConsumptionSaving\ConsGenIncProcessModel.py:379,</span> in <span class="ni">ConsGenIncProcessSolver.make_EndOfPrdvFunc.&lt;locals&gt;.v_lvl_next</span><span class="nt">(shocks, a_lvl, p_lvl)</span>
-<span class="g g-Whitespace">    </span><span class="mi">377</span> <span class="n">pLvlNext</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_lvl_next</span><span class="p">(</span><span class="n">shocks</span><span class="p">,</span> <span class="n">p_lvl</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">378</span> <span class="n">mLvlNext</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_lvl_next</span><span class="p">(</span><span class="n">shocks</span><span class="p">,</span> <span class="n">a_lvl</span><span class="p">,</span> <span class="n">pLvlNext</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">379</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">vFuncNext</span><span class="p">(</span><span class="n">mLvlNext</span><span class="p">,</span> <span class="n">pLvlNext</span><span class="p">)</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\HARK\interpolation.py:4570,</span> in <span class="ni">ValueFuncCRRA.__call__</span><span class="nt">(self, *vFuncArgs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4554</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">4555</span><span class="sd"> Evaluate the value function at given levels of market resources m.</span>
-<span class="g g-Whitespace">   </span><span class="mi">4556</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4567</span><span class="sd">     same size as the state inputs.</span>
-<span class="g g-Whitespace">   </span><span class="mi">4568</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">4569</span> <span class="c1">#        return CRRAutility(self.func(*vFuncArgs), gam=self.CRRA)</span>
-<span class="ne">-&gt; </span><span class="mi">4570</span> <span class="k">return</span> <span class="n">CRRAutility</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vFuncNvrs</span><span class="p">(</span><span class="o">*</span><span class="n">vFuncArgs</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">CRRA</span><span class="p">)</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\HARK\interpolation.py:2500,</span> in <span class="ni">VariableLowerBoundFunc2D.__call__</span><span class="nt">(self, x, y)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2484</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">2485</span><span class="sd"> Evaluate the function at given state space points.</span>
-<span class="g g-Whitespace">   </span><span class="mi">2486</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2497</span><span class="sd">     Function evaluated at (x,y), of same shape as inputs.</span>
-<span class="g g-Whitespace">   </span><span class="mi">2498</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">2499</span> <span class="n">xShift</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lowerBound</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2500</span> <span class="n">f_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">xShift</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2501</span> <span class="k">return</span> <span class="n">f_out</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\HARK\interpolation.py:173,</span> in <span class="ni">HARKinterpolator2D.__call__</span><span class="nt">(self, x, y)</span>
-<span class="g g-Whitespace">    </span><span class="mi">171</span> <span class="n">xa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">172</span> <span class="n">ya</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">173</span> <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_evaluate</span><span class="p">(</span><span class="n">xa</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">ya</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">xa</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\HARK\interpolation.py:2715,</span> in <span class="ni">LinearInterpOnInterp1D._evaluate</span><span class="nt">(self, x, y)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2711</span>             <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">2712</span>                 <span class="n">alpha</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_list</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2713</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">y_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_list</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">2714</span>                 <span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2715</span>                 <span class="n">f</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">xInterpolators</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">](</span>
-<span class="g g-Whitespace">   </span><span class="mi">2716</span>                     <span class="n">x</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">2717</span>                 <span class="p">)</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">xInterpolators</span><span class="p">[</span><span class="n">i</span><span class="p">](</span><span class="n">x</span><span class="p">[</span><span class="n">c</span><span class="p">])</span>
-<span class="g g-Whitespace">   </span><span class="mi">2718</span> <span class="k">return</span> <span class="n">f</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\HARK\interpolation.py:69,</span> in <span class="ni">HARKinterpolator1D.__call__</span><span class="nt">(self, x)</span>
-<span class="g g-Whitespace">     </span><span class="mi">63</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">64</span><span class="sd"> A wrapper class for 1D interpolation methods in HARK.</span>
-<span class="g g-Whitespace">     </span><span class="mi">65</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">67</span> <span class="n">distance_criteria</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="ne">---&gt; </span><span class="mi">69</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">70</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">71</span><span class="sd">     Evaluates the interpolated function at the given input.</span>
-<span class="g g-Whitespace">     </span><span class="mi">72</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">     </span><span class="mi">82</span><span class="sd">         shape as x.</span>
-<span class="g g-Whitespace">     </span><span class="mi">83</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">84</span>     <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Lorenz curve for assests is
+</pre></div>
+</div>
+<img alt="../_images/222fd9276d2df44072a7d4893bb9632b5f0a0ce4376351d52f7015a32c793e79.png" src="../_images/222fd9276d2df44072a7d4893bb9632b5f0a0ce4376351d52f7015a32c793e79.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The aggregate wealth to income ratio is 1.9763887031145313
+The Gini Coefficient for assests is 1.0
+The average MPC by income quintile is [0.10692187291548537, 0.09327176601929006, 0.08810286571670037, 0.07414283841778667, 0.0460267083981944]
 </pre></div>
 </div>
 </div>
@@ -844,7 +657,10 @@ document.write(`
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="Harmenberg-Aggregation.html"
@@ -864,7 +680,10 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -888,13 +707,13 @@ document.write(`
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By The Econ-ARK Team
 </p>
 
   </div>
@@ -903,7 +722,7 @@ By The Jupyter Book Community
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -918,7 +737,7 @@ By The Jupyter Book Community
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -927,8 +746,8 @@ By The Jupyter Book Community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

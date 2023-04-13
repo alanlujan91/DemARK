@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Making Structural Estimates From Empirical Results &#8212; My sample book</title>
+    <title>Making Structural Estimates From Empirical Results &#8212; DemARK</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -63,6 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/Structural-Estimates-From-Empirical-MPCs-Fagereng-et-al';</script>
+    <link rel="shortcut icon" href="../_static/econ-ark-logo-small.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="The Tractable Buffer Stock Model" href="TractableBufferStock-Interactive.html" />
@@ -137,8 +138,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/econ-ark-logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/econ-ark-logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
-    <p class="title logo__title">My sample book</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -236,53 +243,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/Structural-Estimates-From-Empirical-MPCs-Fagereng-et-al.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
 
 
 
@@ -408,8 +368,6 @@ prize size; this table is reproduced here as <span class="math notranslate nohig
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import python tools</span>
 
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">os</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
@@ -836,128 +794,76 @@ prize size; this table is reproduced here as <span class="math notranslate nohig
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7911804321557053 0.15873635531030555 0.500941067297672
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">def</span> <span class="nf">f_temp</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="k">return</span> <span class="n">FagerengObjFunc</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">opt_params</span> <span class="o">=</span> <span class="n">minimize_nelder_mead</span><span class="p">(</span><span class="n">f_temp</span><span class="p">,</span> <span class="n">guess</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="nb">print</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="s2">&quot;Finished estimating for scaling factor of &quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">AdjFactor</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="o">+</span> <span class="s1">&#39; and &quot;splurge amount&quot; of $&#39;</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">1000</span> <span class="o">*</span> <span class="n">Splurge</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Optimal (beta,nabla) is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">opt_params</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;, simulated MPCs are:&quot;</span><span class="p">)</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\HARK\estimation.py:64,</span> in <span class="ni">minimize_nelder_mead</span><span class="nt">(objective_func, parameter_guess, verbose, which_vars, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">62</span> <span class="c1"># Execute the minimization, starting from the given parameter guess</span>
-<span class="g g-Whitespace">     </span><span class="mi">63</span> <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>  <span class="c1"># Time the process</span>
-<span class="ne">---&gt; </span><span class="mi">64</span> <span class="n">OUTPUT</span> <span class="o">=</span> <span class="n">fmin</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">65</span>     <span class="n">objective_func_mod</span><span class="p">,</span> <span class="n">parameter_guess_mod</span><span class="p">,</span> <span class="n">full_output</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
-<span class="g g-Whitespace">     </span><span class="mi">66</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">67</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">69</span> <span class="c1"># Extract values from optimization output:</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\scipy\optimize\_optimize.py:695,</span> in <span class="ni">fmin</span><span class="nt">(func, x0, args, xtol, ftol, maxiter, maxfun, full_output, disp, retall, callback, initial_simplex)</span>
-<span class="g g-Whitespace">    </span><span class="mi">586</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">587</span><span class="sd"> Minimize a function using the downhill simplex algorithm.</span>
-<span class="g g-Whitespace">    </span><span class="mi">588</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">685</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">686</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">687</span> <span class="n">opts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;xatol&#39;</span><span class="p">:</span> <span class="n">xtol</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">688</span>         <span class="s1">&#39;fatol&#39;</span><span class="p">:</span> <span class="n">ftol</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">689</span>         <span class="s1">&#39;maxiter&#39;</span><span class="p">:</span> <span class="n">maxiter</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">692</span>         <span class="s1">&#39;return_all&#39;</span><span class="p">:</span> <span class="n">retall</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">693</span>         <span class="s1">&#39;initial_simplex&#39;</span><span class="p">:</span> <span class="n">initial_simplex</span><span class="p">}</span>
-<span class="ne">--&gt; </span><span class="mi">695</span> <span class="n">res</span> <span class="o">=</span> <span class="n">_minimize_neldermead</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">callback</span><span class="p">,</span> <span class="o">**</span><span class="n">opts</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">696</span> <span class="k">if</span> <span class="n">full_output</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">697</span>     <span class="n">retlist</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;fun&#39;</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;nit&#39;</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;nfev&#39;</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\scipy\optimize\_optimize.py:877,</span> in <span class="ni">_minimize_neldermead</span><span class="nt">(func, x0, args, callback, maxiter, maxfev, disp, return_all, initial_simplex, xatol, fatol, adaptive, bounds, **unknown_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">875</span> <span class="k">if</span> <span class="n">bounds</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">876</span>     <span class="n">xe</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">xe</span><span class="p">,</span> <span class="n">lower_bound</span><span class="p">,</span> <span class="n">upper_bound</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">877</span> <span class="n">fxe</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">xe</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">879</span> <span class="k">if</span> <span class="n">fxe</span> <span class="o">&lt;</span> <span class="n">fxr</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">880</span>     <span class="n">sim</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">xe</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\scipy\optimize\_optimize.py:569,</span> in <span class="ni">_wrap_scalar_function_maxfun_validation.&lt;locals&gt;.function_wrapper</span><span class="nt">(x, *wrapper_args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">567</span> <span class="n">ncalls</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="g g-Whitespace">    </span><span class="mi">568</span> <span class="c1"># A copy of x is sent to the user function (gh13740)</span>
-<span class="ne">--&gt; </span><span class="mi">569</span> <span class="n">fx</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="o">*</span><span class="p">(</span><span class="n">wrapper_args</span> <span class="o">+</span> <span class="n">args</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">570</span> <span class="c1"># Ideally, we&#39;d like to a have a true scalar returned from f(x). For</span>
-<span class="g g-Whitespace">    </span><span class="mi">571</span> <span class="c1"># backwards-compatibility, also allow np.array([1.3]),</span>
-<span class="g g-Whitespace">    </span><span class="mi">572</span> <span class="c1"># np.array([[1.3]]) etc.</span>
-<span class="g g-Whitespace">    </span><span class="mi">573</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">fx</span><span class="p">):</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\HARK\estimation.py:56,</span> in <span class="ni">minimize_nelder_mead.&lt;locals&gt;.objective_func_mod</span><span class="nt">(params)</span>
-<span class="g g-Whitespace">     </span><span class="mi">54</span> <span class="n">params_full</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">parameter_guess</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="n">params_full</span><span class="p">[</span><span class="n">which_vars</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span>
-<span class="ne">---&gt; </span><span class="mi">56</span> <span class="n">out</span> <span class="o">=</span> <span class="n">objective_func</span><span class="p">(</span><span class="n">params_full</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span> <span class="k">return</span> <span class="n">out</span>
-
-<span class="nn">Cell In[9], line 7,</span> in <span class="ni">f_temp</span><span class="nt">(x)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">def</span> <span class="nf">f_temp</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">7</span>     <span class="k">return</span> <span class="n">FagerengObjFunc</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-
-<span class="nn">Cell In[8], line 35,</span> in <span class="ni">FagerengObjFunc</span><span class="nt">(center, spread, verbose)</span>
-<span class="g g-Whitespace">     </span><span class="mi">32</span>     <span class="n">EstTypeList</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">DiscFac</span> <span class="o">=</span> <span class="n">beta_set</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span> <span class="c1"># Solve and simulate all consumer types, then gather their wealth levels</span>
-<span class="ne">---&gt; </span><span class="mi">35</span> <span class="n">multi_thread_commands</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">36</span>     <span class="n">EstTypeList</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;solve()&quot;</span><span class="p">,</span> <span class="s2">&quot;initialize_sim()&quot;</span><span class="p">,</span> <span class="s2">&quot;simulate()&quot;</span><span class="p">,</span> <span class="s2">&quot;unpack_cFunc()&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="n">WealthNow</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">ThisType</span><span class="o">.</span><span class="n">state_now</span><span class="p">[</span><span class="s2">&quot;aLvl&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">ThisType</span> <span class="ow">in</span> <span class="n">EstTypeList</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="c1"># Get wealth quartile cutoffs and distribute them to each consumer type</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\HARK\parallel.py:61,</span> in <span class="ni">multi_thread_commands</span><span class="nt">(agent_list, command_list, num_jobs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span>     <span class="n">num_jobs</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">agent_list</span><span class="p">),</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">())</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span> <span class="c1"># Send each command in command_list to each of the types in agent_list to be run</span>
-<span class="ne">---&gt; </span><span class="mi">61</span> <span class="n">agent_list_out</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="n">num_jobs</span><span class="p">)(</span>
-<span class="g g-Whitespace">     </span><span class="mi">62</span>     <span class="n">delayed</span><span class="p">(</span><span class="n">run_commands</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="nn">     63     for args</span> in <span class="ni">zip(agent_list, len</span><span class="nt">(agent_list) * [command_list])</span>
-<span class="g g-Whitespace">     </span><span class="mi">64</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">66</span> <span class="c1"># Replace the original types with the output from the parallel call</span>
-<span class="g g-Whitespace">     </span><span class="mi">67</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">agent_list</span><span class="p">)):</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\joblib\parallel.py:1098,</span> in <span class="ni">Parallel.__call__</span><span class="nt">(self, iterable)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1095</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_iterating</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="g g-Whitespace">   </span><span class="mi">1097</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">retrieval_context</span><span class="p">():</span>
-<span class="ne">-&gt; </span><span class="mi">1098</span>     <span class="bp">self</span><span class="o">.</span><span class="n">retrieve</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1099</span> <span class="c1"># Make sure that we get a last message telling us we are done</span>
-<span class="g g-Whitespace">   </span><span class="mi">1100</span> <span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_time</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\joblib\parallel.py:975,</span> in <span class="ni">Parallel.retrieve</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">973</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">974</span>     <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="s1">&#39;supports_timeout&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">975</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">976</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">977</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\site-packages\joblib\_parallel_backends.py:567,</span> in <span class="ni">LokyBackend.wrap_future_result</span><span class="nt">(future, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">564</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Wrapper for Future.result to implement the same behaviour as</span>
-<span class="g g-Whitespace">    </span><span class="mi">565</span><span class="sd"> AsyncResults.get from multiprocessing.&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">566</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">567</span>     <span class="k">return</span> <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">568</span> <span class="k">except</span> <span class="n">CfTimeoutError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">569</span>     <span class="k">raise</span> <span class="ne">TimeoutError</span> <span class="kn">from</span> <span class="nn">e</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\concurrent\futures\_base.py:453,</span> in <span class="ni">Future.result</span><span class="nt">(self, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">450</span> <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">==</span> <span class="n">FINISHED</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">451</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_result</span><span class="p">()</span>
-<span class="ne">--&gt; </span><span class="mi">453</span> <span class="bp">self</span><span class="o">.</span><span class="n">_condition</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">455</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="ow">in</span> <span class="p">[</span><span class="n">CANCELLED</span><span class="p">,</span> <span class="n">CANCELLED_AND_NOTIFIED</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">456</span>     <span class="k">raise</span> <span class="n">CancelledError</span><span class="p">()</span>
-
-<span class="nn">File ~\miniconda3\envs\DemARK\lib\threading.py:320,</span> in <span class="ni">Condition.wait</span><span class="nt">(self, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">318</span> <span class="k">try</span><span class="p">:</span>    <span class="c1"># restore state no matter what (e.g., KeyboardInterrupt)</span>
-<span class="g g-Whitespace">    </span><span class="mi">319</span>     <span class="k">if</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">320</span>         <span class="n">waiter</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">321</span>         <span class="n">gotit</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="g g-Whitespace">    </span><span class="mi">322</span>     <span class="k">else</span><span class="p">:</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7920795563086636 0.15897579297143927 0.5010530968741752
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7904173631369834 0.16093131640925962 0.5011231702147279
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.790601472668327 0.158282406927086 0.5009608820931559
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7918821313306463 0.15742436403874271 0.5010716288897102
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7903953629527012 0.1590518896586723 0.5009804079463754
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7913865418713313 0.15796687257871925 0.5010066892811854
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7906431576823587 0.15878063538868403 0.5009717523935839
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7911387471416738 0.15823812684870753 0.5009681043577296
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7910148497768451 0.15837375398370165 0.5009669832514086
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7907670550471874 0.1586450082536899 0.5009566726168534
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7913460145345657 0.15909895663690948 0.5009794669723294
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7907876081348867 0.15848654435454188 0.5009538516244134
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7912009852434047 0.1585778914111575 0.5009527296683954
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7915938092642233 0.15882770236692115 0.5009772796966898
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7909891584172208 0.15857183385763668 0.5009391718629085
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7909686053295214 0.15873029775678474 0.5009633296184927
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7911428902649338 0.1586159929975643 0.500947448709877
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7910267003079923 0.15869219617037794 0.5009522371916169
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7911138427756984 0.1586350437907677 0.5009511323341338
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.791084795286463 0.15865409458397112 0.5009431227606921
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7910660243410773 0.15859391342760049 0.5009656806073183
+Finished estimating for scaling factor of 1.0 and &quot;splurge amount&quot; of $0.0
+Optimal (beta,nabla) is [0.79098916 0.15857183], simulated MPCs are:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.77304235 0.68123007 0.56397879 0.40685965]
+ [0.74299194 0.66281567 0.55224436 0.39833641]
+ [0.70298354 0.63332607 0.529786   0.38134206]
+ [0.56111798 0.50265972 0.41152609 0.294467  ]]
+Distance from Fagereng et al Table 9 is 0.5009391718629085
 </pre></div>
 </div>
 </div>
@@ -990,7 +896,10 @@ prize size; this table is reproduced here as <span class="math notranslate nohig
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="PerfForesightCRRA-SavingRate.html"
@@ -1010,7 +919,10 @@ prize size; this table is reproduced here as <span class="math notranslate nohig
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -1020,13 +932,13 @@ prize size; this table is reproduced here as <span class="math notranslate nohig
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By The Econ-ARK Team
 </p>
 
   </div>
@@ -1035,7 +947,7 @@ By The Jupyter Book Community
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1050,7 +962,7 @@ By The Jupyter Book Community
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1059,8 +971,8 @@ By The Jupyter Book Community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

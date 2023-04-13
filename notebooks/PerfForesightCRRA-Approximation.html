@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Perfect Foresight CRRA Model - Approximation &#8212; My sample book</title>
+    <title>Perfect Foresight CRRA Model - Approximation &#8212; DemARK</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -63,6 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/PerfForesightCRRA-Approximation';</script>
+    <link rel="shortcut icon" href="../_static/econ-ark-logo-small.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Perfect Foresight CRRA Model - Saving Rate" href="PerfForesightCRRA-SavingRate.html" />
@@ -137,8 +138,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/econ-ark-logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/econ-ark-logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
-    <p class="title logo__title">My sample book</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -236,53 +243,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/PerfForesightCRRA-Approximation.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
 
 
 
@@ -401,11 +361,9 @@ document.write(`
     <span class="n">PerfForesightConsumerType</span><span class="p">,</span>
     <span class="n">init_perfect_foresight</span><span class="p">,</span>
 <span class="p">)</span>  <span class="c1"># Import the consumer type</span>
-<span class="kn">from</span> <span class="nn">HARK.utilities</span> <span class="kn">import</span> <span class="n">plot_funcs</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">HARK</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 
 
@@ -420,7 +378,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\alujan\AppData\Local\Temp\ipykernel_75904\2954920071.py:20: MatplotlibDeprecationWarning: The seaborn styles shipped by Matplotlib are deprecated since 3.6, as they no longer correspond to the styles shipped by seaborn. However, they will remain available as &#39;seaborn-v0_8-&lt;style&gt;&#39;. Alternatively, directly use the seaborn API instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\alujan\AppData\Local\Temp\ipykernel_210708\2954920071.py:20: MatplotlibDeprecationWarning: The seaborn styles shipped by Matplotlib are deprecated since 3.6, as they no longer correspond to the styles shipped by seaborn. However, they will remain available as &#39;seaborn-v0_8-&lt;style&gt;&#39;. Alternatively, directly use the seaborn API instead.
   plt.style.use(&quot;seaborn-darkgrid&quot;)
 </pre></div>
 </div>
@@ -536,7 +494,7 @@ and approximated by \)</span><span class="math notranslate nohighlight">\(c_t \a
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7204afbffc555de0050e964538fdd3b2b9a20ce83b167187b54b1cbb0a9f83e0.png" src="../_images/7204afbffc555de0050e964538fdd3b2b9a20ce83b167187b54b1cbb0a9f83e0.png" />
+<img alt="../_images/6125382adb153fdb12b4f0b977e17b40056c13f7a6c9de4004e29a722bf8e20b.png" src="../_images/6125382adb153fdb12b4f0b977e17b40056c13f7a6c9de4004e29a722bf8e20b.png" />
 </div>
 </div>
 <p>The size of the error looks pretty stable, which we can show by calculating it in percentage terms</p>
@@ -554,7 +512,7 @@ and approximated by \)</span><span class="math notranslate nohighlight">\(c_t \a
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e6c8a069f9dc3d601da27155a767bcac71fde38ec5c9de6aa5e40da0fbd3b39b.png" src="../_images/e6c8a069f9dc3d601da27155a767bcac71fde38ec5c9de6aa5e40da0fbd3b39b.png" />
+<img alt="../_images/8d794b54428d8217ba4b6cc7b14fd9a53c666ab54fb9a202bdfa711560492b26.png" src="../_images/8d794b54428d8217ba4b6cc7b14fd9a53c666ab54fb9a202bdfa711560492b26.png" />
 </div>
 </div>
 <p>Now we want to calculate how the approximation quality depends on the interest factor.  We proceed as follows:</p>
@@ -625,7 +583,7 @@ and approximated by \)</span><span class="math notranslate nohighlight">\(c_t \a
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f01bb3e67574f3f2751e406a4bb9d760044a206ec76564a6dafe6d0ff4010acf.png" src="../_images/f01bb3e67574f3f2751e406a4bb9d760044a206ec76564a6dafe6d0ff4010acf.png" />
+<img alt="../_images/239762ba40798db7eb57d01c3687103dc1f7f3ebce6c255db576c4e701c0c773.png" src="../_images/239762ba40798db7eb57d01c3687103dc1f7f3ebce6c255db576c4e701c0c773.png" />
 </div>
 </div>
 <p>So, when the return factor gets to roughly 1.4, the error in the approximation is almost 80 percent.  It looks like the value for <span class="math notranslate nohighlight">\(R\)</span> where the approximation almost exactly matches the truth is about 1.035.</p>
@@ -657,7 +615,10 @@ and approximated by \)</span><span class="math notranslate nohighlight">\(c_t \a
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="Nondurables-During-Great-Recession.html"
@@ -677,7 +638,10 @@ and approximated by \)</span><span class="math notranslate nohighlight">\(c_t \a
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -687,13 +651,13 @@ and approximated by \)</span><span class="math notranslate nohighlight">\(c_t \a
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By The Econ-ARK Team
 </p>
 
   </div>
@@ -702,7 +666,7 @@ By The Jupyter Book Community
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -717,7 +681,7 @@ By The Jupyter Book Community
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -726,8 +690,8 @@ By The Jupyter Book Community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

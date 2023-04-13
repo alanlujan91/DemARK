@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Introduction: Keynes, Friedman, Modigliani &#8212; My sample book</title>
+    <title>Introduction: Keynes, Friedman, Modigliani &#8212; DemARK</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -63,6 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/KeynesFriedmanModigliani';</script>
+    <link rel="shortcut icon" href="../_static/econ-ark-logo-small.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Expectated vs Realized Income Growth in A Standard Life Cycle Model" href="LC-Model-Expected-Vs-Realized-Income-Growth.html" />
@@ -137,8 +138,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/econ-ark-logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/econ-ark-logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
-    <p class="title logo__title">My sample book</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -236,53 +243,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/KeynesFriedmanModigliani.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
 
 
 
@@ -420,16 +380,12 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Some initial setup</span>
-<span class="kn">from</span> <span class="nn">HARK.utilities</span> <span class="kn">import</span> <span class="n">plot_funcs_der</span><span class="p">,</span> <span class="n">plot_funcs</span>
 <span class="kn">from</span> <span class="nn">HARK.ConsumptionSaving.ConsIndShockModel</span> <span class="kn">import</span> <span class="n">PerfForesightConsumerType</span>
 <span class="kn">import</span> <span class="nn">pandas_datareader.data</span> <span class="k">as</span> <span class="nn">web</span>
-<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 <span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">sm</span>
 <span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
 <span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -442,7 +398,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\alujan\AppData\Local\Temp\ipykernel_80508\3136227408.py:15: MatplotlibDeprecationWarning: The seaborn styles shipped by Matplotlib are deprecated since 3.6, as they no longer correspond to the styles shipped by seaborn. However, they will remain available as &#39;seaborn-v0_8-&lt;style&gt;&#39;. Alternatively, directly use the seaborn API instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\alujan\AppData\Local\Temp\ipykernel_209560\3136227408.py:15: MatplotlibDeprecationWarning: The seaborn styles shipped by Matplotlib are deprecated since 3.6, as they no longer correspond to the styles shipped by seaborn. However, they will remain available as &#39;seaborn-v0_8-&lt;style&gt;&#39;. Alternatively, directly use the seaborn API instead.
   plt.style.use(&quot;seaborn-darkgrid&quot;)
 </pre></div>
 </div>
@@ -457,12 +413,13 @@ document.write(`
 <li><p>More generally, “as a rule, a greater proportion of income … is saved as real income increases.”</p></li>
 </ol>
 <p>This can be formalized as:</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{eqnarray}
+<p>$</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0ba478bf-40fb-4b26-9bd6-2ec301551e4a">
+<span class="eqno">(17)<a class="headerlink" href="#equation-0ba478bf-40fb-4b26-9bd6-2ec301551e4a" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 c_t &amp; = &amp;  a_0 + a_{1}y_t
 \\ c_t - c_{t-1} &amp; = &amp; a_{1}(y_t - y_{t-1})
-\end{eqnarray}
-\)</span></p>
+\end{eqnarray}\]</div>
+<p>$</p>
 <p>for <span class="math notranslate nohighlight">\(a_0 &gt; 0, a_1 &lt; 1\)</span></p>
 <section id="id1">
 <h3>The Keynesian Consumption Function<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
@@ -480,7 +437,6 @@ c_t &amp; = &amp;  a_0 + a_{1}y_t
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
         <span class="n">Keynesian</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">PerfForesightConsumerType</span><span class="p">()</span>
         <span class="p">)</span>  <span class="c1"># set up a consumer type and use default parameteres</span>
@@ -523,7 +479,7 @@ c_t &amp; = &amp;  a_0 + a_{1}y_t
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/990b0b81332966a9af4f4164970f937b031f1d3d6693a83f38a82d54fab4d5fa.png" src="../_images/990b0b81332966a9af4f4164970f937b031f1d3d6693a83f38a82d54fab4d5fa.png" />
+<img alt="../_images/80460bc226bac5cbb3fadeadea7f4c779ef3be3b71d08ce1191d8288a0dde97e.png" src="../_images/80460bc226bac5cbb3fadeadea7f4c779ef3be3b71d08ce1191d8288a0dde97e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -580,7 +536,7 @@ Short-term aggregate time-series estimates of change in consumption on change in
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4fc4e3900117b0607d66dd0d005b82f0b93a7b69d186536bf779e28489cc7062.png" src="../_images/4fc4e3900117b0607d66dd0d005b82f0b93a7b69d186536bf779e28489cc7062.png" />
+<img alt="../_images/0b6b250db1f2f0cb85330d80077e3f98c5f661e5a6abda3aac10dcc0d4e9c544.png" src="../_images/0b6b250db1f2f0cb85330d80077e3f98c5f661e5a6abda3aac10dcc0d4e9c544.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a_0 is 58.47
 a_1 is 0.90
 </pre></div>
@@ -601,7 +557,7 @@ a_1 is 0.90
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Consumption (c)&#39;)
 </pre></div>
 </div>
-<img alt="../_images/785828733c0dc015765bd0949eba91b8616038c426d4af06c4b2432554ded4a3.png" src="../_images/785828733c0dc015765bd0949eba91b8616038c426d4af06c4b2432554ded4a3.png" />
+<img alt="../_images/9dc10c1e760a3afa98939eb02109a46fd6f3a124862db88c7c49a71f32e469e1.png" src="../_images/9dc10c1e760a3afa98939eb02109a46fd6f3a124862db88c7c49a71f32e469e1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -633,7 +589,7 @@ a_1 is 0.90
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/93bec1d105d46d596de9d9155f6cf8cbbcd4c04221c7c34a66883c03cd0379b5.png" src="../_images/93bec1d105d46d596de9d9155f6cf8cbbcd4c04221c7c34a66883c03cd0379b5.png" />
+<img alt="../_images/4cc09c7baeaf84faf8ea064ebe3c75706189bce8e664cce797d49aff87ac9851.png" src="../_images/4cc09c7baeaf84faf8ea064ebe3c75706189bce8e664cce797d49aff87ac9851.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a_1 is 0.10
 </pre></div>
 </div>
@@ -693,10 +649,10 @@ No serious treatment of intertemporal nature of saving</p>
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>1.108e+05</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Wed, 29 Mar 2023</td> <th>  Prob (F-statistic):</th> <td>1.83e-192</td>
+  <th>Date:</th>             <td>Fri, 20 Jan 2023</td> <th>  Prob (F-statistic):</th> <td>1.83e-192</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>15:28:11</td>     <th>  Log-Likelihood:    </th> <td> -637.56</td> 
+  <th>Time:</th>                 <td>15:52:26</td>     <th>  Log-Likelihood:    </th> <td> -637.56</td> 
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>   120</td>      <th>  AIC:               </th> <td>   1281.</td> 
@@ -763,14 +719,16 @@ $<span class="math notranslate nohighlight">\(a_1 = \frac{s^2_{p}}{(s^2_{v} + s^
 <section id="id2">
 <h3>Friedman’s Permanent Income Hypothesis<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <p>We begin by creating a class that class implements the Friedman PIH consumption function as a special case of the <a class="reference external" href="http://econ.jhu.edu/people/ccarroll/courses/choice/lecturenotes/consumption/PerfForesightCRRA">Perfect Foresight CRRA</a> model.</p>
-<p>As discussed in the lecture notes, it is often convenient to represent this type of models in variables that are normalized by permanent income. That is the case for the <a class="reference external" href="https://github.com/econ-ark/HARK/">HARK</a> tools that we use below in the definition of our consumer. Therefore, the consumption function will expect
-\begin{equation*}
+<p>As discussed in the lecture notes, it is often convenient to represent this type of models in variables that are normalized by permanent income. That is the case for the <a class="reference external" href="https://github.com/econ-ark/HARK/">HARK</a> tools that we use below in the definition of our consumer. Therefore, the consumption function will expect</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 y_{i,t} = \frac{Y_{i,t}}{P_{i,t}}
-\end{equation*}
-and compute
-\begin{equation*}
+\end{equation*}\]</div>
+<p>and compute</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 c_{i,t} = \frac{C_{i,t}}{P_{i,t}}.
-\end{equation*}</p>
+\end{equation*}\]</div>
 <p>Therefore, to find consumption at a total level of income <span class="math notranslate nohighlight">\(Y\)</span>, we will use <span class="math notranslate nohighlight">\(\texttt{P} \times \texttt{cFunc(Y/P)}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -786,7 +744,6 @@ c_{i,t} = \frac{C_{i,t}}{P_{i,t}}.
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Rfree</span><span class="o">=</span><span class="mf">1.001</span><span class="p">,</span> <span class="n">CRRA</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
-
         <span class="n">FriedmanPIH</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">PerfForesightConsumerType</span><span class="p">()</span>
         <span class="p">)</span>  <span class="c1"># set up a consumer type and use default parameteres</span>
@@ -826,7 +783,7 @@ c_{i,t} = \frac{C_{i,t}}{P_{i,t}}.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e471558900c3cbbac9ed0c7cedf98b5310dc93f6523b7c50e02476791022c3b8.png" src="../_images/e471558900c3cbbac9ed0c7cedf98b5310dc93f6523b7c50e02476791022c3b8.png" />
+<img alt="../_images/081f39bf2fbd1d8955e86c7ef74123b4010142b3212b975a0f862af2ab702dfb.png" src="../_images/081f39bf2fbd1d8955e86c7ef74123b4010142b3212b975a0f862af2ab702dfb.png" />
 </div>
 </div>
 <p>We can see that regardless of the income our agent receives, they consume their permanent income, which is normalized to 1.</p>
@@ -866,9 +823,9 @@ c_{i,t} = \frac{C_{i,t}}{P_{i,t}}.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/01bd50290316549ce9e37e1016a6eec40a87e9bf2d1dfe64eb9a335ef3fdbe64.png" src="../_images/01bd50290316549ce9e37e1016a6eec40a87e9bf2d1dfe64eb9a335ef3fdbe64.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a_0 is 0.32
-a_1 is 0.45
+<img alt="../_images/17f268443096c4b92f70c8d1c21297137ab65ea9d2028c8f1f8c732360ca85e1.png" src="../_images/17f268443096c4b92f70c8d1c21297137ab65ea9d2028c8f1f8c732360ca85e1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a_0 is 0.24
+a_1 is 0.51
 </pre></div>
 </div>
 </div>
@@ -904,9 +861,9 @@ a_1 is 0.45
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/98e69d7a6531a5754b1098811f05bc377745dc02ccb32d8f2fdcd3054e7d802f.png" src="../_images/98e69d7a6531a5754b1098811f05bc377745dc02ccb32d8f2fdcd3054e7d802f.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a_0 is -0.47
-a_1 is 0.98
+<img alt="../_images/a5a578749888971883cf11d432dda2011a5b01d96e46a2d98708618fa174d810.png" src="../_images/a5a578749888971883cf11d432dda2011a5b01d96e46a2d98708618fa174d810.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a_0 is -0.46
+a_1 is 0.97
 </pre></div>
 </div>
 </div>
@@ -947,7 +904,7 @@ a_1 is 0.98
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/93bec1d105d46d596de9d9155f6cf8cbbcd4c04221c7c34a66883c03cd0379b5.png" src="../_images/93bec1d105d46d596de9d9155f6cf8cbbcd4c04221c7c34a66883c03cd0379b5.png" />
+<img alt="../_images/4cc09c7baeaf84faf8ea064ebe3c75706189bce8e664cce797d49aff87ac9851.png" src="../_images/4cc09c7baeaf84faf8ea064ebe3c75706189bce8e664cce797d49aff87ac9851.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a_1 is 0.10
 </pre></div>
 </div>
@@ -983,7 +940,7 @@ a_1 is 0.98
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/40f1b3222384441c482ec72ab93a3c1137a01a4f35185f7c01788ee01703a036.png" src="../_images/40f1b3222384441c482ec72ab93a3c1137a01a4f35185f7c01788ee01703a036.png" />
+<img alt="../_images/6695eb80756f7753b5a0bfd67fb12a77a4f64179c5d218edcdd690b90a40eb2d.png" src="../_images/6695eb80756f7753b5a0bfd67fb12a77a4f64179c5d218edcdd690b90a40eb2d.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a_0 is -44.42
 a_1 is 0.93
 </pre></div>
@@ -1021,7 +978,10 @@ a_1 is 0.93
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="IncExpectationExample.html"
@@ -1041,7 +1001,10 @@ a_1 is 0.93
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -1079,13 +1042,13 @@ a_1 is 0.93
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By The Econ-ARK Team
 </p>
 
   </div>
@@ -1094,7 +1057,7 @@ By The Jupyter Book Community
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1109,7 +1072,7 @@ By The Jupyter Book Community
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1118,8 +1081,8 @@ By The Jupyter Book Community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>
