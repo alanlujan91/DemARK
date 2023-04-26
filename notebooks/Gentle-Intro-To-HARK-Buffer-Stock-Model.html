@@ -248,6 +248,91 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/econ-ark/DemARK/master?urlpath=lab/tree/notebooks/Gentle-Intro-To-HARK-Buffer-Stock-Model.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://hub.econ-ark.org/hub/user-redirect/git-pull?repo=https%3A//github.com/econ-ark/DemARK&urlpath=lab/tree/DemARK/notebooks/Gentle-Intro-To-HARK-Buffer-Stock-Model.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/econ-ark/DemARK/blob/master/notebooks/Gentle-Intro-To-HARK-Buffer-Stock-Model.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -406,13 +491,13 @@ document.write(`
 <section id="mathematical-description">
 <h3>Mathematical Description<a class="headerlink" href="#mathematical-description" title="Permalink to this headline">#</a></h3>
 <p>Our new type of consumer receives two income shocks at the beginning of each period.  Permanent income would grow by a factor <span class="math notranslate nohighlight">\(\Gamma\)</span> in the absence of any shock , but its growth is modified by a shock, <span class="math notranslate nohighlight">\(\psi_{t+1}\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-568f8582-c250-4951-88fd-ca0470cdb538">
-<span class="eqno">(11)<a class="headerlink" href="#equation-568f8582-c250-4951-88fd-ca0470cdb538" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cfcf3946-6f31-4a46-ac38-9ad15513f2df">
+<span class="eqno">(11)<a class="headerlink" href="#equation-cfcf3946-6f31-4a46-ac38-9ad15513f2df" title="Permalink to this equation">#</a></span>\[\begin{align}
  P_{t+1} &amp; = \Gamma P_{t}\psi_{t+1}
 \end{align}\]</div>
 <p>whose expected (mean) value is <span class="math notranslate nohighlight">\(\mathbb{E}_{t}[\psi_{t+1}]=1\)</span>.  Actual income received <span class="math notranslate nohighlight">\(Y\)</span> is equal to permanent income <span class="math notranslate nohighlight">\(P\)</span> multiplied by a transitory shock <span class="math notranslate nohighlight">\(\theta\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e765f821-6264-44cc-85ee-3e25b77a60c9">
-<span class="eqno">(12)<a class="headerlink" href="#equation-e765f821-6264-44cc-85ee-3e25b77a60c9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5068ca09-e870-41e2-aec6-13878bb0fecf">
+<span class="eqno">(12)<a class="headerlink" href="#equation-5068ca09-e870-41e2-aec6-13878bb0fecf" title="Permalink to this equation">#</a></span>\[\begin{align}
  Y_{t+1} &amp; = \Gamma P_{t+1}\theta_{t+1}
 \end{align}\]</div>
 <p>where again <span class="math notranslate nohighlight">\(\mathbb{E}_{t}[\theta_{t+1}] = 1\)</span>.</p>
@@ -1074,7 +1159,7 @@ Finished cycle #113 in 0.0019991397857666016 seconds, solution distance = 8.1974
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "econ-ark/DemARK",
             ref: "master",
         },
         codeMirrorConfig: {

@@ -248,6 +248,91 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/econ-ark/DemARK/master?urlpath=lab/tree/notebooks/KeynesFriedmanModigliani.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://hub.econ-ark.org/hub/user-redirect/git-pull?repo=https%3A//github.com/econ-ark/DemARK&urlpath=lab/tree/DemARK/notebooks/KeynesFriedmanModigliani.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/econ-ark/DemARK/blob/master/notebooks/KeynesFriedmanModigliani.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -414,8 +499,8 @@ document.write(`
 </ol>
 <p>This can be formalized as:</p>
 <p>$</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c3f958f2-48a0-495c-a122-efeee4257c1f">
-<span class="eqno">(17)<a class="headerlink" href="#equation-c3f958f2-48a0-495c-a122-efeee4257c1f" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-ae983a2f-2a0e-45f1-8078-1dfb13d1382c">
+<span class="eqno">(17)<a class="headerlink" href="#equation-ae983a2f-2a0e-45f1-8078-1dfb13d1382c" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 c_t &amp; = &amp;  a_0 + a_{1}y_t
 \\ c_t - c_{t-1} &amp; = &amp; a_{1}(y_t - y_{t-1})
 \end{eqnarray}\]</div>
@@ -956,7 +1041,7 @@ a_1 is 0.93
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "econ-ark/DemARK",
             ref: "master",
         },
         codeMirrorConfig: {

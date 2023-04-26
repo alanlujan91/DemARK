@@ -248,6 +248,91 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/econ-ark/DemARK/master?urlpath=lab/tree/notebooks/PerfForesightCRRA-SavingRate.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://hub.econ-ark.org/hub/user-redirect/git-pull?repo=https%3A//github.com/econ-ark/DemARK&urlpath=lab/tree/DemARK/notebooks/PerfForesightCRRA-SavingRate.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/econ-ark/DemARK/blob/master/notebooks/PerfForesightCRRA-SavingRate.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -460,13 +545,13 @@ document.write(`
 </div>
 <p>We are now ready to think about the saving rate of the consumer.</p>
 <p>Remember that the saving rate of an agent at time <span class="math notranslate nohighlight">\(t\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f1c33932-597d-4f07-8e7a-44158e67a6aa">
-<span class="eqno">(22)<a class="headerlink" href="#equation-f1c33932-597d-4f07-8e7a-44158e67a6aa" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cc41d576-764f-4372-b766-c66e5f0ba4e9">
+<span class="eqno">(22)<a class="headerlink" href="#equation-cc41d576-764f-4372-b766-c66e5f0ba4e9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \text{Saving Rate}_t = \frac{\text{Capital Income}_t + \text{Labor Income}_t - \text{Consumption_t}}{\text{Capital Income}_t + \text{Labor Income}_t}
 \end{equation}\]</div>
 <p>Dividing both the numerator and denominator by the agent’s permanent income <span class="math notranslate nohighlight">\(\textbf{P}_t\)</span> and adopting the notation in <a class="reference external" href="https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/Consumption/PerfForesightCRRA/">the course’s lecture notes</a> we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7328d531-d1d8-4578-bfff-58d28fe88845">
-<span class="eqno">(23)<a class="headerlink" href="#equation-7328d531-d1d8-4578-bfff-58d28fe88845" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-84dd1d6d-60a6-45e9-9edb-f428072c79eb">
+<span class="eqno">(23)<a class="headerlink" href="#equation-84dd1d6d-60a6-45e9-9edb-f428072c79eb" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 \text{Saving Rate}_t &amp;= \frac{a_{t-1}*r/\Gamma + 1 - c(m_t)}{a_{t-1}*r/\Gamma + 1}\\
 &amp;=\frac{a_{t-1}*r/\Gamma + 1 - c(a_{t-1}*R/\Gamma + 1)}{a_{t-1}*r/\Gamma + 1}
@@ -512,7 +597,7 @@ document.write(`
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "econ-ark/DemARK",
             ref: "master",
         },
         codeMirrorConfig: {
