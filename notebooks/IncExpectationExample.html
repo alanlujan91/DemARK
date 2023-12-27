@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>The Persistent Shock Model and Income Expectations &#8212; DemARK</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -69,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Introduction: Keynes, Friedman, Modigliani" href="KeynesFriedmanModigliani.html" />
     <link rel="prev" title="A Demonstration of the Harmenberg (2021) Aggregation Method" href="Harmenberg-Aggregation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -78,6 +80,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -131,9 +142,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../README.html">
+  
   
   
   
@@ -143,8 +156,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/econ-ark-logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/econ-ark-logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/econ-ark-logo.png" class="logo__image only-light" alt="DemARK - Home"/>
+    <script>document.write(`<img src="../_static/econ-ark-logo.png" class="logo__image only-dark" alt="DemARK - Home"/>`);</script>
   
   
 </a></div>
@@ -394,20 +407,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -447,19 +462,18 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="the-persistent-shock-model-and-income-expectations">
-<h1>The Persistent Shock Model and Income Expectations<a class="headerlink" href="#the-persistent-shock-model-and-income-expectations" title="Permalink to this headline">#</a></h1>
+<h1>The Persistent Shock Model and Income Expectations<a class="headerlink" href="#the-persistent-shock-model-and-income-expectations" title="Permalink to this heading">#</a></h1>
 <p><a class="reference external" href="https://econ-ark.org/materials/incexpectationexample#launch"><img alt="badge" src="https://img.shields.io/badge/Launch%20using%20-Econ--ARK-blue" /></a></p>
 <p>This module creates an example application extending <span class="math notranslate nohighlight">\(\texttt{PersistentShockConsumerType}\)</span> from <span class="math notranslate nohighlight">\(\texttt{ConsGenIndShockModel}\)</span>. It uses the HARK tool <span class="math notranslate nohighlight">\(\texttt{GenIncProcessModel}\)</span> (whose documentation you can find <a class="reference external" href="https://github.com/econ-ark/DemARK/blob/master/notebooks/IncExpectationExample.ipynb">here</a>.)</p>
 <p>Most simply, it solves a consumption-saving model with shocks that are neither necessarily fully transitory nor fully permanent. Persistent income is tracked as a state variable and follows an AR(1) process.</p>
 <section id="what-if-beliefs-about-persistent-income-differ-from-actual">
-<h2>What if beliefs about persistent income differ from actual ?<a class="headerlink" href="#what-if-beliefs-about-persistent-income-differ-from-actual" title="Permalink to this headline">#</a></h2>
+<h2>What if beliefs about persistent income differ from actual ?<a class="headerlink" href="#what-if-beliefs-about-persistent-income-differ-from-actual" title="Permalink to this heading">#</a></h2>
 <p>What if the consumer has beliefs about the persistence of his/her income process which differ from the <em>actual</em> persistence?</p>
 <p>We can use the class <span class="math notranslate nohighlight">\(\texttt{PersistentShockConsumerType}\)</span> to solve the problem of a consumer with a given set of beliefs, but then simulate a population of consumers for whom that actual persistence differs from what they believe.</p>
 <p>(This thought experiment is motivated by an interesting recennt paper presented at the NBER Summer Institute’s <em>Behavioral Macroeconomics Conference</em> <cite data-cite="undefined"></cite></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initial imports and notebook setup, click arrow to show</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">copy</span>
@@ -679,7 +693,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>The user needs to call the function <span class="math notranslate nohighlight">\(\texttt{runRoszypalSchlaffmanExperiment}\)</span> with specific values for <span class="math notranslate nohighlight">\(\texttt{CorrAct}\)</span>, <span class="math notranslate nohighlight">\(\texttt{CorrPcvd}\)</span> and estimates of <span class="math notranslate nohighlight">\(\texttt{DiscFac_center}\)</span>, <span class="math notranslate nohighlight">\(\texttt{DiscFac_spread}\)</span> to solve the model accordingly.</p>
+<p>The user needs to call the function <span class="math notranslate nohighlight">\(\texttt{runRoszypalSchlaffmanExperiment}\)</span> with specific values for <span class="math notranslate nohighlight">\(\texttt{CorrAct}\)</span>, <span class="math notranslate nohighlight">\(\texttt{CorrPcvd}\)</span> and estimates of <span class="math notranslate nohighlight">\(\texttt{DiscFac\_center}\)</span>, <span class="math notranslate nohighlight">\(\texttt{DiscFac\_spread}\)</span> to solve the model accordingly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Call the function with test values for (CorrAct, CorrPcvd, DiscFac_center, DiscFac_spread)</span>
@@ -706,10 +720,10 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Lorenz curve for assests is
 </pre></div>
 </div>
-<img alt="../_images/222fd9276d2df44072a7d4893bb9632b5f0a0ce4376351d52f7015a32c793e79.png" src="../_images/222fd9276d2df44072a7d4893bb9632b5f0a0ce4376351d52f7015a32c793e79.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The aggregate wealth to income ratio is 1.9763887031145313
+<img alt="../_images/3c1367a98721e2a35b06ff26bfe6e8bdd7a33b0f2194ec789145ad470705974b.png" src="../_images/3c1367a98721e2a35b06ff26bfe6e8bdd7a33b0f2194ec789145ad470705974b.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The aggregate wealth to income ratio is 1.9763887031145013
 The Gini Coefficient for assests is 1.0
-The average MPC by income quintile is [0.10692187291548537, 0.09327176601929006, 0.08810286571670037, 0.07414283841778667, 0.0460267083981944]
+The average MPC by income quintile is [0.10692187291548673, 0.09327176601929044, 0.08810286571670196, 0.07414283841778725, 0.046026708398195525]
 </pre></div>
 </div>
 </div>
@@ -742,11 +756,10 @@ The average MPC by income quintile is [0.10692187291548537, 0.09327176601929006,
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="Harmenberg-Aggregation.html"
@@ -766,10 +779,7 @@ The average MPC by income quintile is [0.10692187291548537, 0.09327176601929006,
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -806,6 +816,7 @@ By The Econ-ARK Team
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -832,8 +843,8 @@ By The Econ-ARK Team
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>
