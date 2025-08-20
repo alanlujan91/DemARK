@@ -1,10 +1,18 @@
 ---
+title: A Demonstration of the Harmenberg (2021) Aggregation Method
+authors:
+  - name: Christopher D. Carroll
+    url: http://www.econ2.jhu.edu/people/ccarroll/
+    affiliations:
+      - Johns Hopkins University
+  - name: Mateo Velásquez-Giraldo
+    url: https://mv77.github.io/
+    affiliations:
+      - Johns Hopkins University
 jupyter:
   jupytext:
-    cell_metadata_filter: ExecuteTime,collapsed,title,code_folding,tags,incorrectly_encoded_metadata,jp-MarkdownHeadingCollapsed,-autoscroll
-    encoding: '# -*- coding: utf-8 -*-'
     formats: ipynb,md
-    notebook_metadata_filter: all,-widgets,-varInspector
+    notebook_metadata_filter: language_info
     text_representation:
       extension: .md
       format_name: markdown
@@ -30,9 +38,6 @@ jupyter:
 
    - ["Aggregating heterogeneous-agent models with permanent income shocks"](https://doi.org/10.1016/j.jedc.2021.104185)
 
-## Authors: [Christopher D. Carroll](http://www.econ2.jhu.edu/people/ccarroll/), [Mateo Velásquez-Giraldo](https://mv77.github.io/)
-
-
 `# Set Up the Computational Environment: (in JupyterLab, click the dots)`
 
 ```python
@@ -49,26 +54,7 @@ from HARK.ConsumptionSaving.ConsIndShockModel import (
 )
 ```
 
-<!-- #region -->
 # Description of the problem
-
-$\newcommand{\pLvl}{\mathbf{p}}$
-$\newcommand{\mLvl}{\mathbf{m}}$
-$\newcommand{\mNrm}{m}$
-$\newcommand{\CLvl}{\mathbf{C}}$
-$\newcommand{\MLvl}{\mathbf{M}}$
-$\newcommand{\CLvlest}{\widehat{\CLvl}}$
-$\newcommand{\MLvlest}{\widehat{\MLvl}}$
-$\newcommand{\mpLvlDstn}{\mu}$
-$\newcommand{\mWgtDstnMarg}{\tilde{\mu}^{m}}$
-$\newcommand{\PermGroFac}{\pmb{\Phi}}$
-$\newcommand{\PermShk}{\pmb{\Psi}}$
-$\newcommand{\def}{:=}$
-$\newcommand{\kernel}{\Lambda}$
-$\newcommand{\pShkNeutDstn}{\tilde{f}_{\PermShk}}$
-$\newcommand{\Ex}{\mathbb{E}}$
-$\newcommand{\cFunc}{\mathrm{c}}$
-$\newcommand{\Rfree}{\mathsf{R}}$
 
 Macroeconomic models with heterogeneous agents sometimes incorporate a microeconomic income process with a permanent component ($\pLvl_t$) that follows a geometric random walk. To find an aggregate characteristic of these economies such as aggregate consumption $\CLvl_t$, one must integrate over permanent income (and all the other relevant state variables):
 \begin{equation*}
@@ -80,7 +66,6 @@ Under the usual assumption of Constant Relative Risk Aversion utility and standa
 \begin{equation*}
     \mathrm{c}(\mLvl,\pLvl) = \mathrm{c}\left(\mLvl/\pLvl\right)\times \pLvl
 \end{equation*}
-
 
 In practice, this implies that one can defined a normalized state vector $\mNrm = \mLvl/\pLvl$ and solve for the normalized policy function. This eliminates one dimension of the optimization problem problem, $\pLvl$.
 
@@ -115,9 +100,8 @@ At least two features of the previous strategy are unpleasant:
 Therefore, his solution allows us to calculate aggregate variables without the need to keep track of the distribution of permanent income. Additionally, the method eliminates the issue of a small number of agents in the tail having an outsized influence in our approximation and this makes it much more precise.
 
 This notebook briefly describes Harmenberg's method and demonstrates its implementation in the HARK toolkit.
-<!-- #endregion -->
 
-<!-- #region -->
+
 # Description of the method
 
 To illustrate Harmenberg's idea, consider a [buffer stock saving](https://econ-ark.github.io/BufferStockTheory) model in which:
@@ -151,7 +135,6 @@ The inner integral, $\int_{\pLvl} \pLvl \times \mpLvlDstn_t(\mNrm,\pLvl) \, d\pL
 \mWgtDstnMarg_{t}(\mNrm) \def \PermGroFac^{-t}\int_{\pLvl} \pLvl \times \mpLvlDstn_t(\mNrm,\pLvl) \, d\pLvl.
 \end{equation*}
 
-
 The definition allows us to rewrite
 \begin{equation}\label{eq:aggC}
 \CLvl_{t} = \PermGroFac^t \int_{m} \cFunc(\mNrm) \times \mWgtDstnMarg_t(\mNrm) \, dm.
@@ -166,9 +149,9 @@ Harmenberg's second insight produces a simple way of generating simulated counte
 We start with the density function of $\mNrm_{t+1}$ given $\mNrm_t$ and $\PermShk_{t+1}$, $\kernel(\mNrm_{t+1}|\mNrm_t,\PermShk_{t+1})$. This density will depend on the model's transition equations and draws of random variables like transitory shocks to income in $t+1$ or random returns to savings between $t$ and $t+1$. If we can simulate those things, then we can sample from $\kernel(\cdot|\mNrm_t,\PermShk_{t+1})$.
 
 Harmenberg shows that
-\begin{equation*}\label{eq:transition}
+\begin{equation}\label{eq:transition}
 \texttt{transition:    }\mWgtDstnMarg_{t+1}(\mNrm_{t+1}) = \int \kernel(\mNrm_{t+1}|\mNrm_t, \PermShk_t) \pShkNeutDstn(\PermShk_{t+1}) \mWgtDstnMarg_t(\mNrm_t)\, d\mNrm_t\, d\PermShk_{t+1},
-\end{equation*}
+\end{equation}
 where $\pShkNeutDstn$ is an altered density function for the permanent income shocks $\PermShk$, which he calls the *permanent-income-neutral* measure, and which relates to the original density $f_{\PermShk}$ through $$\pShkNeutDstn(\PermShk_{t+1})\def \PermShk_{t+1}f_{\PermShk}(\PermShk_{t+1})\,\,\, \forall \PermShk_{t+1}.$$
 
 What's remarkable about this equation is that it gives us a way to obtain a distribution $\mWgtDstnMarg_{t+1}$ from $\mWgtDstnMarg_t$:
@@ -178,7 +161,7 @@ What's remarkable about this equation is that it gives us a way to obtain a dist
 - The distribution of $\mNrm$ across the resulting population will be $\mWgtDstnMarg_{t+1}$.
 
 Notice that the only change in these steps from what how we would usually simulate the model is that we now draw permanent income shocks from $\pShkNeutDstn$ instead of $f_{\PermShk}$. Therefore, with this procedure we can approximate $\mWgtDstnMarg_t$ and compute aggregates using formulas like the equation `transition`, all without tracking permanent income and with few changes to the code we use to simulate the model.
-<!-- #endregion -->
+
 
 # Harmenberg's method in HARK
 
@@ -186,11 +169,10 @@ Harmenberg's method for simulating under the permanent-income-neutral measure is
 
 As the cell below illustrates, using Harmenberg's method in [HARK](https://github.com/econ-ark/HARK) simply requires setting an agent's property `agent.neutral_measure = True` and then computing the discrete approximation to the income process. After these steps, `agent.simulate` will simulate the model using Harmenberg's permanent-income-neutral measure.
 
-
 `# Implementation in HARK:`
 
 <!-- #region -->
-#### Farther down in the notebook, code like this solves the standard model:
+### Farther down in the notebook, code like this solves the standard model:
 
 ```python
 # Create a population with the default parametrization
@@ -215,7 +197,7 @@ popn.simulate()
 <!-- #endregion -->
 
 <!-- #region -->
-#### Later, code like this simulates using the permanent-income-neutral measure
+### Later, code like this simulates using the permanent-income-neutral measure
 ```python
 # Harmenberg permanent-income-neutral simulation
 
@@ -289,7 +271,6 @@ First, some setup.
 
 We will now perform exactly this exercise, examining the fluctuations in aggregates when they are approximated using the basic simulation strategy and Harmenberg's permanent-income-neutral measure. Since each approximation can be made arbitrarily good by increasing the number of agents it uses, we will examine the variances of aggregates for various sample sizes.
 
-
 `# Setup computational environment:`
 
 ```python
@@ -325,7 +306,6 @@ min_agents = 100
 ```python
 # Now create a function that takes HARK's simulation output
 # and computes all the summary statistics we need
-
 
 def sumstats(sims, sample_periods):
     # sims will be an array in the shape of [economy].history elements
@@ -371,7 +351,7 @@ popn.solve()
 
 Under the basic simulation strategy, we have to de-normalize market resources and consumption multiplying them by permanent income. Only then we construct our statistics of interest.
 
-Note that our time-sampling strategy requires that, after enough time has passed, the economy settles on a stable distribution of its agents across states. How can we know this will be the case? [Szeidl (2013)](http://www.personal.ceu.hu/staff/Adam_Szeidl/papers/invariant.pdf) and [Harmenberg (2021)](https://www.sciencedirect.com/science/article/pii/S0165188921001202?via%3Dihub) provide conditions that can give us some reassurance.$\newcommand{\Rfree}{\mathsf{R}}$
+Note that our time-sampling strategy requires that, after enough time has passed, the economy settles on a stable distribution of its agents across states. How can we know this will be the case? [Szeidl (2013)](http://www.personal.ceu.hu/staff/Adam_Szeidl/papers/invariant.pdf) and [Harmenberg (2021)](https://www.sciencedirect.com/science/article/pii/S0165188921001202?via%3Dihub) provide conditions that can give us some reassurance.
 
 1. [Szeidl (2013)](http://www.personal.ceu.hu/staff/Adam_Szeidl/papers/invariant.pdf) shows that if $$\log \left[\frac{(\Rfree\beta)^{1/\rho}}{\PermGroFac}
 \right] < \Ex[\log \PermShk],$$ then there is a stable invariant distribution of normalized market resources $\mNrm$.
@@ -537,7 +517,7 @@ Of course, these results apply only to the particular configuration of parameter
 # Execute the line below to see that there's little drift from mNrmStE as starting point
 # (after setting burn_in to zero above).  This means burn_in does not need to be large:
 
-plt.plot(np.arange(1,len(np.mean(MAvg_ntrl,axis=1))+1),np.mean(MAvg_ntrl,axis=1).T)
+plt.plot(np.arange(1,len(np.mean(MAvg_ntrl,axis=1))+1),np.mean(MAvg_ntrl,axis=1).T);
 plt.show()
 ```
 

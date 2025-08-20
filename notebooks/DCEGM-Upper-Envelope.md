@@ -1,11 +1,14 @@
 ---
+title: DCEGM Upper Envelope
+authors:
+  - name: Mateo Velásquez-Giraldo
+    url: https://mv77.github.io/
+    affiliations:
+      - Johns Hopkins University
 jupyter:
   jupytext:
-    cell_metadata_filter: collapsed,title
-    encoding: '# -*- coding: utf-8 -*-'
     formats: ipynb,md
-    notebook_metadata_filter: all
-    rst2md: false
+    notebook_metadata_filter: language_info,latex_envs
     text_representation:
       extension: .md
       format_name: markdown
@@ -51,8 +54,6 @@ jupyter:
 
 [![badge](https://img.shields.io/badge/Launch%20using%20-Econ--ARK-blue)](https://econ-ark.org/materials/dcegm-upper-envelope#launch)
 
-
-
 This notebook provides a simple introduction to the "DCEGM" algorithm <cite data-cite="6202365/4F64GG8F"></cite>. DCEGM extends the EGM method proposed in <cite data-cite="6202365/HQ6H9JEI"></cite> to problems with both continuous (e.g. consumption) and discrete (e.g. retirement) decisions.
 
 The main challenge for the EGM algorithm in discrete-continuous problems is that the discrete decisions generate "kinks" in the value function, making it non-concave and rendering the first order condition used by EGM a necessary but not sufficient for optimality. In practice, this causes the EGM inversion step to produce (resource, consumption) points that are not optimal. DCEGM incorporates a method to filter the points produced by EGM so that only the truly optimal ones are used in producing an approximation to the solution.
@@ -90,15 +91,14 @@ Consider the following example output.
 m_egm = np.array([0.0, 0.04, 0.25, 0.15, 0.1, 0.3, 0.6, 0.5, 0.35, 0.6, 0.75, 0.85])
 c_egm = np.array([0.0, 0.03, 0.1, 0.07, 0.05, 0.36, 0.4, 0.6, 0.8, 0.9, 0.9, 0.9])
 vt_egm = np.array([0.0, 0.05, 0.1, 0.04, 0.02, 0.2, 0.7, 0.5, 0.2, 0.9, 1.0, 1.2])
-plt.plot(m_egm, vt_egm)
-plt.xlabel("Resources")
-plt.ylabel("Value")
+plt.plot(m_egm, vt_egm);
+plt.xlabel("Resources");
+plt.ylabel("Value");
 ```
 
 There are two main issues:
 - The line implied by the points "goes backwards" at some points. This is because the m-grid is not monotonic.
 - Some segments of the line are under other segments of the line. This means that we have sub-optimal points.
-
 
 A first step in filtering out sub-optimal points is to split the previous line in its non-decreasing segments. This is achieved by HARK's function `calc_segments`.
 
@@ -110,11 +110,11 @@ start, end = calc_nondecreasing_segments(m_egm, vt_egm)
 segments = []
 for j in range(len(start)):
     idx = range(start[j], end[j] + 1)
-    plt.plot(m_egm[idx], vt_egm[idx])
+    plt.plot(m_egm[idx], vt_egm[idx]);
     segments.append([m_egm[idx], vt_egm[idx]])
 
-plt.xlabel("resources")
-plt.ylabel("transformed values")
+plt.xlabel("resources");
+plt.ylabel("transformed values");
 plt.show()
 ```
 
@@ -127,10 +127,10 @@ m_upper, v_upper, inds_upper = upper_envelope(segments)
 
 for j in range(len(start)):
     idx = range(start[j], end[j] + 1)
-    plt.plot(m_egm[idx], vt_egm[idx])
-plt.plot(m_upper, v_upper, ".k")
-plt.xlabel("resources")
-plt.ylabel("transformed values")
+    plt.plot(m_egm[idx], vt_egm[idx]);
+plt.plot(m_upper, v_upper, ".k");
+plt.xlabel("resources");
+plt.ylabel("transformed values");
 plt.show()
 ```
 
@@ -138,9 +138,7 @@ And there we have it! a monotonic value without the sub-optimal points or revers
 
 Having introduced the main tools, we are now ready to apply DCEGM to a simple example.
 
-
 # An example: writing a will
-### Author: [Mateo Velásquez-Giraldo](https://mv77.github.io/)
 
 We now present a basic example to illustrate the use of the previous tools in solving dynamic optimization problems with discrete and continuous decisions.
 
@@ -176,18 +174,14 @@ DiscFac = 0.98  # Time-discount factor.
 
 # Define utility (and related) functions
 
-
 def u(x):
     return CRRAutility(x, CRRA)
-
 
 def uP(x):
     return CRRAutilityP(x, CRRA)
 
-
 def uPinv(x):
     return CRRAutilityP_inv(x, CRRA)
-
 
 # Create a grid for market resources
 mGrid = (aGrid - aGrid[0]) * 1.5
@@ -196,10 +190,8 @@ mGridPlotsC = np.insert(mGridPlots, 0, 0)
 
 # Transformations for value funtion interpolation
 
-
 def vTransf(x):
     return np.exp(x)
-
 
 def vUntransf(x):
     return np.log(x)
@@ -249,19 +241,15 @@ vGrid3_no = u(cGrid3_no)
 c3_no = LinearInterp(mGrid3_no, cGrid3_no)  # (0,0) is already here.
 vT3_no = LinearInterp(mGrid3_no, vTransf(vGrid3_no), lower_extrap=True)
 
-
 def v3_no(x):
     return vUntransf(vT3_no(x))
-
 
 # Agent with a will
 
 # Define an auxiliary function with the analytical consumption expression
 
-
 def c3will(m):
     return np.minimum(m, -0.5 + 0.5 * np.sqrt(1 + 4 * (m + 1)))
-
 
 # Find the kink point
 mKink = 1.0
@@ -282,24 +270,22 @@ vGrid3_wi = np.concatenate(
 c3_wi = LinearInterp(mGrid3_wi, cGrid3_wi)  # (0,0) is already here
 vT3_wi = LinearInterp(mGrid3_wi, vTransf(vGrid3_wi), lower_extrap=True)
 
-
 def v3_wi(x):
     return vUntransf(vT3_wi(x))
-
 
 plt.figure()
 
 plt.plot(mGridPlots, v3_wi(mGridPlots), label="Will")
 plt.plot(mGridPlots, v3_no(mGridPlots), label="No Will")
 plt.title("Period 3: Value functions")
-plt.xlabel("Market resources")
+plt.xlabel("Market resources");
 plt.legend()
 plt.show()
 
 plt.plot(mGridPlotsC, c3_wi(mGridPlotsC), label="Will")
 plt.plot(mGridPlotsC, c3_no(mGridPlotsC), label="No Will")
 plt.title("Period 3: Consumption Functions")
-plt.xlabel("Market resources")
+plt.xlabel("Market resources");
 plt.legend()
 plt.show()
 ```
@@ -345,10 +331,8 @@ vGrid2_cond_no = u(cGrid2_cond_no) + DiscFac * v3_no(mGrid3_cond_nowi)
 # Create interpolating value and consumption functions
 vT2_cond_no = LinearInterp(mGrid2_cond_no, vTransf(vGrid2_cond_no), lower_extrap=True)
 
-
 def v2_cond_no(x):
     return vUntransf(vT2_cond_no(x))
-
 
 c2_cond_no = LinearInterp(
     np.insert(mGrid2_cond_no, 0, 0), np.insert(cGrid2_cond_no, 0, 0)
@@ -387,10 +371,8 @@ vGrid2_cond_wi = u(cGrid2_cond_wi) + DiscFac * v3_wi(mGrid3_cond_will)
 # Create interpolating value and consumption functions
 vT2_cond_wi = LinearInterp(mGrid2_cond_wi, vTransf(vGrid2_cond_wi), lower_extrap=True)
 
-
 def v2_cond_wi(x):
     return vUntransf(vT2_cond_wi(x))
-
 
 c2_cond_wi = LinearInterp(
     np.insert(mGrid2_cond_wi, 0, 0), np.insert(cGrid2_cond_wi, 0, 0)
@@ -425,10 +407,10 @@ m2_env, vt2_env, inds2_env = upper_envelope(
 )
 
 # Plot the optimal decision rule
-plt.plot(m2_env, inds2_env)
+plt.plot(m2_env, inds2_env);
 plt.title("$w^*(m)$")
 plt.ylabel("Write will (1) or not (0)")
-plt.xlabel("Market resources: m")
+plt.xlabel("Market resources: m");
 plt.show()
 
 # With the decision rule, we can find unconditional consumption
@@ -439,10 +421,8 @@ c2_env[inds2_env == 1] = c2_cond_wi(m2_env[inds2_env == 1])
 # And create the unconditional consumption and value functions
 vT2 = LinearInterp(m2_env, vt2_env, lower_extrap=True)
 
-
 def v2(x):
     return vUntransf(vT2(x))
-
 
 c2 = LinearInterp(m2_env, c2_env, lower_extrap=True)
 
@@ -455,7 +435,7 @@ plt.plot(m2_env, v2_cond_no(m2_env), label="Cond. No will")
 plt.plot(m2_env, v2(m2_env), "k--", label="Uncond.")
 plt.plot(m2_env[kink_idx], v2(m2_env[kink_idx]), "rX", label="Primary kink")
 plt.title("Period 2: Value Functions")
-plt.xlabel("Market resources")
+plt.xlabel("Market resources");
 plt.legend()
 plt.show()
 
@@ -466,7 +446,7 @@ plt.plot(m2_env, c2_cond_no(m2_env), label="Cond. No will")
 plt.plot(m2_env, c2(m2_env), "k--", label="Uncond.")
 plt.plot(m2_env[kink_idx], c2(m2_env[kink_idx]), "rX", label="Primary kink")
 plt.title("Period 2: Consumption Functions")
-plt.xlabel("Market resources")
+plt.xlabel("Market resources");
 plt.legend()
 plt.show()
 ```
@@ -500,17 +480,16 @@ cGrid1 = uPinv(DiscFac * vPGrid2)
 mGrid1 = aGrid + cGrid1
 vGrid1 = u(cGrid1) + DiscFac * v2(mGrid2)
 
-plt.plot(mGrid1)
+plt.plot(mGrid1);
 plt.title("Endogenous gridpoints")
-plt.xlabel("Position: i")
-plt.ylabel("Endogenous grid point: $m_i$")
+plt.xlabel("Position: i");
+plt.ylabel("Endogenous grid point: $m_i$");
 plt.show()
 
-
-plt.plot(mGrid1, vGrid1)
+plt.plot(mGrid1, vGrid1);
 plt.title("Value function at grid points")
-plt.xlabel("Market resources: m")
-plt.ylabel("Value function")
+plt.xlabel("Market resources: m");
+plt.ylabel("Value function");
 plt.show()
 ```
 
@@ -550,29 +529,27 @@ for k, c_segm in enumerate(c_segments):
 c1_up = LinearInterp(m1_env, c1_env)
 v1T_up = LinearInterp(m1_env, vt1_env)
 
-
 def v1_up(x):
     return vUntransf(v1T_up(x))
 
-
 # Show that there is a non-monothonicity and that the upper envelope fixes it
-plt.plot(mGrid1, vGrid1, label="EGM Points")
+plt.plot(mGrid1, vGrid1, label="EGM Points");
 plt.plot(m1_env, v1_up(m1_env), "k--", label="Upper Envelope")
 plt.plot(m1_env[sec_kink_idx], v1_up(m1_env[sec_kink_idx]), "rX", label="Crossings")
-plt.plot()
+plt.plot();
 plt.title("Period 1: Value function")
-plt.xlabel("Market resources")
+plt.xlabel("Market resources");
 plt.legend()
 plt.show()
 
 # Plot consumption
-plt.plot(mGrid1, cGrid1, label="EGM Points")
+plt.plot(mGrid1, cGrid1, label="EGM Points");
 plt.plot(m1_env, c1_up(m1_env), "k--", label="Upper Envelope")
 plt.plot(
     m1_env[sec_kink_idx], c1_up(m1_env[sec_kink_idx]), "rX", label="Secondary Kink"
 )
 plt.title("Period 1: Consumption function")
-plt.xlabel("Market resources")
+plt.xlabel("Market resources");
 plt.legend()
 plt.show()
 ```
@@ -581,5 +558,4 @@ plt.show()
 [1] Iskhakov, F. , Jørgensen, T. H., Rust, J. and Schjerning, B. (2017), The endogenous grid method for discrete‐continuous dynamic choice models with (or without) taste shocks. Quantitative Economics, 8: 317-365. doi:10.3982/QE643
 
 [2] Carroll, C. D. (2006). The method of endogenous gridpoints for solving dynamic stochastic optimization problems. Economics letters, 91(3), 312-320.
-
 

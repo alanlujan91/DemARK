@@ -1,9 +1,8 @@
 ---
 jupyter:
   jupytext:
-    cell_metadata_filter: ExecuteTime,collapsed,jupyter,tags,title,-autoscroll
     formats: ipynb,md
-    notebook_metadata_filter: all,-widgets,-varInspector
+    notebook_metadata_filter: language_info
     text_representation:
       extension: .md
       format_name: markdown
@@ -26,7 +25,6 @@ jupyter:
 ---
 
 # Expectated vs Realized Income Growth in A Standard Life Cycle Model
-
 
 This notebook uses the income process in [Cocco, Gomes & Maenhout (2005)](https://academic.oup.com/rfs/article/18/2/491/1599892?login=true) to demonstrate that estimates of a regression of expected income changes on realized income changes are sensitive to the size of transitory shocks.
 
@@ -109,40 +107,28 @@ Agent.initialize_sim()
 Agent.simulate();
 ```
 
-
-$\newcommand{\Ex}{\mathbb{E}}$
-$\newcommand{\PermShk}{\psi}$
-$\newcommand{\pLvl}{\mathbf{p}}$
-$\newcommand{\pLvl}{P}$
-$\newcommand{\yLvl}{\mathbf{y}}$
-$\newcommand{\yLvl}{Y}$
-$\newcommand{\PermGroFac}{\Gamma}$
-$\newcommand{\UnempPrb}{\wp}$
-$\newcommand{\TranShk}{\theta}$
-
 We assume a standard income process with transitory and permanent shocks:  The consumer's Permanent noncapital income $\pLvl$ grows by a predictable factor $\PermGroFac$ and is subject to an unpredictable multiplicative shock $\Ex_{t}[\PermShk_{t+1}]=1$,
 
-\begin{eqnarray}
+\begin{align}
 \pLvl_{t+1} & = & \pLvl_{t} \PermGroFac_{t+1} \PermShk_{t+1}, \notag
-\end{eqnarray}
+\end{align}
 and, if the consumer is employed, actual income $Y$ is permanent income multiplied by a transitory shock $\Ex_{t}[\TranShk_{t+1}]=1$,
-\begin{eqnarray}
+\begin{align}
 \yLvl_{t+1} & = & \pLvl_{t+1} \TranShk_{t+1}, \notag
-\end{eqnarray}
+\end{align}
 
 <!--- There is also a probability $\UnempPrb$ that the consumer will be temporarily unemployed and experience income of $\TranShk^{\large u}  = 0$.  We construct $\TranShk^{\large e}$ so that its mean value is $1/(1-\UnempPrb)$ because in that case the mean level of the transitory shock (accounting for both unemployed and employed states) is exactly
 
-\begin{eqnarray}
+\begin{align}
 \Ex_{t}[\TranShk_{t+1}] & = & \TranShk^{\large{u}}  \times \UnempPrb + (1-\UnempPrb) \times \Ex_{t}[\TranShk^{\large{e}}_{t+1}] \notag
 \\ & = & 0 \times \UnempPrb + (1-\UnempPrb) \times 1/(1-\UnempPrb)  \notag
 \\ & = & 1. \notag
-\end{eqnarray}
+\end{align}
 --->
 
 $\Gamma_{t}$ captures the predictable life cycle profile of income growth (faster when young, slower when old).  See [our replication of CGM-2005](https://github.com/econ-ark/CGMPortfolio/blob/master/Code/Python/CGMPortfolio.ipynb) for a detailed account of how these objects map to CGM's notation.
 
-
-Now define $\newcommand{\yLog}{y}\newcommand{\pLog}{p}\yLog = \log \yLvl,\pLog=\log \pLvl$ and similarly for other variables.
+Now define $\yLog = \log \yLvl,\pLog=\log \pLvl$ and similarly for other variables.
 
 Using this notation, we construct all the necessary inputs to the regressors. The main input is the expected income growth of every agent at every time period, which is given by
 \begin{equation}
@@ -152,7 +138,6 @@ Using this notation, we construct all the necessary inputs to the regressors. Th
 \Ex_t[\yLog_{t+1} - \yLog_{t}] & = \log \Gamma_{t+1}-\log \theta_t
 \end{split}
 \end{equation}
-
 
 ```python
 exp = [

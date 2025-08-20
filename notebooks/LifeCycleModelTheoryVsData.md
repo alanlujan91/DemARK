@@ -1,10 +1,8 @@
 ---
 jupyter:
   jupytext:
-    cell_metadata_filter: ExecuteTime,collapsed,code_folding,-autoscroll
-    cell_metadata_json: true
     formats: ipynb,md
-    notebook_metadata_filter: all,-widgets,-varInspector
+    notebook_metadata_filter: language_info,latex_envs,toc
     text_representation:
       extension: .md
       format_name: markdown
@@ -336,7 +334,6 @@ LivPrb = [
     0.63095734,
 ]
 
-
 # Standard deviations of permanent income shocks by age, starting from age 25
 PermShkStd = [
     0.1,
@@ -501,7 +498,6 @@ num_agents = 10000  # Number of agents to simulate
 bootstrap_size = 50  # Number of re-estimations to do during bootstrap
 seed = 31382  # Just an integer to seed the estimation
 
-
 # Dictionary that can be passed to ConsumerType to instantiate
 init_consumer_objects = {
     "CRRA": CRRA_start,
@@ -598,7 +594,6 @@ def savRteFunc(SomeType, m, t):
         t:
             age of agent (from starting in the workforce)
 
-
     Returns:
     --------
         savRte: float
@@ -621,7 +616,6 @@ def savRteFunc(SomeType, m, t):
 w, h = 1, LifeCyclePop.T_cycle
 giant_list = [[0 for x in range(w)] for y in range(h)]
 savRte_list = []
-
 
 # Suppress some disturbing but harmless warnings
 warnings.filterwarnings("ignore")
@@ -674,7 +668,6 @@ n, bins, patches = plt.hist(aGro41NoU, 50, density=True)
 
 We are interested in how income growth over the lifetime of the agent affects their saving rate and asset ratio $a=A/P$.
 
-
 ```python
 cumulative_income_first_half = np.sum(
     LifeCyclePop.history["pLvl"][0:20, :] * LifeCyclePop.history["TranShk"][0:20, :], 0
@@ -698,18 +691,18 @@ for i in range(20):
     assetsNrmByVigtile[i] = np.mean(LifeCyclePop.history["aNrm"][t][vigntiles == i])
 plt.plot(np.array(range(20)), savRteByVigtile)
 plt.title("Saving Rate at age 65, by Vigntile of Lifetime Income Growth")
-plt.xlabel("Vigntile of Lifetime Income Growth")
-plt.ylabel("Savings Rate")
+plt.xlabel("Vigntile of Lifetime Income Growth");
+plt.ylabel("Savings Rate");
 
 plt.figure()
 plt.plot(np.array(range(20)), assetsByVigtile)
 plt.title("Assets at age 65, by Vigntile of Lifetime Income Growth")
-plt.xlabel("Vigntile of Lifetime Income Growth")
-plt.ylabel("Assets")
+plt.xlabel("Vigntile of Lifetime Income Growth");
+plt.ylabel("Assets");
 
 plt.figure()
 plt.plot(np.array(range(20)), assetsNrmByVigtile)
 plt.title("Normalized Assets at age 65, by Vigntile of Lifetime Income Growth")
-plt.xlabel("Vigntile of Lifetime Income Growth")
-plt.ylabel("Normalized Assets")
+plt.xlabel("Vigntile of Lifetime Income Growth");
+plt.ylabel("Normalized Assets");
 ```

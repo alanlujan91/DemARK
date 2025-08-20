@@ -1,9 +1,8 @@
 ---
 jupyter:
   jupytext:
-    cell_metadata_json: true
     formats: ipynb,md
-    notebook_metadata_filter: all
+    notebook_metadata_filter: language_info
     text_representation:
       extension: .md
       format_name: markdown
@@ -47,7 +46,6 @@ from HARK.utilities import plot_funcs
 
 from copy import deepcopy
 
-
 def mystr(number):
     return "{:.4f}".format(number)
 ```
@@ -58,13 +56,13 @@ We are studying a consumer with constant relative risk aversion utility $U(C) = 
 
 The agent's problem can be written in Bellman form as:
 
-\begin{eqnarray*}
+\begin{align*}
 V_t(M_t,P_t) &=& \max_{C_t} U(C_t) + \beta (1-\mathsf{D}_{t+1}) V_{t+1}(M_{t+1},P_{t+1}), \\
 & s.t. & \\
 %A_t &=& M_t - C_t, \\
 M_{t+1} &=& R (M_{t}-C_{t}) + Y_{t+1}, \\
 P_{t+1} &=& \Gamma_{t+1} P_t, \\
-\end{eqnarray*}
+\end{align*}
 
 A particular perfect foresight agent's problem can be characterized by values of risk aversion $\rho$, discount factor $\beta$, and return factor $R$, along with sequences of income growth factors $\{ \Gamma_t \}$ and death probabilities $\{\mathsf{D}_t\}$.  To keep things simple, let's forget about "sequences" of income growth and mortality, and just think about an _infinite horizon_ consumer with constant income growth and survival probability.
 
@@ -76,7 +74,6 @@ HARK represents agents solving this type of problem as **instances** of the **cl
 from HARK.ConsumptionSaving.ConsIndShockModel import PerfForesightConsumerType
 ```
 
-<!-- #region -->
 The $\texttt{PerfForesightConsumerType}$ class contains within itself the python code that constructs the solution for the perfect foresight model we are studying here, as specifically articulated in [these lecture notes](http://www.econ2.jhu.edu/people/ccarroll/public/lecturenotes/consumption/PerfForesightCRRA/).
 
 To create an instance of $\texttt{PerfForesightConsumerType}$, we simply 'call the class'; that is, we invoke it in a way that looks like the way other programming languages evaluate a function, passing as arguments the specific parameter values we want it to have.  In the hidden cell below, we define a **dictionary** named $\texttt{PF_dictionary}$ with these parameter values:
@@ -89,9 +86,7 @@ To create an instance of $\texttt{PerfForesightConsumerType}$, we simply 'call t
 | $1- \mathsf{D}$ | Survival probability | $\texttt{LivPrb}$ | 0.98 |
 | $\Gamma$ | Income growth factor | $\texttt{PermGroFac}$ | 1.01 |
 
-
 For now, don't worry about the specifics of dictionaries.  All you need to know is that a dictionary lets us pass many arguments wrapped up in one simple data structure.
-<!-- #endregion -->
 
 ```python
 # This cell defines a parameter dictionary. You can expand it if you want to see what that looks like.
@@ -140,7 +135,6 @@ PFexample.solution[0].cFunc
 One of the results proven in the associated [the lecture notes](http://www.econ2.jhu.edu/people/ccarroll/public/lecturenotes/consumption/PerfForesightCRRA/) is that, for the specific problem defined above, there is a solution in which the _ratio_ $c = C/P$ is a linear function of the _ratio_ of market resources to permanent income, $m = M/P$.
 
 This is why $\texttt{cFunc}$ can be represented by a linear interpolation.  It can be plotted using the command below:
-
 
 ```python
 mPlotTop = 10

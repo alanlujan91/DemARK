@@ -1,10 +1,18 @@
 ---
+title: Lucas Asset Pricing Model
+authors:
+  - name: Christopher D. Carroll
+    url: http://www.econ2.jhu.edu/people/ccarroll/
+    affiliations:
+      - Johns Hopkins University
+  - name: Mateo Velásquez-Giraldo
+    url: https://mv77.github.io/
+    affiliations:
+      - Johns Hopkins University
 jupyter:
   jupytext:
-    cell_metadata_json: true
-    encoding: '# -*- coding: utf-8 -*-'
     formats: ipynb,md
-    notebook_metadata_filter: all,-widgets,-varInspector
+    notebook_metadata_filter: language_info
     text_representation:
       extension: .md
       format_name: markdown
@@ -28,7 +36,6 @@ jupyter:
 
 # Lucas Asset Pricing Model
 
-## A notebook by [Christopher D. Carroll](http://www.econ2.jhu.edu/people/ccarroll/) and [Mateo Velásquez-Giraldo](https://mv77.github.io/)
 ### Inspired by its [Quantecon counterpart](https://julia.quantecon.org/multi_agent_models/lucas_model.html)
 
 This notebook presents simple computational tools to solve an instance of Lucas's asset-pricing model for which there is no analytical solution: The case when the logarithm of the asset's dividend follows an autoregressive process of order 1,
@@ -75,7 +82,6 @@ We define our particular operator as follows. For any function $g:\mathbb{R}\rig
 \forall~d_t \in \mathbb{R},\,\,\,\, T[g](d_t) := \beta~\mathbb{E}_{t}\left[ \frac{u^{\prime}(d_{t+1})}{u^{\prime}(d_t)} (f(d_{t+1}) + d_{t+1}) \right].
 \end{equation*}
 
-
 We can use $T$ to re-express our pricing equation. If $P^*(\bullet)$ is our equilibrium pricing funtion, it must satisfy
 
 \begin{equation*}
@@ -105,7 +111,6 @@ The code below creates a representation of our model and implements a solution r
 
 # A computational representation of the problem and its solution.
 
-
 `Uninteresting setup:`
 
 ```python
@@ -121,7 +126,6 @@ from HARK.interpolation import LinearInterp, ConstantFunction
 
 ```python
 # A python class representing log-AR1 dividend processes.
-
 
 class DivProcess:
     def __init__(self, α, σ, γ=0.0, nApprox=7):
@@ -142,7 +146,6 @@ class DivProcess:
         uncond_mean = μ / (1 - self.α)
         logDGrid = np.linspace(-5 * uncond_sd, 5 * uncond_sd, n) + uncond_mean
         return logDGrid
-
 
 # A class representing economies with Lucas trees.
 class LucasEconomy:
@@ -278,12 +281,11 @@ plt.figure()
 plt.plot(dGrid, LowCRRAEcon.EqPfun(dGrid), label="Low CRRA")
 plt.plot(dGrid, HighCRRAEcon.EqPfun(dGrid), label="High CRRA")
 plt.legend()
-plt.xlabel("$d_t$")
-plt.ylabel("$P_t$")
+plt.xlabel("$d_t$");
+plt.ylabel("$P_t$");
 ```
 
 # Testing our analytical solutions
-
 
 ## Case 1: Log Utility
 
@@ -300,10 +302,8 @@ logUtilEcon.solve()
 # Generate a function with our analytical solution
 theta = 1 / Disc - 1
 
-
 def aSol(d):
     return d / theta
-
 
 # Get a grid for d over which to compare them
 dGrid = np.exp(DivProc.getLogdGrid())
@@ -313,8 +313,8 @@ plt.figure()
 plt.plot(dGrid, aSol(dGrid), "*", label="Analytical solution")
 plt.plot(dGrid, logUtilEcon.EqPfun(dGrid), label="Numerical solution")
 plt.legend()
-plt.xlabel("$d_t$")
-plt.ylabel("$P^*(d_t)$")
+plt.xlabel("$d_t$");
+plt.ylabel("$P^*(d_t)$");
 ```
 
  ## Case 2: I.I.D dividends
@@ -341,10 +341,8 @@ iidEcon.solve()
 # Generate a function with our analytical solution
 dTil = np.exp((σ**2) / 2 * CRRA * (CRRA - 1))
 
-
 def aSolIID(d):
     return d**CRRA * dTil * Disc / (1 - Disc)
-
 
 # Get a grid for d over which to compare them
 dGrid = np.exp(iidDivs.getLogdGrid())
@@ -354,8 +352,8 @@ plt.figure()
 plt.plot(dGrid, aSolIID(dGrid), "*", label="Analytical solution")
 plt.plot(dGrid, iidEcon.EqPfun(dGrid), label="Numerical solution")
 plt.legend()
-plt.xlabel("$d_t$")
-plt.ylabel("$P^*(d_t)$")
+plt.xlabel("$d_t$");
+plt.ylabel("$P^*(d_t)$");
 plt.show()
 ```
 
@@ -373,7 +371,6 @@ which, when $\rho=1$, reduces (as it should) to
 \begin{equation*}
  \frac{P^*(d_t)}{d_t} = \vartheta
 \end{equation*}
-
 
 ```python
 CRRA = 2
@@ -393,10 +390,8 @@ rw_econ.solve()
 # Generate a function with our analytical solution
 a_sol_factor = np.exp((CRRA - 1) * (CRRA * σ**2 / 2 - γ))
 
-
 def a_sol_rw(d):
     return d**CRRA * a_sol_factor * Disc / (1 - Disc)
-
 
 # Get a grid for d over which to compare them
 dGrid = np.exp(rw_divs.getLogdGrid())
@@ -406,8 +401,8 @@ plt.figure()
 plt.plot(dGrid, a_sol_rw(dGrid), "*", label="Analytical solution")
 plt.plot(dGrid, rw_econ.EqPfun(dGrid), label="Numerical solution")
 plt.legend()
-plt.xlabel("$d_t$")
-plt.ylabel("$P^*(d_t)$")
+plt.xlabel("$d_t$");
+plt.ylabel("$P^*(d_t)$");
 plt.show()
 ```
 
@@ -415,7 +410,7 @@ plt.show()
 
 Hidden in the solution method implemented above is the fact that, in order to make expectations easy to compute, we discretize the random shock $\varepsilon_t$, which is to say, we create a discrete variable $\tilde{\varepsilon}$ that approximates the behavior of $\varepsilon_t$. This is done using a [Gauss-Hermite quadrature](https://en.wikipedia.org/wiki/Gauss%E2%80%93Hermite_quadrature).
 
-A parameter for the numerical solution is the number of different values that we allow our discrete approximation $\tilde{\varepsilon}$ to take, $n^{\#}$. We would expect a higher $n^#$ to improve our solution, as the discrete approximation of $\varepsilon_t$ improves. We test this below.
+A parameter for the numerical solution is the number of different values that we allow our discrete approximation $\tilde{\varepsilon}$ to take, $n^{\#}$. We would expect a higher $n^{\#}$ to improve our solution, as the discrete approximation of $\varepsilon_t$ improves. We test this below.
 
 ```python
 # Increase CRRA to make the effect of uncertainty more evident.
@@ -426,10 +421,8 @@ ns = [1, 2, 10]
 
 dTil = np.exp((σ**2) / 2 * CRRA * (CRRA - 1.0))
 
-
 def aSolIID(d):
     return d**CRRA * dTil * Disc / (1 - Disc)
-
 
 dGrid = np.exp(iidDivs.getLogdGrid())
 
@@ -443,7 +436,7 @@ for n in ns:
 # Plot both
 plt.plot(dGrid, aSolIID(dGrid), "*", label="Analytical solution")
 plt.legend()
-plt.xlabel("$d_t$")
-plt.ylabel("$P^*(d_t)$")
+plt.xlabel("$d_t$");
+plt.ylabel("$P^*(d_t)$");
 plt.show()
 ```

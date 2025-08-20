@@ -1,10 +1,8 @@
 ---
 jupyter:
   jupytext:
-    cell_metadata_filter: ExecuteTime,collapsed,code_folding,-autoscroll
-    cell_metadata_json: true
     formats: ipynb,md
-    notebook_metadata_filter: all,-widgets,-varInspector
+    notebook_metadata_filter: language_info,latex_envs,toc
     text_representation:
       extension: .md
       format_name: markdown
@@ -87,7 +85,6 @@ Q4: (773.038+786.175+302.043+621.773+387.206)
 (Q4-Q2)/Q2=0.0412
 -->
 
-
 ### ... and Uncertainty Could Induce A Drop In Consumption ...
 Increased "uncertainty" has become a popular explanation of much of what happened in the Great Recession -- including this drop.  Qualitatively, it is well known that a perceived increase in labor income uncertainty should induce more saving (less consumption) for precautionary reasons.
 
@@ -107,7 +104,6 @@ Model set up:
 - Ex-ante heterogeneity in consumers' discount factors
 
 With this basic setup, HARK's `IndShockConsumerType` is the appropriate subclass of $\texttt{AgentType}$. So we need to prepare the parameters to create instances of that class.
-
 
 ```python
 # Choose some calibrated parameters that roughly match steady state
@@ -221,7 +217,6 @@ First, let's define a simple function that merely calculates the average consump
 ```python
 # We just merge the cNrm and pNrm lists already constructed for each ConsumerType
 
-
 def calcAvgC(ConsumerTypes):
     """
     This function calculates average consumption in the economy in last simulated period,
@@ -310,10 +305,8 @@ Our counterfactual experiment function takes three inputs-- consumer types, coun
 def calcConsChangeAfterPermShkChange(newVals):
     return calcConsChangeAfterUncertaintyChange(ConsumerTypes, newVals, "PermShkStd")
 
-
 def calcConsChangeAfterTranShkChange(newVals):
     return calcConsChangeAfterUncertaintyChange(ConsumerTypes, newVals, "TranShkStd")
-
 
 def calcConsChangeAfterUnempPrbChange(newVals):
     return calcConsChangeAfterUncertaintyChange(ConsumerTypes, newVals, "UnempPrb")

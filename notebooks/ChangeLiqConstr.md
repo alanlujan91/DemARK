@@ -1,10 +1,8 @@
 ---
 jupyter:
   jupytext:
-    cell_metadata_filter: collapsed,code_folding
-    cell_metadata_json: true
     formats: ipynb,md
-    notebook_metadata_filter: all
+    notebook_metadata_filter: language_info
     text_representation:
       extension: .md
       format_name: markdown
@@ -42,7 +40,6 @@ from copy import deepcopy
 from HARK.ConsumptionSaving.ConsIndShockModel import KinkedRconsumerType
 from HARK.utilities import plot_funcs
 
-
 def mystr(number):
     return "{:.4f}".format(number)
 ```
@@ -74,11 +71,9 @@ The bottommost point on the consumption function is at $m=-0.4$, where consumpti
 
 The consumption function has a linear portion with a slope of 45 degrees along which the marginal propensity to consume out of extra market resources is 1.  But eventually resources get high enough that the consumer is willing to spend less than the maximum possible amount; this concave part of the consumption function terminates at the point where the consumer's desired borrowing reaches zero: The bottommost point on the line segment discussed above.
 
-
 ### Solution With A Tighter Constraint
 
 We are now interested in the solution to the problem when the constraint is tighter; concretely, the maximum amount of borrowing allowed is now 0.2, rather than 0.4.
-
 
 ```python
 # Make a copy of the example consumer

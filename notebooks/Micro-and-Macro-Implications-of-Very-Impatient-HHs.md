@@ -1,9 +1,8 @@
 ---
 jupyter:
   jupytext:
-    cell_metadata_filter: ExecuteTime,collapsed,code_folding,incorrectly_encoded_metadata,tags,jp-MarkdownHeadingCollapsed,-autoscroll
     formats: ipynb,md
-    notebook_metadata_filter: all,-widgets,-varInspector
+    notebook_metadata_filter: language_info,latex_envs
     text_representation:
       extension: .md
       format_name: markdown
@@ -47,17 +46,16 @@ jupyter:
 
 [![badge](https://img.shields.io/badge/Launch%20using%20-Econ--ARK-blue)](https://econ-ark.org/materials/micro-and-macro-implications-of-very-impatient-hhs#launch)
 
-
 ## Introduction
 
 Buffer stock saving models of the kind implemented in $\texttt{ConsIndShockType}$ say that, if a standard ['Growth Impatience Condition'](https://econ-ark.github.io/BufferStockTheory/#GICRaw), holds:
 
-\begin{eqnarray}
-\newcommand{\Rfree}{\mathsf{R}}\newcommand{\DiscFac}{\beta}\newcommand{\PermGroFac}{\Gamma}\newcommand{\PermShk}{\psi}\newcommand{\CRRA}{\rho}
-\left(\frac{(\Rfree\DiscFac)^{1/\CRRA}\mathbb{E}[\PermShk^{-1}]}{\PermGroFac}\right) & < & 1
-\end{eqnarray}
+\begin{align}
 
-then the _ratio_ of asets $\newcommand{\aLev}{\mathbf{a}}\aLev$ to permanent income $\newcommand{\pLev}{\mathbf{p}}\pLev$, $a=\aLev/\pLev$, has a target value $\newcommand{\aTarg}{\check{a}}\aTarg$ that depends on the consumer's preferences (relative risk aversion $\CRRA$, time preference $\DiscFac$) and circumstances (interest factor $\Rfree$, growth factor $\PermGroFac$, uncertainty about permanent income shocks $\sigma^{2}_{\PermShk}$).
+\left(\frac{(\Rfree\DiscFac)^{1/\CRRA}\mathbb{E}[\PermShk^{-1}]}{\PermGroFac}\right) & < & 1
+\end{align}
+
+then the _ratio_ of asets $\aLev$ to permanent income $\pLev$, $a=\aLev/\pLev$, has a target value $\aTarg$ that depends on the consumer's preferences (relative risk aversion $\CRRA$, time preference $\DiscFac$) and circumstances (interest factor $\Rfree$, growth factor $\PermGroFac$, uncertainty about permanent income shocks $\sigma^{2}_{\PermShk}$).
 
 If everyone had identical preferences and everyone were at their target $\check{a}$, then inequality in the level of $\aLev$ would be exactly the same as inequality in $\pLev$.
 
@@ -71,7 +69,6 @@ The most transparent and simplest of these to change is the time preference fact
 2. With such a distribution of $\beta$, simulated agents' (annual) marginal propensity to consume (MPC) from transitory income shocks to income matches large body of microeconomic evidence that typically finds evidence of MPC's in the range of 0.2 to 0.6.  This is much better than RA macro models that typically yield MPC's in the range of 0.01 to 0.05.
 
 While the most impatient agents in the cstwMPC model have fairly high MPCs (~0.6 annual), there is microeconomic evidence that a significant fraction of households have *even higher* MPCs than the model predicts, especially at the quarterly frequency.  This group of households is commonly referred to as "hand-to-mouth" -- they consume most of their transitory shocks to income not too long after they receive them (mostly within a quarter).  There are several reasons why a household could be hand-to-mouth, but one plausible explanation is that these households are *even more impatient* than estimated by cstwMPC for the most impatient agent.
-
 
 ```python
 # This cell does some setup and imports generic tools used to produce the figures
@@ -94,32 +91,25 @@ Generator = False  # Is this notebook the master or is it generated?
 
 # Set how many digits past the decimal point should be printed?
 
-
 def mystr(number):
     return "{:.4f}".format(number)
-
 
 def decfmt4(number):
     return "{:.4f}".format(number)
 
-
 def decfmt3(number):
     return "{:.3f}".format(number)
-
 
 def decfmt2(number):
     return "{:.2f}".format(number)
 
-
 def decfmt1(number):
     return "{:.1f}".format(number)
-
 
 # This is a jupytext paired notebook that autogenerates BufferStockTheory.py
 # which can be executed from a terminal command line via "ipython BufferStockTheory.py"
 # But a terminal does not permit inline figures, so we need to test jupyter vs terminal
 # Google "how can I check if code is executed in the ipython notebook"
-
 
 def in_ipynb():
     try:
@@ -133,7 +123,6 @@ def in_ipynb():
     except NameError:
         return False
 
-
 # Determine whether to make the figures inline (for spyder or jupyter)
 # vs whatever is the automatic setting that will apply if run from the terminal
 if in_ipynb():
@@ -144,7 +133,6 @@ else:
     get_ipython().run_line_magic("matplotlib", "auto")
 
 # Import the plot-figure library matplotlib
-
 
 # In order to use LaTeX to manage all text layout in our figures, we import rc settings from matplotlib.
 
@@ -234,7 +222,6 @@ cstwMPC_calibrated_parameters = {
 ```
 
 * Start with importing the predefined dictionaries for agent types from the HARK toolkit. Then only show the parameters that are actually different from the imported dictionary.
-
 
 # Creating an ex-ante distribution of heterogeneous agents
 
@@ -375,15 +362,15 @@ sim_Lorenz_points_ap = get_lorenz_shares(sim_wealth_ap, percentiles=pctiles)
 # Plot Lorenz curves for model with uniform distribution of time preference using both methods
 
 plt.subplot(1, 2, 1)
-plt.plot(pctiles, SCF_Lorenz_points, "--k")
-plt.plot(pctiles, sim_Lorenz_points, "-b")
+plt.plot(pctiles, SCF_Lorenz_points, "--k");
+plt.plot(pctiles, sim_Lorenz_points, "-b");
 plt.title("Brute force approach")
 plt.xlabel("Percentile of net worth")
 plt.ylabel("Cumulative share of wealth")
 
 plt.subplot(1, 2, 2)
-plt.plot(pctiles, SCF_Lorenz_points, "--k")
-plt.plot(pctiles, sim_Lorenz_points_ap, "-b")
+plt.plot(pctiles, SCF_Lorenz_points, "--k");
+plt.plot(pctiles, sim_Lorenz_points_ap, "-b");
 plt.title("Using AgentPopulation class")
 # plt.xlabel("Percentile of net worth")
 # plt.ylabel("Cumulative share of wealth")
@@ -397,7 +384,6 @@ plt.show(block=False)
 Now we want to construct a function that calculates the Euclidean distance between simulated and actual Lorenz curves at the four percentiles of interest: 20, 40, 60, and 80.
 
 NB: For some reason, this step is not completed in the code. We leave this cell here, as this exercise should probably be performed as well.
-
 
 ## The Distribution Of the Marginal Propensity to Consume
 

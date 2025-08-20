@@ -1,9 +1,8 @@
 ---
 jupyter:
   jupytext:
-    cell_metadata_json: true
     formats: ipynb,md
-    notebook_metadata_filter: all
+    notebook_metadata_filter: language_info
     text_representation:
       extension: .md
       format_name: markdown
@@ -29,7 +28,6 @@ jupyter:
 
 [![badge](https://img.shields.io/badge/Launch%20using%20-Econ--ARK-blue)](https://econ-ark.org/materials/perfforesightcrra-approximation#launch)
 
-
 ```python
 # Initial notebook set up
 from HARK.ConsumptionSaving.ConsIndShockModel import (
@@ -41,10 +39,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from copy import deepcopy
 
-
 def mystr(number):
     return "{:.4f}".format(number)
-
 
 # These last two will make our charts look nice
 plt.style.use("seaborn-v0_8-darkgrid")
@@ -70,7 +66,6 @@ Hints:
 
 ```python
 # Set up a HARK Perfect Foresight Consumer called PFagent
-
 
 # Now we need to give our consumer parameter values that allow us to solve the consumer's problem
 
@@ -161,7 +156,7 @@ The size of the error looks pretty stable, which we can show by calculating it i
 # Plot the deviations
 approximationError = 100 * (cHARK - cApprox) / cHARK
 plt.figure(figsize=(9, 6))  # set the figure size
-plt.plot(m_range, approximationError, label="cHARK - cApprox")
+plt.plot(m_range, approximationError, label="cHARK - cApprox");
 plt.xlabel("Market resources")  # x axis label
 plt.ylabel("Percent deviation of approximation")  # y axis label
 plt.legend()
@@ -217,7 +212,7 @@ for i in range(len(Rfree_array)):
     deviation = np.mean(np.abs(cApprox / cHARK))
     mean_dev[i] = deviation
 
-plt.plot(Rfree_array, mean_dev)
+plt.plot(Rfree_array, mean_dev);
 plt.xlabel("Return Factor")  # x axis label
 plt.ylabel(" Average deviation along consumption function")  # y axis label
 plt.show()

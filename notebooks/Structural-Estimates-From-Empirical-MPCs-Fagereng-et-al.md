@@ -1,10 +1,8 @@
 ---
 jupyter:
   jupytext:
-    cell_metadata_filter: ExecuteTime,collapsed,code_folding,-autoscroll
-    cell_metadata_json: true
     formats: ipynb,md
-    notebook_metadata_filter: all,-widgets,-varInspector
+    notebook_metadata_filter: language_info,latex_envs
     text_representation:
       extension: .md
       format_name: markdown
@@ -42,14 +40,12 @@ jupyter:
     user_envs_cfg: false
 ---
 
-<!-- #region -->
 # Making Structural Estimates From Empirical Results
 
 [![badge](https://img.shields.io/badge/Launch%20using%20-Econ--ARK-blue)](https://econ-ark.org/materials/structural-estimates-from-empirical-mpcs-fagereng-et-al#launch)
 
 This notebook conducts a quick and dirty structural estimation based on Table 9 of ["MPC Heterogeneity and Household Balance Sheets" by Fagereng, Holm, and Natvik](https://economicdynamics.org/meetpapers/2017/paper_65.pdf) <cite data-cite="6202365/SUE56C4B"></cite>, who use Norweigian administrative data on income, household assets, and lottery winnings to examine the MPC from transitory income shocks (lottery prizes).  Their Table 9 reports an estimated MPC broken down by quartiles of bank deposits and
 prize size; this table is reproduced here as $\texttt{MPC\_target\_base}$.  In this demo, we use the Table 9 estimates as targets in a simple structural estimation, seeking to minimize the sum of squared differences between simulated and estimated MPCs by changing the (uniform) distribution of discount factors.  The essential question is how well their results be rationalized by a simple one-asset consumption-saving model. (Note that the paper was later published under a different [version](https://www.aeaweb.org/articles?id=10.1257/mac.20190211) which unfortunately excluded table 9.)
-
 
 The function that estimates discount factors includes several options for estimating different specifications:
 
@@ -59,7 +55,6 @@ The function that estimates discount factors includes several options for estima
 4. Splurge   : Amount of lottery prize that an individual will automatically spend in a moment of excitement (perhaps ancient tradition in Norway requires a big party when you win the lottery), before beginning to behave according to the optimal consumption function.  The patterns in Table 9 can be fit much better when this is set around \$700 --> 0.7.  That doesn't seem like an unreasonable amount of money to spend on a memorable party.
 5. do_secant : Boolean indicator for whether to use "secant MPC", which is average MPC over the range of the prize.  MNW believes authors' regressions are estimating this rather than point MPC.  When False, structural estimation uses point MPC after receiving prize.  NB: This is incompatible with Splurge > 0.
 6. drop_corner : Boolean for whether to include target MPC in the top left corner, which is greater than 1.  Authors discuss reasons why the MPC from a transitory shock *could* exceed 1.  Option is included here because this target tends to push the estimate around a bit.
-<!-- #endregion -->
 
 ```python
 # Import python tools
@@ -74,7 +69,6 @@ from HARK.distributions import Uniform
 from HARK.utilities import get_percentiles
 from HARK.estimation import minimize_nelder_mead
 from HARK.ConsumptionSaving.ConsIndShockModel import IndShockConsumerType
-
 
 init_infinite = {
     "CRRA": 1.0,  # Coefficient of relative risk aversion
@@ -282,10 +276,8 @@ def FagerengObjFunc(center, spread, verbose=False):
 
 guess = [0.92, 0.03]
 
-
 def f_temp(x):
     return FagerengObjFunc(x[0], x[1])
-
 
 opt_params = minimize_nelder_mead(f_temp, guess, verbose=False)
 print(

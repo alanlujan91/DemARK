@@ -1,9 +1,8 @@
 ---
 jupyter:
   jupytext:
-    encoding: '# -*- coding: utf-8 -*-'
     formats: ipynb,md
-    notebook_metadata_filter: all
+    notebook_metadata_filter: language_info
     text_representation:
       extension: .md
       format_name: markdown
@@ -29,8 +28,6 @@ jupyter:
 
 [![badge](https://img.shields.io/badge/Launch%20using%20-Econ--ARK-blue)](https://econ-ark.org/materials/perfforesightcrra-savingrate#launch)
 
-
-
 This notebook demonstrates how to obtain the saving rate of a forward-looking consumer using HARK.
 
 ```python
@@ -43,10 +40,8 @@ import matplotlib.pyplot as plt
 
 import numpy as np
 
-
 def mystr(number):
     return "{:.4f}".format(number)
-
 
 # These last two will make our charts look nice
 plt.style.use("seaborn-v0_8-darkgrid")
@@ -112,7 +107,7 @@ We are now ready to think about the saving rate of the consumer.
 Remember that the saving rate of an agent at time $t$ is
 
 \begin{equation}
-\text{Saving Rate}_t = \frac{\text{Capital Income}_t + \text{Labor Income}_t - \text{Consumption_t}}{\text{Capital Income}_t + \text{Labor Income}_t}
+\text{Saving Rate}_t = \frac{\text{Capital Income}_t + \text{Labor Income}_t - \text{Consumption}_t}{\text{Capital Income}_t + \text{Labor Income}_t}
 \end{equation}
 
 Dividing both the numerator and denominator by the agent's permanent income $\textbf{P}_t$ and adopting the notation in [the course's lecture notes](https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/Consumption/PerfForesightCRRA/) we have
@@ -144,7 +139,7 @@ c_t = PFsavrate.solution[0].cFunc(m_t)
 ς_t = sav_rate_t = (cap_income_t + lab_income_t - c_t) / (cap_income_t + lab_income_t)
 
 # And now the plot
-plt.plot(a_tm1, sav_rate_t)
-plt.xlabel(r"$a_{t-1}$")
-plt.ylabel("Saving Rate")
+plt.plot(a_tm1, sav_rate_t);
+plt.xlabel(r"$a_{t-1}$");
+plt.ylabel("Saving Rate");
 ```

@@ -2,7 +2,7 @@
 jupyter:
   jupytext:
     formats: ipynb,md
-    notebook_metadata_filter: all
+    notebook_metadata_filter: language_info,latex_envs,widgets
     text_representation:
       extension: .md
       format_name: markdown
@@ -1440,7 +1440,6 @@ jupyter:
 
 [![badge](https://img.shields.io/badge/Launch%20using%20-Econ--ARK-blue)](https://econ-ark.org/materials/diamondolg#launch)
 
-
 ### Convergence of OLG Economy to Steady State
 
 ```python
@@ -1466,7 +1465,6 @@ rc("font", weight="bold")
 rcParams["text.latex.preamble"] = r"\usepackage{sfmath} \boldmath"
 
 sns.set_style("white", {"axes.edgecolor": "black"})
-
 
 years_per_gen = 30
 ```
@@ -1510,8 +1508,8 @@ def plot1(Epsilon, DiscFac, PopGrowth, YearsPerGeneration, Initialk):
 
     # Analitical solution plot
     ktp1 = Q * kt_range**Epsilon
-    plt.plot(kt_range, ktp1, "b-", label="Capital accumulation curve")
-    plt.plot(kt_range, kt_range, "k-", label="45 Degree line")
+    plt.plot(kt_range, ktp1, "b-", label="Capital accumulation curve");
+    plt.plot(kt_range, kt_range, "k-", label="45 Degree line");
 
     # Plot the path
     kt_ar = Initialk
@@ -1551,8 +1549,8 @@ def plot1(Epsilon, DiscFac, PopGrowth, YearsPerGeneration, Initialk):
         ktp1_ar = kt_ar
 
     # Plot kbar and initial k
-    plt.plot(kBar, kBar, "ro", label=r"$\bar{k}$")
-    plt.plot(Initialk, 0.0005, "co", label="$k_0$")
+    plt.plot(kBar, kBar, "ro", label=r"$\bar{k}$");
+    plt.plot(Initialk, 0.0005, "co", label="$k_0$");
 
     plt.title("Convergence of OLG Economy to Steady State", fontsize=20, y=1.05)
     plt.legend()
@@ -1655,7 +1653,7 @@ def plot2(Epsilon, PopGrowth, YearsPerGeneration):
     plt.suptitle("Gross and Net Per Capita Output as a Function of $k$", fontsize=20)
     plt.subplot(1, 2, 1)
     plt.plot(kt_range, kt_range**Epsilon, "b-", label="$f(k)$")
-    plt.plot(kt_range, Xi * kt_range, "k-", label="$Xi * k$")
+    plt.plot(kt_range, Xi * kt_range, "k-", label="$Xi * k$");
     plt.legend()
     plt.xlim(0, kMax)
     plt.ylim(0, 3)
@@ -1768,9 +1766,9 @@ def plot3(Epsilon, DiscFac, z, Rfree, YearsPerGeneration):
     # Analitical solution plot
     ktp1 = Q * kt_range**Epsilon
     ktp1_PAYG = Q * kt_range**Epsilon - transfers
-    plt.plot(kt_range, ktp1, "b-", label="Capital accumulation curve")
-    plt.plot(kt_range, ktp1_PAYG, "g-", label="Capital accumulation curve with PAYG")
-    plt.plot(kt_range, kt_range, "k-", label="45 Degree line")
+    plt.plot(kt_range, ktp1, "b-", label="Capital accumulation curve");
+    plt.plot(kt_range, ktp1_PAYG, "g-", label="Capital accumulation curve with PAYG");
+    plt.plot(kt_range, kt_range, "k-", label="45 Degree line");
 
     # Plot the path
     kt_PAYG = kBar_old
@@ -1812,8 +1810,8 @@ def plot3(Epsilon, DiscFac, z, Rfree, YearsPerGeneration):
         ktp1_PAYG = kt_PAYG
 
     # Plot kbar and initial k
-    plt.plot(kBar_old, kBar_old, "co", label=r"$\bar{k}$")
-    plt.plot(kBar_new, kBar_new, "ro", label=r"$\bar{k}_{PAYG}$")
+    plt.plot(kBar_old, kBar_old, "co", label=r"$\bar{k}$");
+    plt.plot(kBar_new, kBar_new, "ro", label=r"$\bar{k}_{PAYG}$");
 
     plt.title(
         "Convergence of OLG Economy After Intro of PAYG Social Security System",

@@ -1,9 +1,8 @@
 ---
 jupyter:
   jupytext:
-    cell_metadata_json: true
     formats: ipynb,md
-    notebook_metadata_filter: all
+    notebook_metadata_filter: language_info
     text_representation:
       extension: .md
       format_name: markdown
@@ -65,7 +64,6 @@ BaselineExample = IndShockConsumerType()
 # and instantiate an instance of that ConsumerType instead.  As a homework assignment, we leave it
 # to you to uncomment the two lines of code below, and see how the results change!
 
-
 BaselineExample = KinkedRconsumerType()
 ```
 
@@ -100,7 +98,6 @@ BaselineExample.DiscFac = (
 # lifecycle that is only experienced 1 time.  A consumer who lived that life twice in a row, and
 # then died, would have cycles = 2.  But neither is what we want.  Here, we need to set cycles = 0,
 # to tell HARK that we are solving the model for an infinite horizon consumer.
-
 
 # Note that another complication with the cycles attribute is that it does not come from
 # Params.init_idiosyncratic_shocks.  Instead it is a keyword argument to the  __init__() method of
@@ -157,7 +154,6 @@ BaselineExample is $\texttt{BaselineExample.solution[0].cFunc}$
 ```python
 # First, declare useful functions to plot later
 
-
 def FirstDiffMPC_Income(x):
     # Approximate the MPC out of income by giving the agent a tiny bit more income,
     # and plotting the proportion of the change that is reflected in increased consumption
@@ -173,7 +169,6 @@ def FirstDiffMPC_Income(x):
         - BaselineExample.solution[0].cFunc(x)
     ) / income_change
 
-
 def FirstDiffMPC_Credit(x):
     # Approximate the MPC out of credit by plotting how much more of the increased credit the agent
     # with higher credit spends
@@ -187,10 +182,8 @@ def FirstDiffMPC_Credit(x):
 %matplotlib inline
 # Import a useful plotting function from HARK.utilities
 
-
 # Declare the upper limit for the graph
 x_max = 10.0
-
 
 # Note that plot_funcs takes four arguments: (1) a list of the arguments to plot,
 # (2) the lower bound for the plots, (3) the upper bound for the plots, and (4) keywords to pass
@@ -211,7 +204,6 @@ plot_funcs(
     x_max,
     legend_kwds={"loc": "upper left", "labels": ["Baseline", "XtraCredit"]},
 )
-
 
 # Plot the MPCs to compare them
 print("MPC out of Credit v MPC out of Income")

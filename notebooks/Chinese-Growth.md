@@ -1,9 +1,8 @@
 ---
 jupyter:
   jupytext:
-    cell_metadata_json: true
     formats: ipynb,md
-    notebook_metadata_filter: all
+    notebook_metadata_filter: language_info,latex_envs,toc
     text_representation:
       extension: .md
       format_name: markdown
@@ -68,8 +67,6 @@ The specific question is whether a high degree of uncertainty can explain China'
 ### The Thought Experiment
 
 In more detail, our consumers will initially live in a stationary, low-growth environment (intended to approximate China before 1978).  Then, unexpectedly, income growth will surge at the same time that income uncertainty increases (intended to approximate the effect of economic reforms in China since 1978.)  Consumers believe the high-growth, high-uncertainty state is highly persistent, but that ultimately growth will slow to a "normal" pace matching that of other advanced countries.
-
-
 
 ### The Baseline Model
 
@@ -142,7 +139,6 @@ init_China_parameters.update(Chinese_growth_params)
 
 Other parameters that are not used during initialization can also be assigned here, by changing the appropriate value in the $\texttt{init\_China\_parameters\_dictionary}$; however, they can also be changed later, by altering the appropriate attribute of the initialized $\texttt{MarkovConsumerType}$.
 
-
 ### Import and initialize the Agents
 
 Here, we bring in an agent making a consumption/savings decision every period, subject to transitory and permanent income shocks, AND a Markov shock
@@ -156,7 +152,6 @@ Now, add in ex-ante heterogeneity in consumers' discount factors.
 
 The cstwMPC parameters do not define a single discount factor; instead, there is ex-ante heterogeneity in the discount factor.  To prepare to create this ex-ante heterogeneity, first create the desired number of consumer types:
 
-
 ```python
 num_consumer_types = 7  # declare the number of types we want
 ChineseConsumerTypes = []  # initialize an empty list
@@ -166,7 +161,6 @@ for nn in range(num_consumer_types):
     newType = deepcopy(ChinaExample)
     ChineseConsumerTypes.append(newType)
 ```
-
 
 Now, generate the desired ex-ante heterogeneity, by giving the different consumer types each their own discount factor.
 
@@ -205,7 +199,6 @@ LowGrowthIncomeDstn = low_growth_model.IncShkDstn[0]
 
 # Remember the standard deviation of the permanent income shock in the low-growth state for later
 LowGrowth_PermShkStd = low_growth_model.PermShkStd
-
 
 def calcNatlSavingRate(PrmShkVar_multiplier, RNG_seed=0):
     """

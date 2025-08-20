@@ -1,10 +1,8 @@
 ---
 jupyter:
   jupytext:
-    cell_metadata_filter: collapsed,code_folding
-    cell_metadata_json: true
     formats: ipynb,md
-    notebook_metadata_filter: all
+    notebook_metadata_filter: language_info,latex_envs,toc
     text_representation:
       extension: .md
       format_name: markdown
@@ -58,11 +56,9 @@ jupyter:
 
 [![badge](https://img.shields.io/badge/Launch%20using%20-Econ--ARK-blue)](https://econ-ark.org/materials/incexpectationexample#launch)
 
-
 This module creates an example application extending $\texttt{PersistentShockConsumerType}$ from $\texttt{ConsGenIndShockModel}$. It uses the HARK tool $\texttt{GenIncProcessModel}$ (whose documentation you can find [here](https://github.com/econ-ark/DemARK/blob/master/notebooks/IncExpectationExample.ipynb).)
 
 Most simply, it solves a consumption-saving model with shocks that are neither necessarily fully transitory nor fully permanent. Persistent income is tracked as a state variable and follows an AR(1) process.
-
 
 ###  What if beliefs about persistent income differ from actual ?
 
@@ -83,14 +79,12 @@ from HARK.ConsumptionSaving.ConsGenIncProcessModel import PersistentShockConsume
 from HARK.distributions import Uniform
 from HARK.utilities import get_lorenz_shares, calc_subpop_avg
 
-
 def mystr(number):
     return "{:.4f}".format(number)
 ```
 
 ```python
 # This cell makes a subclass of PersistentShockConsumerType including the MPC
-
 
 class PersistentShockConsumerTypeX(PersistentShockConsumerType):
     def getControls(self):
@@ -178,7 +172,6 @@ BaselineDict = {
 ```python
 # This cell defines a function to solve and simulate a consumer misperceiving the correlation of persistent income shocks
 
-
 def runRoszypalSchlaffmanExperiment(CorrAct, CorrPcvd, DiscFac_center, DiscFac_spread):
     """
     Solve and simulate a consumer type who misperceives the extent of serial correlation
@@ -194,7 +187,6 @@ def runRoszypalSchlaffmanExperiment(CorrAct, CorrPcvd, DiscFac_center, DiscFac_s
         A measure of centrality for the distribution of the beta parameter, DiscFac.
     DiscFac_spread : float
         A measure of spread or diffusion for the distribution of the beta parameter.
-
 
     Returns
     -------
@@ -284,8 +276,6 @@ def runRoszypalSchlaffmanExperiment(CorrAct, CorrPcvd, DiscFac_center, DiscFac_s
 
 The user needs to call the function $\texttt{runRoszypalSchlaffmanExperiment}$ with specific values for $\texttt{CorrAct}$, $\texttt{CorrPcvd}$ and estimates of $\texttt{DiscFac\_center}$, $\texttt{DiscFac\_spread}$ to solve the model accordingly.
 
-
-
 ```python
 # Call the function with test values for (CorrAct, CorrPcvd, DiscFac_center, DiscFac_spread)
 AggWealthRatio, Lorenz, Gini, Avg_MPC = runRoszypalSchlaffmanExperiment(
@@ -294,7 +284,7 @@ AggWealthRatio, Lorenz, Gini, Avg_MPC = runRoszypalSchlaffmanExperiment(
 
 # Plot the Lorenz curve
 print("The Lorenz curve for assests is")
-plt.plot(Lorenz[0], Lorenz[1])
+plt.plot(Lorenz[0], Lorenz[1]);
 plt.xlabel("Wealth percentile")
 plt.ylabel("Cumulative wealth share")
 plt.xlim([0.0, 1.0])

@@ -1,10 +1,8 @@
 ---
 jupyter:
   jupytext:
-    cell_metadata_filter: collapsed,code_folding
-    cell_metadata_json: true
     formats: ipynb,md
-    notebook_metadata_filter: all
+    notebook_metadata_filter: language_info,latex_envs
     text_representation:
       extension: .md
       format_name: markdown
@@ -164,14 +162,12 @@ aLvl_all = np.concatenate([ThisType.state_now["aLvl"] for ThisType in MyTypes])
 # Interpret
 Here, you should attempt to give an intiutive explanation of the results you see in the figure you just constructed
 
-
 ## The Distribution of Wealth...
 
 Your next exercise is to show how the distribution of wealth differs for the different parameter  values
 
 ```python
 # Finish filling in this function to calculate the Euclidean distance between the simulated and actual Lorenz curves.
-
 
 def calcLorenzDistance(SomeTypes):
     """
@@ -230,7 +226,6 @@ def describeMPCdstn(SomeTypes, percentiles):
             + "th percentile of the MPC is "
             + str(MPCpercentiles_annual[j])
         )
-
 
 describeMPCdstn(MyTypes, np.linspace(0.05, 0.95, 19))
 ```

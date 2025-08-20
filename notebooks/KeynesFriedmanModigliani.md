@@ -1,10 +1,8 @@
 ---
 jupyter:
   jupytext:
-    cell_metadata_json: true
-    encoding: '# -*- coding: utf-8 -*-'
     formats: ipynb,md
-    notebook_metadata_filter: all
+    notebook_metadata_filter: language_info,latex_envs,toc
     text_representation:
       extension: .md
       format_name: markdown
@@ -72,7 +70,6 @@ import numpy as np
 plt.style.use("seaborn-v0_8-darkgrid")
 palette = plt.get_cmap("Dark2")
 
-
 pd.core.common.is_list_like = pd.api.types.is_list_like
 ```
 
@@ -86,15 +83,13 @@ Keynes:
 This can be formalized as:
 
 $
-\begin{eqnarray}
+\begin{align}
 c_t & = &  a_0 + a_{1}y_t
 \\ c_t - c_{t-1} & = & a_{1}(y_t - y_{t-1})
-\end{eqnarray}
+\end{align}
 $
 
 for $a_0 > 0, a_1 < 1$
-
-
 
 #### The Keynesian Consumption Function
 
@@ -139,10 +134,10 @@ plt.figure(figsize=(9, 6))
 plt.plot(
     income, KeynesianExample.cFunc(income), label="Consumption function"
 )  # plot income versus the consumption
-plt.plot(income, income, "k--", label="C=Y")
+plt.plot(income, income, "k--", label="C=Y");
 plt.title("Consumption function")
-plt.xlabel("Income (y)")
-plt.ylabel("Normalized Consumption (c)")
+plt.xlabel("Income (y)");
+plt.ylabel("Normalized Consumption (c)");
 plt.ylim(0, 20)
 plt.legend()
 plt.show()
@@ -162,7 +157,6 @@ print("a_1 is {:.2f}".format(a_1))
 
 #### The Keynesian consumption function: Evidence
 
-
 Aggregate Data:
 
 Long-term time-series estimates: $a_0$ close to zero, $a_1$ close to 1 (saving rate stable over time - Kuznets).<br>
@@ -179,12 +173,12 @@ df = web.DataReader(
 )  # import the data from Fred
 # Plot the data
 plt.figure(figsize=(9, 6))
-plt.plot(df.DPIC96, df.PCECC96, "go", markersize=3.0, label="Data")
+plt.plot(df.DPIC96, df.PCECC96, "go", markersize=3.0, label="Data");
 slope, intercept, r_value, p_value, std_err = stats.linregress(df.DPIC96, df.PCECC96)
-plt.plot(df.DPIC96, intercept + slope * df.DPIC96, "k-", label="Line of best fit")
-plt.plot(df.DPIC96, df.DPIC96, "k--", label="C=Y")
-plt.xlabel("Income (y)")
-plt.ylabel("Consumption (c)")
+plt.plot(df.DPIC96, intercept + slope * df.DPIC96, "k-", label="Line of best fit");
+plt.plot(df.DPIC96, df.DPIC96, "k--", label="C=Y");
+plt.xlabel("Income (y)");
+plt.ylabel("Consumption (c)");
 plt.legend()
 plt.show()
 
@@ -196,8 +190,8 @@ print("a_1 is {:.2f}".format(slope))
 # However, our consumption data is [non-stationary](https://www.reed.edu/economics/parker/312/tschapters/S13_Ch_4.pdf) and this drives the previous
 # estimate.
 df.DPIC96.plot()
-plt.xlabel("Date")
-plt.ylabel("Consumption (c)")
+plt.xlabel("Date");
+plt.ylabel("Consumption (c)");
 ```
 
 ```python
@@ -207,7 +201,7 @@ df_diff = df.diff()  # create dataframe of differenced values
 
 # Plot the data
 plt.figure(figsize=(9, 6))
-plt.plot(df_diff.DPIC96, df_diff.PCECC96, "go", markersize=3.0, label="Data")
+plt.plot(df_diff.DPIC96, df_diff.PCECC96, "go", markersize=3.0, label="Data");
 slope, intercept, r_value, p_value, std_err = stats.linregress(
     df_diff.DPIC96[1:], df_diff.PCECC96[1:]
 )  # find line of best fit
@@ -218,8 +212,8 @@ plt.plot(
     label="Line of best fit",
 )
 plt.plot(np.array([-200, 200]), np.array([-200, 200]), "k--", label="C=Y")
-plt.xlabel("Change in income (dy)")
-plt.ylabel("Change in consumption (dc)")
+plt.xlabel("Change in income (dy)");
+plt.ylabel("Change in consumption (dc)");
 plt.legend()
 plt.show()
 
@@ -227,7 +221,6 @@ print("a_1 is {:.2f}".format(slope))
 ```
 
 a_1 is now much lower, as we expected
-
 
 ### Household Data:
 
@@ -239,9 +232,7 @@ Further facts:
    * low-income: Implausibly large dissaving (spend 2 or 3 times income)
    * high-income: Remarkably high saving
 
-
 ### 2. Duesenberry
-
 
 Habit formation may explain why $c_{t-1}$ affects $c_t$.<br>
 Relative Income Hypothesis suggests that you compare your consumption to consumption of ‘peers’.<br>
@@ -250,7 +241,6 @@ May explain high saving rates of Black HHs.<br>
 Problems with Duesenberry: <br>
 No budget constraint<br>
 No serious treatment of intertemporal nature of saving
-
 
 #### Dusenberry: Evidence
 
@@ -273,7 +263,6 @@ result.summary()
 
 ### 3. Friedman's Permanent Income Hypothesis
 
-
 $$c = p + u$$
 $$y = p + v$$
 
@@ -282,7 +271,6 @@ $$c_i = a_0 + a_{1}y_{i} + u_{i}$$
 
 And if Friedman is correct, and the "true" coefficient on permanent income $p$ is 1, then the coefficient on $y$ will be:
 $$a_1 = \frac{s^2_{p}}{(s^2_{v} + s^2_{p})}$$
-
 
 #### Friedman's Permanent Income Hypothesis
 
@@ -339,16 +327,15 @@ plt.figure(figsize=(9, 6))
 plt.plot(
     income, PIHexample.cFunc(income), label="Consumption function"
 )  # plot income versus the consumption
-plt.plot(income, income, "k--", label="C=Y")
+plt.plot(income, income, "k--", label="C=Y");
 plt.title("Consumption function")
-plt.xlabel("Normalized Income (y)")
-plt.ylabel("Normalized Consumption (c)")
+plt.xlabel("Normalized Income (y)");
+plt.ylabel("Normalized Consumption (c)");
 plt.legend()
 plt.show()
 ```
 
 We can see that regardless of the income our agent receives, they consume their permanent income, which is normalized to 1.
-
 
 We can also draw out some implications of the PIH that we can then test with evidence
 
@@ -373,10 +360,10 @@ plt.figure(figsize=(9, 6))
 plt.plot(
     total_inc, PIHexample.cFunc(total_inc) * perm_inc, "go", label="Simulated data"
 )
-plt.plot(total_inc, intercept + slope * total_inc, "k-", label="Line of best fit")
+plt.plot(total_inc, intercept + slope * total_inc, "k-", label="Line of best fit");
 plt.plot(np.linspace(1, 2, 5), np.linspace(1, 2, 5), "k--", label="C=Y")
-plt.xlabel("Income (y)")
-plt.ylabel("Consumption (c)")
+plt.xlabel("Income (y)");
+plt.ylabel("Consumption (c)");
 plt.legend()
 plt.ylim(0, 2)
 plt.xlim(1.1, 1.9)
@@ -402,10 +389,10 @@ plt.figure(figsize=(9, 6))
 plt.plot(
     total_inc, PIHexample.cFunc(total_inc) * perm_inc, "go", label="Simulated data"
 )
-plt.plot(total_inc, intercept + slope * total_inc, "k-", label="Line of best fit")
+plt.plot(total_inc, intercept + slope * total_inc, "k-", label="Line of best fit");
 plt.plot(np.linspace(0, 2, 5), np.linspace(0, 2, 5), "k--", label="C=Y")
-plt.xlabel("Income (y)")
-plt.ylabel("Consumption (c)")
+plt.xlabel("Income (y)");
+plt.ylabel("Consumption (c)");
 plt.legend()
 plt.ylim(0, 2)
 plt.show()
@@ -416,9 +403,7 @@ print("a_1 is {:.2f}".format(slope))
 
 We can see that as we increase the variance of permanent income, the estimate of a_1 rises
 
-
 #### Friedman's Permanent Income Hypothesis: Evidence
-
 
 We can now consider the empirical evidence for the claims our model made about the PIH.
 
@@ -434,7 +419,7 @@ Consider quarterly differences first:
 # Using quarterly data (copying from above), we had:
 
 plt.figure(figsize=(9, 6))
-plt.plot(df_diff.DPIC96, df_diff.PCECC96, "go", markersize=3.0, label="Data")
+plt.plot(df_diff.DPIC96, df_diff.PCECC96, "go", markersize=3.0, label="Data");
 slope, intercept, r_value, p_value, std_err = stats.linregress(
     df_diff.DPIC96[1:], df_diff.PCECC96[1:]
 )  # find line of best fit
@@ -445,8 +430,8 @@ plt.plot(
     label="Line of best fit",
 )
 plt.plot(np.array([-200, 200]), np.array([-200, 200]), "k--", label="C=Y")
-plt.xlabel("Change in income (dy)")
-plt.ylabel("Change in consumption (dc)")
+plt.xlabel("Change in income (dy)");
+plt.ylabel("Change in consumption (dc)");
 plt.legend()
 plt.show()
 
@@ -461,7 +446,7 @@ df_diff_long = df.diff(periods=20)  # create dataframe of differenced values
 df_diff_long.columns = ["cons", "inc"]
 
 plt.figure(figsize=(9, 6))
-plt.plot(df_diff_long.inc, df_diff_long.cons, "go", label="Data")
+plt.plot(df_diff_long.inc, df_diff_long.cons, "go", label="Data");
 slope, intercept, r_value, p_value, std_err = stats.linregress(
     df_diff_long.inc[20:], df_diff_long.cons[20:]
 )  # find line of best fit
@@ -473,8 +458,8 @@ plt.plot(
 )
 plt.plot(np.linspace(-100, 2000, 3), np.linspace(-100, 2000, 3), "k--", label="C=Y")
 plt.legend()
-plt.xlabel("Change in income (dy)")
-plt.ylabel("Change in consumption (dc)")
+plt.xlabel("Change in income (dy)");
+plt.ylabel("Change in consumption (dc)");
 plt.show()
 
 print("a_0 is {:.2f}".format(intercept))

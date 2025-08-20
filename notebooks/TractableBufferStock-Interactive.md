@@ -1,10 +1,8 @@
 ---
 jupyter:
   jupytext:
-    cell_metadata_filter: ExecuteTime,collapsed,jupyter,code_folding,tags,-autoscroll
-    encoding: '# -*- coding: utf-8 -*-'
     formats: ipynb,md
-    notebook_metadata_filter: all,-widgets,-varInspector
+    notebook_metadata_filter: language_info,latex_envs,nteract
     text_representation:
       extension: .md
       format_name: markdown
@@ -50,7 +48,6 @@ jupyter:
 
 <p style="text-align: center;"><small><small><small>Generator: BufferStockTheory-make/notebooks_byname</small></small></small></p>
 
-
 The [TractableBufferStock](http://llorracc.github.io/TractableBufferStock/) model is a (relatively) simple framework that captures all of the qualitative, and many of the quantitative features of optimal consumption in the presence of labor income uncertainty.
 
 ```python
@@ -62,7 +59,6 @@ from ipywidgets import interact, fixed
 import matplotlib.pyplot as plt
 
 import numpy as np
-
 
 def mystr(number):
     return "{:.3f}".format(number)
@@ -79,11 +75,11 @@ Defining $G$ as the growth rate of aggregate wages/productivity, we assume that 
 
 Under CRRA utility $u(C) = \frac{C^{1-\rho}}{1-\rho}$, the problem can be normalized by $P$.  Using lower case for normalized varibles (e.g., $c = C/P$), the normalized problem can be expressed by the Bellman equation:
 
-\begin{eqnarray*}
+\begin{align*}
 v_t({m}_t) &=& \max_{{c}_t} ~ U({c}_t) + \beta \Gamma^{1-\rho} \overbrace{\mathbb{E}[v_{t+1}^{\bullet}]}^{=p v_{t+1}^{u}+(1-p)v_{t+1}^{e}} \\
 & s.t. & \\
 {m}_{t+1} &=& (m_{t}-c_{t})\mathcal{R}  + \mathbb{1}_{t+1},
-\end{eqnarray*}
+\end{align*}
 where $\mathcal{R} = R/\Gamma$, and $\mathbb{1}_{t+1} = 1$ if the consumer is employed (and zero if unemployed).
 
 Under plausible parameter values the model has a target level of $\hat{m} = M/P$ (market resources to permanent income) with an analytical solution that exhibits plausible relationships among all of the parameters.
@@ -93,7 +89,6 @@ Defining $\gamma = \log \Gamma$ and $r = \log R$, the handout shows that an appr
 \begin{align}
 \hat{m} & \approx 1 + \left(\frac{1}{(\gamma-r)+(1+(\gamma/\mho)(1-(\gamma/\mho)(\rho-1)/2))}\right)
 \end{align}
-
 
 ```python
 # Define a parameter dictionary and representation of the agents for the tractable buffer stock model
@@ -125,7 +120,6 @@ so since $\mho > 0$, uncertainty makes it harder to be 'impatient.'  To understa
 ```python
 # Define a function that plots the employed consumption function and sustainable consumption function
 # for given parameter values
-
 
 def makeTBSplot(
     DiscFac,
@@ -164,7 +158,7 @@ def makeTBSplot(
     if plot_emp:
         c = MyTBStype.solution[0].cFunc(m)
         c[m == 0.0] = 0.0
-        plt.plot(m, c, "-b")
+        plt.plot(m, c, "-b");
 
     if plot_mSS:
         plt.plot(
@@ -184,7 +178,7 @@ def makeTBSplot(
 
     if plot_ret:
         c = MyTBStype.solution[0].cFunc_U(m)
-        plt.plot(m, c, "-g")
+        plt.plot(m, c, "-g");
 
     if show_targ:
         mTarg = MyTBStype.mTarg
@@ -198,7 +192,7 @@ def makeTBSplot(
             textcoords="axes fraction",
             fontsize=18,
         )
-        plt.plot(mTarg, cTarg, "ro")
+        plt.plot(mTarg, cTarg, "ro");
         plt.annotate(
             "↙️ m target",
             (mTarg, cTarg),
@@ -209,7 +203,6 @@ def makeTBSplot(
 
     plt.show()
     return None
-
 
 # Define widgets to control various aspects of the plot
 
@@ -245,7 +238,6 @@ Rfree_widget = widgets.FloatSlider(
     readout_format=".4f",
     description="$R$",
 )
-
 
 # Define a slider for permanent income growth
 PermGroFac_widget = widgets.FloatSlider(
