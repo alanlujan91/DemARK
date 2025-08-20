@@ -8,7 +8,10 @@ dependencies = [
     "econ-ark",
     "jupyter>=1.1.1",
     "jupytext>=1.17.2",
+    "linearmodels>=6.1",
     "mystmd>=1.6.0",
+    "pandas-datareader>=0.10.0",
+    "tqdm>=4.67.1",
 ]
 
 [tool.uv.sources]

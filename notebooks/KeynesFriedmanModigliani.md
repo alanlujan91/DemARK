@@ -2,7 +2,6 @@
 jupyter:
   jupytext:
     formats: ipynb,md
-    notebook_metadata_filter: language_info,latex_envs,toc
     text_representation:
       extension: .md
       format_name: markdown
@@ -12,44 +11,6 @@ jupyter:
     display_name: Python 3 (ipykernel)
     language: python
     name: python3
-  language_info:
-    codemirror_mode:
-      name: ipython
-      version: 3
-    file_extension: .py
-    mimetype: text/x-python
-    name: python
-    nbconvert_exporter: python
-    pygments_lexer: ipython3
-    version: 3.10.13
-  latex_envs:
-    LaTeX_envs_menu_present: true
-    autoclose: false
-    autocomplete: false
-    bibliofile: biblio.bib
-    cite_by: apalike
-    current_citInitial: 1
-    eqLabelWithNumbers: true
-    eqNumInitial: 1
-    hotkeys:
-      equation: Ctrl-E
-      itemize: Ctrl-I
-    labels_anchors: false
-    latex_user_defs: false
-    report_style_numbering: false
-    user_envs_cfg: false
-  toc:
-    base_numbering: 1
-    nav_menu: {}
-    number_sections: true
-    sideBar: true
-    skip_h1_title: false
-    title_cell: Table of Contents
-    title_sidebar: Contents
-    toc_cell: false
-    toc_position: {}
-    toc_section_display: true
-    toc_window_display: false
 ---
 
 ## Introduction: Keynes, Friedman, Modigliani
