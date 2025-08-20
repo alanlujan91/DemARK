@@ -156,7 +156,7 @@ The size of the error looks pretty stable, which we can show by calculating it i
 # Plot the deviations
 approximationError = 100 * (cHARK - cApprox) / cHARK
 plt.figure(figsize=(9, 6))  # set the figure size
-plt.plot(m_range, approximationError, label="cHARK - cApprox");
+plt.plot(m_range, approximationError, label="cHARK - cApprox")
 plt.xlabel("Market resources")  # x axis label
 plt.ylabel("Percent deviation of approximation")  # y axis label
 plt.legend()
@@ -212,7 +212,7 @@ for i in range(len(Rfree_array)):
     deviation = np.mean(np.abs(cApprox / cHARK))
     mean_dev[i] = deviation
 
-plt.plot(Rfree_array, mean_dev);
+plt.plot(Rfree_array, mean_dev)
 plt.xlabel("Return Factor")  # x axis label
 plt.ylabel(" Average deviation along consumption function")  # y axis label
 plt.show()

@@ -65,7 +65,7 @@ But a large body of evidence shows that _actual_ inequality in assets is much gr
 
 The most transparent and simplest of these to change is the time preference factor $\beta$.  So that is what the paper does.  The main results are:
 
-1. The distribution of $\beta$ need not be particularly wide to match the extreme concentration of wealth: roughly 0.91 to 0.98 (annual); that is, the most impatient person discounts the future about 6 percentage points more per year than the most patient agent agent
+1. The distribution of $\beta$ need not be particularly wide to match the extreme concentration of wealth: roughly 0.91 to 0.98 (annual) that is, the most impatient person discounts the future about 6 percentage points more per year than the most patient agent agent
 2. With such a distribution of $\beta$, simulated agents' (annual) marginal propensity to consume (MPC) from transitory income shocks to income matches large body of microeconomic evidence that typically finds evidence of MPC's in the range of 0.2 to 0.6.  This is much better than RA macro models that typically yield MPC's in the range of 0.01 to 0.05.
 
 While the most impatient agents in the cstwMPC model have fairly high MPCs (~0.6 annual), there is microeconomic evidence that a significant fraction of households have *even higher* MPCs than the model predicts, especially at the quarterly frequency.  This group of households is commonly referred to as "hand-to-mouth" -- they consume most of their transitory shocks to income not too long after they receive them (mostly within a quarter).  There are several reasons why a household could be hand-to-mouth, but one plausible explanation is that these households are *even more impatient* than estimated by cstwMPC for the most impatient agent.
@@ -227,7 +227,7 @@ cstwMPC_calibrated_parameters = {
 
 Now let's make several instances of our class of agents and give them different values of $\beta$, following cstwMPC's estimated distribution.  In our specification of interest, we will use $\grave{\beta}=0.9855583$ and $\nabla = 0.0085$.
 
-NB: Reported parameter estimates in cstwMPC use a model with aggregate shocks and wage and interest rates determined dynamically (a heterogeneous agents DSGE model); this is the $\texttt{AggShockConsumerType}$ in HARK.  The estimated parameters are slightly different in this exercise, as we are ignoring general equilibrium aspects and only using the $\texttt{IndShockConsumerType}$
+NB: Reported parameter estimates in cstwMPC use a model with aggregate shocks and wage and interest rates determined dynamically (a heterogeneous agents DSGE model) this is the $\texttt{AggShockConsumerType}$ in HARK.  The estimated parameters are slightly different in this exercise, as we are ignoring general equilibrium aspects and only using the $\texttt{IndShockConsumerType}$
 
 ### Method 1: "Brute force" approach
 
@@ -362,15 +362,15 @@ sim_Lorenz_points_ap = get_lorenz_shares(sim_wealth_ap, percentiles=pctiles)
 # Plot Lorenz curves for model with uniform distribution of time preference using both methods
 
 plt.subplot(1, 2, 1)
-plt.plot(pctiles, SCF_Lorenz_points, "--k");
-plt.plot(pctiles, sim_Lorenz_points, "-b");
+plt.plot(pctiles, SCF_Lorenz_points, "--k")
+plt.plot(pctiles, sim_Lorenz_points, "-b")
 plt.title("Brute force approach")
 plt.xlabel("Percentile of net worth")
 plt.ylabel("Cumulative share of wealth")
 
 plt.subplot(1, 2, 2)
-plt.plot(pctiles, SCF_Lorenz_points, "--k");
-plt.plot(pctiles, sim_Lorenz_points_ap, "-b");
+plt.plot(pctiles, SCF_Lorenz_points, "--k")
+plt.plot(pctiles, sim_Lorenz_points_ap, "-b")
 plt.title("Using AgentPopulation class")
 # plt.xlabel("Percentile of net worth")
 # plt.ylabel("Cumulative share of wealth")

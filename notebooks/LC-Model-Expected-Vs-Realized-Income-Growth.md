@@ -104,7 +104,7 @@ We simulate a population of agents
 ```python
 # Run the simulations
 Agent.initialize_sim()
-Agent.simulate();
+Agent.simulate()
 ```
 
 We assume a standard income process with transitory and permanent shocks:  The consumer's Permanent noncapital income $\pLvl$ grows by a predictable factor $\PermGroFac$ and is subject to an unpredictable multiplicative shock $\Ex_{t}[\PermShk_{t+1}]=1$,
@@ -211,7 +211,7 @@ Agent_nt = IndShockConsumerType(**params_no_transitory)
 Agent_nt.solve()
 # Run the simulations
 Agent_nt.initialize_sim()
-Agent_nt.simulate();
+Agent_nt.simulate()
 ```
 
 ```python

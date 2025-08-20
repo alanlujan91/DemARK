@@ -517,7 +517,7 @@ Of course, these results apply only to the particular configuration of parameter
 # Execute the line below to see that there's little drift from mNrmStE as starting point
 # (after setting burn_in to zero above).  This means burn_in does not need to be large:
 
-plt.plot(np.arange(1,len(np.mean(MAvg_ntrl,axis=1))+1),np.mean(MAvg_ntrl,axis=1).T);
+plt.plot(np.arange(1,len(np.mean(MAvg_ntrl,axis=1))+1),np.mean(MAvg_ntrl,axis=1).T)
 plt.show()
 ```
 

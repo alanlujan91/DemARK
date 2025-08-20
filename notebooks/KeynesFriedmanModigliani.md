@@ -134,10 +134,10 @@ plt.figure(figsize=(9, 6))
 plt.plot(
     income, KeynesianExample.cFunc(income), label="Consumption function"
 )  # plot income versus the consumption
-plt.plot(income, income, "k--", label="C=Y");
+plt.plot(income, income, "k--", label="C=Y")
 plt.title("Consumption function")
-plt.xlabel("Income (y)");
-plt.ylabel("Normalized Consumption (c)");
+plt.xlabel("Income (y)")
+plt.ylabel("Normalized Consumption (c)")
 plt.ylim(0, 20)
 plt.legend()
 plt.show()
@@ -173,12 +173,12 @@ df = web.DataReader(
 )  # import the data from Fred
 # Plot the data
 plt.figure(figsize=(9, 6))
-plt.plot(df.DPIC96, df.PCECC96, "go", markersize=3.0, label="Data");
+plt.plot(df.DPIC96, df.PCECC96, "go", markersize=3.0, label="Data")
 slope, intercept, r_value, p_value, std_err = stats.linregress(df.DPIC96, df.PCECC96)
-plt.plot(df.DPIC96, intercept + slope * df.DPIC96, "k-", label="Line of best fit");
-plt.plot(df.DPIC96, df.DPIC96, "k--", label="C=Y");
-plt.xlabel("Income (y)");
-plt.ylabel("Consumption (c)");
+plt.plot(df.DPIC96, intercept + slope * df.DPIC96, "k-", label="Line of best fit")
+plt.plot(df.DPIC96, df.DPIC96, "k--", label="C=Y")
+plt.xlabel("Income (y)")
+plt.ylabel("Consumption (c)")
 plt.legend()
 plt.show()
 
@@ -190,8 +190,8 @@ print("a_1 is {:.2f}".format(slope))
 # However, our consumption data is [non-stationary](https://www.reed.edu/economics/parker/312/tschapters/S13_Ch_4.pdf) and this drives the previous
 # estimate.
 df.DPIC96.plot()
-plt.xlabel("Date");
-plt.ylabel("Consumption (c)");
+plt.xlabel("Date")
+plt.ylabel("Consumption (c)")
 ```
 
 ```python
@@ -201,7 +201,7 @@ df_diff = df.diff()  # create dataframe of differenced values
 
 # Plot the data
 plt.figure(figsize=(9, 6))
-plt.plot(df_diff.DPIC96, df_diff.PCECC96, "go", markersize=3.0, label="Data");
+plt.plot(df_diff.DPIC96, df_diff.PCECC96, "go", markersize=3.0, label="Data")
 slope, intercept, r_value, p_value, std_err = stats.linregress(
     df_diff.DPIC96[1:], df_diff.PCECC96[1:]
 )  # find line of best fit
@@ -212,8 +212,8 @@ plt.plot(
     label="Line of best fit",
 )
 plt.plot(np.array([-200, 200]), np.array([-200, 200]), "k--", label="C=Y")
-plt.xlabel("Change in income (dy)");
-plt.ylabel("Change in consumption (dc)");
+plt.xlabel("Change in income (dy)")
+plt.ylabel("Change in consumption (dc)")
 plt.legend()
 plt.show()
 
@@ -327,10 +327,10 @@ plt.figure(figsize=(9, 6))
 plt.plot(
     income, PIHexample.cFunc(income), label="Consumption function"
 )  # plot income versus the consumption
-plt.plot(income, income, "k--", label="C=Y");
+plt.plot(income, income, "k--", label="C=Y")
 plt.title("Consumption function")
-plt.xlabel("Normalized Income (y)");
-plt.ylabel("Normalized Consumption (c)");
+plt.xlabel("Normalized Income (y)")
+plt.ylabel("Normalized Consumption (c)")
 plt.legend()
 plt.show()
 ```
@@ -360,10 +360,10 @@ plt.figure(figsize=(9, 6))
 plt.plot(
     total_inc, PIHexample.cFunc(total_inc) * perm_inc, "go", label="Simulated data"
 )
-plt.plot(total_inc, intercept + slope * total_inc, "k-", label="Line of best fit");
+plt.plot(total_inc, intercept + slope * total_inc, "k-", label="Line of best fit")
 plt.plot(np.linspace(1, 2, 5), np.linspace(1, 2, 5), "k--", label="C=Y")
-plt.xlabel("Income (y)");
-plt.ylabel("Consumption (c)");
+plt.xlabel("Income (y)")
+plt.ylabel("Consumption (c)")
 plt.legend()
 plt.ylim(0, 2)
 plt.xlim(1.1, 1.9)
@@ -389,10 +389,10 @@ plt.figure(figsize=(9, 6))
 plt.plot(
     total_inc, PIHexample.cFunc(total_inc) * perm_inc, "go", label="Simulated data"
 )
-plt.plot(total_inc, intercept + slope * total_inc, "k-", label="Line of best fit");
+plt.plot(total_inc, intercept + slope * total_inc, "k-", label="Line of best fit")
 plt.plot(np.linspace(0, 2, 5), np.linspace(0, 2, 5), "k--", label="C=Y")
-plt.xlabel("Income (y)");
-plt.ylabel("Consumption (c)");
+plt.xlabel("Income (y)")
+plt.ylabel("Consumption (c)")
 plt.legend()
 plt.ylim(0, 2)
 plt.show()
@@ -419,7 +419,7 @@ Consider quarterly differences first:
 # Using quarterly data (copying from above), we had:
 
 plt.figure(figsize=(9, 6))
-plt.plot(df_diff.DPIC96, df_diff.PCECC96, "go", markersize=3.0, label="Data");
+plt.plot(df_diff.DPIC96, df_diff.PCECC96, "go", markersize=3.0, label="Data")
 slope, intercept, r_value, p_value, std_err = stats.linregress(
     df_diff.DPIC96[1:], df_diff.PCECC96[1:]
 )  # find line of best fit
@@ -430,8 +430,8 @@ plt.plot(
     label="Line of best fit",
 )
 plt.plot(np.array([-200, 200]), np.array([-200, 200]), "k--", label="C=Y")
-plt.xlabel("Change in income (dy)");
-plt.ylabel("Change in consumption (dc)");
+plt.xlabel("Change in income (dy)")
+plt.ylabel("Change in consumption (dc)")
 plt.legend()
 plt.show()
 
@@ -446,7 +446,7 @@ df_diff_long = df.diff(periods=20)  # create dataframe of differenced values
 df_diff_long.columns = ["cons", "inc"]
 
 plt.figure(figsize=(9, 6))
-plt.plot(df_diff_long.inc, df_diff_long.cons, "go", label="Data");
+plt.plot(df_diff_long.inc, df_diff_long.cons, "go", label="Data")
 slope, intercept, r_value, p_value, std_err = stats.linregress(
     df_diff_long.inc[20:], df_diff_long.cons[20:]
 )  # find line of best fit
@@ -458,8 +458,8 @@ plt.plot(
 )
 plt.plot(np.linspace(-100, 2000, 3), np.linspace(-100, 2000, 3), "k--", label="C=Y")
 plt.legend()
-plt.xlabel("Change in income (dy)");
-plt.ylabel("Change in consumption (dc)");
+plt.xlabel("Change in income (dy)")
+plt.ylabel("Change in consumption (dc)")
 plt.show()
 
 print("a_0 is {:.2f}".format(intercept))

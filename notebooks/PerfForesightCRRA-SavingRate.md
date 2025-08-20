@@ -139,7 +139,7 @@ c_t = PFsavrate.solution[0].cFunc(m_t)
 ς_t = sav_rate_t = (cap_income_t + lab_income_t - c_t) / (cap_income_t + lab_income_t)
 
 # And now the plot
-plt.plot(a_tm1, sav_rate_t);
-plt.xlabel(r"$a_{t-1}$");
-plt.ylabel("Saving Rate");
+plt.plot(a_tm1, sav_rate_t)
+plt.xlabel(r"$a_{t-1}$")
+plt.ylabel("Saving Rate")
 ```

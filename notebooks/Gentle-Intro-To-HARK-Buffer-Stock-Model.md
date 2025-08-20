@@ -154,7 +154,7 @@ The scatterplot below shows how the discretized probability distribution is repr
 ```python
 # Plot values for equiprobable distribution of permanent shocks
 
-plt.scatter(IndShockExample.PermShkDstn[0].atoms, IndShockExample.PermShkDstn[0].pmv);
+plt.scatter(IndShockExample.PermShkDstn[0].atoms, IndShockExample.PermShkDstn[0].pmv)
 plt.xlabel("Value")
 plt.ylabel("Probability Mass")
 plt.show()
@@ -184,11 +184,11 @@ plt.plot(
     IndShockExample.solution_terminal.cFunc.x_list,
     IndShockExample.solution_terminal.cFunc.y_list,
     color="k",
-);
+)
 plt.scatter(
     IndShockExample.solution_terminal.cFunc.x_list,
     IndShockExample.solution_terminal.cFunc.y_list,
-);
+)
 ```
 
 The solution also has a representation of a `value function`, the value `v(m)` as a function of available market resources. Because the agent consumes all their resources in the last period, the value function for the terminal solution looks just like the CRRA utility function: $v_{T}(m) = u(m)$.
@@ -196,7 +196,7 @@ The solution also has a representation of a `value function`, the value `v(m)` a
 ```python
 # Final consumption function c=m
 m = np.linspace(0.1, 1, 100)
-plt.plot(m, IndShockExample.solution_terminal.vFunc(m));
+plt.plot(m, IndShockExample.solution_terminal.vFunc(m))
 ```
 
 ## Solving the problem
@@ -227,7 +227,7 @@ plot_funcs(
     [IndShockExample.solution[0].cFunc, IndShockExample.solution_terminal.cFunc],
     0.0,
     10.0,
-);
+)
 ```
 
 ## Changing Constructed Attributes

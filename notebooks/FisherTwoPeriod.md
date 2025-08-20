@@ -3223,12 +3223,12 @@ def FisherPlot(Y_1, Y_2, B_1, R, C_1_Max, C_2_Max):
     # Plot the budget constraint
     C_1_bc = np.linspace(C_1_Min, B_1 + Y_1 + Y_2 / R, 10, endpoint=True)
     C_2_bc = (Y_1 + B_1 - C_1_bc) * R + Y_2
-    plt.plot(C_1_bc, C_2_bc, "k-", label="Budget Constraint");
+    plt.plot(C_1_bc, C_2_bc, "k-", label="Budget Constraint")
 
     # Plot the optimal consumption bundle
     C_1 = PFexample.solution[0].cFunc(B_1 + Y_1 + Y_2 / R)
     C_2 = PFexample.solution[1].cFunc((Y_1 + B_1 - C_1) * R + Y_2)
-    plt.plot(C_1, C_2, "ro", label="Optimal Consumption");
+    plt.plot(C_1, C_2, "ro", label="Optimal Consumption")
 
     # Plot the indifference curve
     V = C_1 ** (1 - CRRA) / (1 - CRRA) + beta * C_2 ** (1 - CRRA) / (
@@ -3236,7 +3236,7 @@ def FisherPlot(Y_1, Y_2, B_1, R, C_1_Max, C_2_Max):
     )  # Get max utility
     C_1_V = np.linspace(((1 - CRRA) * V) ** (1 / (1 - CRRA)) + 0.5, C_1_Max, 1000)
     C_2_V = (((1 - CRRA) * V - C_1_V ** (1 - CRRA)) / beta) ** (1 / (1 - CRRA))
-    plt.plot(C_1_V, C_2_V, "b-", label="Indiferrence Curve");
+    plt.plot(C_1_V, C_2_V, "b-", label="Indiferrence Curve")
 
     # Add a legend and display the plot
     plt.legend()
@@ -3316,7 +3316,7 @@ interact(
     R=Rfree_widget,
     C_1_Max=C_1_Max_widget,
     C_2_Max=C_2_Max_widget,
-);
+)
 ```
 
 ### Second plot: interest rate shifts with lifetime income earned in first period.
@@ -3370,11 +3370,11 @@ def FisherPlot1(Y_1, Y_2, B_1, RHi, RLo, C_1_Max, C_2_Max):
     # Plot the budget constraints
     C_1_bc_RLo = np.linspace(C_1_Min, B_1 + Y_1 + Y_2 / RLo, 10, endpoint=True)
     C_2_bc_RLo = (Y_1 + B_1 - C_1_bc_RLo) * RLo + Y_2
-    plt.plot(C_1_bc_RLo, C_2_bc_RLo, "k-", label="Budget Constraint R Low");
+    plt.plot(C_1_bc_RLo, C_2_bc_RLo, "k-", label="Budget Constraint R Low")
 
     C_1_bc_RHi = np.linspace(C_1_Min, B_1 + Y_1 + Y_2 / RHi, 10, endpoint=True)
     C_2_bc_RHi = (Y_1 + B_1 - C_1_bc_RHi) * RHi + Y_2
-    plt.plot(C_1_bc_RHi, C_2_bc_RHi, "k--", label="Budget Constraint R High");
+    plt.plot(C_1_bc_RHi, C_2_bc_RHi, "k--", label="Budget Constraint R High")
 
     # The optimal consumption bundles
     C_1_opt_RLo = PFexampleRLo.solution[0].cFunc(B_1 + Y_1 + Y_2 / RLo)
@@ -3391,7 +3391,7 @@ def FisherPlot1(Y_1, Y_2, B_1, RHi, RLo, C_1_Max, C_2_Max):
     C_2_V_RLo = (((1 - CRRA) * V_RLo - C_1_V_RLo ** (1 - CRRA)) / beta) ** (
         1 / (1 - CRRA)
     )
-    plt.plot(C_1_V_RLo, C_2_V_RLo, "b-", label="Indiferrence Curve R Low");
+    plt.plot(C_1_V_RLo, C_2_V_RLo, "b-", label="Indiferrence Curve R Low")
 
     V_RHi = C_1_opt_RHi ** (1 - CRRA) / (1 - CRRA) + beta * C_2_opt_RHi ** (1 - CRRA) / (
         1 - CRRA
@@ -3400,7 +3400,7 @@ def FisherPlot1(Y_1, Y_2, B_1, RHi, RLo, C_1_Max, C_2_Max):
     C_2_V_RHi = (((1 - CRRA) * V_RHi - C_1_V_RHi ** (1 - CRRA)) / beta) ** (
         1 / (1 - CRRA)
     )
-    plt.plot(C_1_V_RHi, C_2_V_RHi, "b--", label="Indiferrence Curve R High");
+    plt.plot(C_1_V_RHi, C_2_V_RHi, "b--", label="Indiferrence Curve R High")
 
     # The substitution effect
     C_1_Subs = (
@@ -3410,17 +3410,17 @@ def FisherPlot1(Y_1, Y_2, B_1, RHi, RLo, C_1_Max, C_2_Max):
 
     C_1_bc_Subs = np.linspace(C_1_Min, B_1 + Y_1 + Y_2 / RHi, 10, endpoint=True)
     C_2_bc_Subs = (C_1_Subs + C_2_Subs / RLo - C_1_bc_Subs) * RLo + Y_2
-    plt.plot(C_1_bc_Subs, C_2_bc_Subs, "k-");
+    plt.plot(C_1_bc_Subs, C_2_bc_Subs, "k-")
 
     # Plot the points of interest
-    plt.plot(C_1_opt_RLo, C_2_opt_RLo, "ro", label="A: Optimal Consumption R Low");
+    plt.plot(C_1_opt_RLo, C_2_opt_RLo, "ro", label="A: Optimal Consumption R Low")
     plt.plot(
         C_1_Subs,
         C_2_Subs,
         "go",
         label="B: Income effect AB \n     Substitution effect BC ",
     )
-    plt.plot(C_1_opt_RHi, C_2_opt_RHi, "mo", label="C: Optimal Consumption R High");
+    plt.plot(C_1_opt_RHi, C_2_opt_RHi, "mo", label="C: Optimal Consumption R High")
 
     plt.legend()
     plt.show()
@@ -3509,7 +3509,7 @@ interact(
     RLo=RLo_widget1,
     C_1_Max=c_1_Max_widget1,
     C_2_Max=c_2_Max_widget1,
-);
+)
 ```
 
 ### Third plot: interest rate shifts with lifetime income earned in second period
@@ -3562,11 +3562,11 @@ def FisherPlot2(Y_1, Y_2, B_1, RHi, RLo, C_1_Max, C_2_Max):
     # Plot the budget constraints
     C_1_bc_RLo = np.linspace(C_1_Min, B_1 + Y_1 + Y_2 / RLo, 10, endpoint=True)
     C_2_bc_RLo = (Y_1 + B_1 - C_1_bc_RLo) * RLo + Y_2
-    plt.plot(C_1_bc_RLo, C_2_bc_RLo, "k-", label="Budget Constraint R Low");
+    plt.plot(C_1_bc_RLo, C_2_bc_RLo, "k-", label="Budget Constraint R Low")
 
     C_1_bc_RHi = np.linspace(C_1_Min, B_1 + Y_1 + Y_2 / RHi, 10, endpoint=True)
     C_2_bc_RHi = (Y_1 + B_1 - C_1_bc_RHi) * RHi + Y_2
-    plt.plot(C_1_bc_RHi, C_2_bc_RHi, "k--", label="Budget Constraint R High");
+    plt.plot(C_1_bc_RHi, C_2_bc_RHi, "k--", label="Budget Constraint R High")
 
     # The optimal consumption bundles
     C_1_opt_RLo = PFexampleRLo.solution[0].cFunc(B_1 + Y_1 + Y_2 / RLo)
@@ -3583,7 +3583,7 @@ def FisherPlot2(Y_1, Y_2, B_1, RHi, RLo, C_1_Max, C_2_Max):
     C_2_V_RLo = (((1 - CRRA) * V_RLo - C_1_V_RLo ** (1 - CRRA)) / beta) ** (
         1 / (1 - CRRA)
     )
-    plt.plot(C_1_V_RLo, C_2_V_RLo, "b-", label="Indiferrence Curve R Low");
+    plt.plot(C_1_V_RLo, C_2_V_RLo, "b-", label="Indiferrence Curve R Low")
 
     V_RHi = C_1_opt_RHi ** (1 - CRRA) / (1 - CRRA) + beta * C_2_opt_RHi ** (1 - CRRA) / (
         1 - CRRA
@@ -3592,7 +3592,7 @@ def FisherPlot2(Y_1, Y_2, B_1, RHi, RLo, C_1_Max, C_2_Max):
     C_2_V_RHi = (((1 - CRRA) * V_RHi - C_1_V_RHi ** (1 - CRRA)) / beta) ** (
         1 / (1 - CRRA)
     )
-    plt.plot(C_1_V_RHi, C_2_V_RHi, "b--", label="Indiferrence Curve R High");
+    plt.plot(C_1_V_RHi, C_2_V_RHi, "b--", label="Indiferrence Curve R High")
 
     # The substitution effect
     C_1_Subs = (
@@ -3607,20 +3607,20 @@ def FisherPlot2(Y_1, Y_2, B_1, RHi, RLo, C_1_Max, C_2_Max):
 
     C_1_bc_HW = np.linspace(C_1_Min, B_1 + Y_1 + Y_2HW / RLo, 10, endpoint=True)
     C_2_bc_HW = (Y_1 + B_1 - C_1_bc_HW) * RLo + Y_2HW
-    plt.plot(C_1_bc_HW, C_2_bc_HW, "k:");
+    plt.plot(C_1_bc_HW, C_2_bc_HW, "k:")
 
     VHW = (C_1HW ** (1 - CRRA)) / (1 - CRRA) + (beta * C_2HW ** (1 - CRRA)) / (1 - CRRA)
     C_1_V_HW = np.linspace(((1 - CRRA) * VHW) ** (1 / (1 - CRRA)) + 0.5, C_1_Max, 1000)
     C_2_V_HW = (((1 - CRRA) * VHW - C_1_V_HW ** (1 - CRRA)) / beta) ** (1 / (1 - CRRA))
-    plt.plot(C_1_V_HW, C_2_V_HW, "b:");
+    plt.plot(C_1_V_HW, C_2_V_HW, "b:")
 
     # Plot the points of interest
-    plt.plot(C_1_opt_RLo, C_2_opt_RLo, "ro", label="A: Optimal Consumption R Low");
+    plt.plot(C_1_opt_RLo, C_2_opt_RLo, "ro", label="A: Optimal Consumption R Low")
     plt.plot(
         C_1_Subs, C_2_Subs, "go", label="B: Income effect DB \n    Substitution effect BC"
     )
-    plt.plot(C_1_opt_RHi, C_2_opt_RHi, "mo", label="C: Optimal Consumption R High");
-    plt.plot(C_1HW, C_2HW, "co", label="D: HW effect AD");
+    plt.plot(C_1_opt_RHi, C_2_opt_RHi, "mo", label="C: Optimal Consumption R High")
+    plt.plot(C_1HW, C_2HW, "co", label="D: HW effect AD")
 
     plt.legend()
     plt.show()
@@ -3709,7 +3709,7 @@ interact(
     RLo=RLo_widget2,
     C_1_Max=c_1_Max_widget2,
     C_2_Max=c_2_Max_widget2,
-);
+)
 ```
 
 # Fourth plot: the effects of changes in the coefficient of risk aversion
@@ -3758,12 +3758,12 @@ def FisherPlot3(M_1, R, beta, CRRA, C_1_Max, C_2_Max):
     # Plot the budget constraint
     C_1_bc = np.linspace(C_1_Min, M_1, 10, endpoint=True)
     C_2_bc = (M_1 - C_1_bc) * R
-    plt.plot(C_1_bc, C_2_bc, "k-", label="Budget Constraint");
+    plt.plot(C_1_bc, C_2_bc, "k-", label="Budget Constraint")
 
     # Plot the optimal consumption bundle
     C_1 = PFexample.solution[0].cFunc(M_1)
     C_2 = PFexample.solution[1].cFunc((M_1 - C_1) * R)
-    plt.plot(C_1, C_2, "ro", label="Optimal Consumption");
+    plt.plot(C_1, C_2, "ro", label="Optimal Consumption")
 
     # Plot the indifference curve
     V = C_1 ** (1 - CRRA) / (1 - CRRA) + beta * C_2 ** (1 - CRRA) / (
@@ -3771,7 +3771,7 @@ def FisherPlot3(M_1, R, beta, CRRA, C_1_Max, C_2_Max):
     )  # Get max utility
     C_1_V = np.linspace(((1 - CRRA) * V) ** (1 / (1 - CRRA)) + 0.1, C_1_Max, 1000)
     C_2_V = (((1 - CRRA) * V - C_1_V ** (1 - CRRA)) / beta) ** (1 / (1 - CRRA))
-    plt.plot(C_1_V, C_2_V, "b-", label="Indiferrence Curve");
+    plt.plot(C_1_V, C_2_V, "b-", label="Indiferrence Curve")
 
     # Add a legend and display the plot
     plt.legend()
@@ -3860,7 +3860,7 @@ interact(
     CRRA=CRRA_widget,
     C_1_Max=C_1_Max_widget,
     C_2_Max=C_2_Max_widget,
-);
+)
 ```
 
 ```python

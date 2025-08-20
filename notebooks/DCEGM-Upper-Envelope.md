@@ -46,7 +46,6 @@ jupyter:
     user_envs_cfg: false
 ---
 
-<!-- #region -->
 # DCEGM Upper Envelope
 ## ["The endogenous grid method for discrete-continuous dynamic choice models with (or without) taste shocks"](https://onlinelibrary.wiley.com/doi/abs/10.3982/QE643)
 
@@ -61,7 +60,7 @@ The main challenge for the EGM algorithm in discrete-continuous problems is that
 This filtering process consists mainly of computing "upper-envelopes" of the candidate points: lines that are made up only of the points with the higher values.
 
 This notebook presents HARK's tool for calculating upper-envelopes and then uses it to solve a simple three-period discrete-continuous problem using DCEGM.
-<!-- #endregion -->
+
 
 # Upper envelopes
 
@@ -91,9 +90,9 @@ Consider the following example output.
 m_egm = np.array([0.0, 0.04, 0.25, 0.15, 0.1, 0.3, 0.6, 0.5, 0.35, 0.6, 0.75, 0.85])
 c_egm = np.array([0.0, 0.03, 0.1, 0.07, 0.05, 0.36, 0.4, 0.6, 0.8, 0.9, 0.9, 0.9])
 vt_egm = np.array([0.0, 0.05, 0.1, 0.04, 0.02, 0.2, 0.7, 0.5, 0.2, 0.9, 1.0, 1.2])
-plt.plot(m_egm, vt_egm);
-plt.xlabel("Resources");
-plt.ylabel("Value");
+plt.plot(m_egm, vt_egm)
+plt.xlabel("Resources")
+plt.ylabel("Value")
 ```
 
 There are two main issues:
@@ -110,11 +109,11 @@ start, end = calc_nondecreasing_segments(m_egm, vt_egm)
 segments = []
 for j in range(len(start)):
     idx = range(start[j], end[j] + 1)
-    plt.plot(m_egm[idx], vt_egm[idx]);
+    plt.plot(m_egm[idx], vt_egm[idx])
     segments.append([m_egm[idx], vt_egm[idx]])
 
-plt.xlabel("resources");
-plt.ylabel("transformed values");
+plt.xlabel("resources")
+plt.ylabel("transformed values")
 plt.show()
 ```
 
@@ -127,10 +126,10 @@ m_upper, v_upper, inds_upper = upper_envelope(segments)
 
 for j in range(len(start)):
     idx = range(start[j], end[j] + 1)
-    plt.plot(m_egm[idx], vt_egm[idx]);
-plt.plot(m_upper, v_upper, ".k");
-plt.xlabel("resources");
-plt.ylabel("transformed values");
+    plt.plot(m_egm[idx], vt_egm[idx])
+plt.plot(m_upper, v_upper, ".k")
+plt.xlabel("resources")
+plt.ylabel("transformed values")
 plt.show()
 ```
 
@@ -278,14 +277,14 @@ plt.figure()
 plt.plot(mGridPlots, v3_wi(mGridPlots), label="Will")
 plt.plot(mGridPlots, v3_no(mGridPlots), label="No Will")
 plt.title("Period 3: Value functions")
-plt.xlabel("Market resources");
+plt.xlabel("Market resources")
 plt.legend()
 plt.show()
 
 plt.plot(mGridPlotsC, c3_wi(mGridPlotsC), label="Will")
 plt.plot(mGridPlotsC, c3_no(mGridPlotsC), label="No Will")
 plt.title("Period 3: Consumption Functions")
-plt.xlabel("Market resources");
+plt.xlabel("Market resources")
 plt.legend()
 plt.show()
 ```
@@ -407,10 +406,10 @@ m2_env, vt2_env, inds2_env = upper_envelope(
 )
 
 # Plot the optimal decision rule
-plt.plot(m2_env, inds2_env);
+plt.plot(m2_env, inds2_env)
 plt.title("$w^*(m)$")
 plt.ylabel("Write will (1) or not (0)")
-plt.xlabel("Market resources: m");
+plt.xlabel("Market resources: m")
 plt.show()
 
 # With the decision rule, we can find unconditional consumption
@@ -435,7 +434,7 @@ plt.plot(m2_env, v2_cond_no(m2_env), label="Cond. No will")
 plt.plot(m2_env, v2(m2_env), "k--", label="Uncond.")
 plt.plot(m2_env[kink_idx], v2(m2_env[kink_idx]), "rX", label="Primary kink")
 plt.title("Period 2: Value Functions")
-plt.xlabel("Market resources");
+plt.xlabel("Market resources")
 plt.legend()
 plt.show()
 
@@ -446,7 +445,7 @@ plt.plot(m2_env, c2_cond_no(m2_env), label="Cond. No will")
 plt.plot(m2_env, c2(m2_env), "k--", label="Uncond.")
 plt.plot(m2_env[kink_idx], c2(m2_env[kink_idx]), "rX", label="Primary kink")
 plt.title("Period 2: Consumption Functions")
-plt.xlabel("Market resources");
+plt.xlabel("Market resources")
 plt.legend()
 plt.show()
 ```
@@ -480,16 +479,16 @@ cGrid1 = uPinv(DiscFac * vPGrid2)
 mGrid1 = aGrid + cGrid1
 vGrid1 = u(cGrid1) + DiscFac * v2(mGrid2)
 
-plt.plot(mGrid1);
+plt.plot(mGrid1)
 plt.title("Endogenous gridpoints")
-plt.xlabel("Position: i");
-plt.ylabel("Endogenous grid point: $m_i$");
+plt.xlabel("Position: i")
+plt.ylabel("Endogenous grid point: $m_i$")
 plt.show()
 
-plt.plot(mGrid1, vGrid1);
+plt.plot(mGrid1, vGrid1)
 plt.title("Value function at grid points")
-plt.xlabel("Market resources: m");
-plt.ylabel("Value function");
+plt.xlabel("Market resources: m")
+plt.ylabel("Value function")
 plt.show()
 ```
 
@@ -533,23 +532,23 @@ def v1_up(x):
     return vUntransf(v1T_up(x))
 
 # Show that there is a non-monothonicity and that the upper envelope fixes it
-plt.plot(mGrid1, vGrid1, label="EGM Points");
+plt.plot(mGrid1, vGrid1, label="EGM Points")
 plt.plot(m1_env, v1_up(m1_env), "k--", label="Upper Envelope")
 plt.plot(m1_env[sec_kink_idx], v1_up(m1_env[sec_kink_idx]), "rX", label="Crossings")
-plt.plot();
+plt.plot()
 plt.title("Period 1: Value function")
-plt.xlabel("Market resources");
+plt.xlabel("Market resources")
 plt.legend()
 plt.show()
 
 # Plot consumption
-plt.plot(mGrid1, cGrid1, label="EGM Points");
+plt.plot(mGrid1, cGrid1, label="EGM Points")
 plt.plot(m1_env, c1_up(m1_env), "k--", label="Upper Envelope")
 plt.plot(
     m1_env[sec_kink_idx], c1_up(m1_env[sec_kink_idx]), "rX", label="Secondary Kink"
 )
 plt.title("Period 1: Consumption function")
-plt.xlabel("Market resources");
+plt.xlabel("Market resources")
 plt.legend()
 plt.show()
 ```

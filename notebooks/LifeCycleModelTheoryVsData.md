@@ -648,7 +648,7 @@ for t in range(1, LifeCyclePop.T_cycle + 1):
 
 ```python
 # Construct the level of assets A from a*p where a is the ratio to permanent income p
-# Remember 41 is "years after entering workforce" (=age 25); 66 is the year right after retirement
+# Remember 41 is "years after entering workforce" (=age 25) 66 is the year right after retirement
 LifeCyclePop.history["aLvl"] = (
     LifeCyclePop.history["aNrm"] * LifeCyclePop.history["pLvl"]
 )
@@ -691,18 +691,18 @@ for i in range(20):
     assetsNrmByVigtile[i] = np.mean(LifeCyclePop.history["aNrm"][t][vigntiles == i])
 plt.plot(np.array(range(20)), savRteByVigtile)
 plt.title("Saving Rate at age 65, by Vigntile of Lifetime Income Growth")
-plt.xlabel("Vigntile of Lifetime Income Growth");
-plt.ylabel("Savings Rate");
+plt.xlabel("Vigntile of Lifetime Income Growth")
+plt.ylabel("Savings Rate")
 
 plt.figure()
 plt.plot(np.array(range(20)), assetsByVigtile)
 plt.title("Assets at age 65, by Vigntile of Lifetime Income Growth")
-plt.xlabel("Vigntile of Lifetime Income Growth");
-plt.ylabel("Assets");
+plt.xlabel("Vigntile of Lifetime Income Growth")
+plt.ylabel("Assets")
 
 plt.figure()
 plt.plot(np.array(range(20)), assetsNrmByVigtile)
 plt.title("Normalized Assets at age 65, by Vigntile of Lifetime Income Growth")
-plt.xlabel("Vigntile of Lifetime Income Growth");
-plt.ylabel("Normalized Assets");
+plt.xlabel("Vigntile of Lifetime Income Growth")
+plt.ylabel("Normalized Assets")
 ```

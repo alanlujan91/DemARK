@@ -158,7 +158,7 @@ def makeTBSplot(
     if plot_emp:
         c = MyTBStype.solution[0].cFunc(m)
         c[m == 0.0] = 0.0
-        plt.plot(m, c, "-b");
+        plt.plot(m, c, "-b")
 
     if plot_mSS:
         plt.plot(
@@ -178,7 +178,7 @@ def makeTBSplot(
 
     if plot_ret:
         c = MyTBStype.solution[0].cFunc_U(m)
-        plt.plot(m, c, "-g");
+        plt.plot(m, c, "-g")
 
     if show_targ:
         mTarg = MyTBStype.mTarg
@@ -192,7 +192,7 @@ def makeTBSplot(
             textcoords="axes fraction",
             fontsize=18,
         )
-        plt.plot(mTarg, cTarg, "ro");
+        plt.plot(mTarg, cTarg, "ro")
         plt.annotate(
             "↙️ m target",
             (mTarg, cTarg),
@@ -321,5 +321,5 @@ interact(
     plot_emp=plot_emp_widget,
     plot_ret=plot_ret_widget,
     plot_mSS=plot_mSS_widget,
-);
+)
 ```

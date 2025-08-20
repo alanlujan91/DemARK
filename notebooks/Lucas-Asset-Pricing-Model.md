@@ -69,7 +69,7 @@ As noted in the handout, there are some special circumstances in which it is pos
 
 However, under most circumstances, the only way to obtain the pricing function $P^{*}$ is by solving for it numerically, as outlined below.
 
-<!-- #region -->
+
 # Finding the equilibrium pricing function.
 
 We know that the equilibrium pricing function must satisfy the equation above. Let's define an operator that allows us to evaluate whether any candidate pricing function satisfies this requirement.
@@ -107,7 +107,7 @@ The code below creates a representation of our model and implements a solution r
 - `priceOnePeriod`: this is operator $T$ from above. It takes a function $f$, computes $\beta~\mathbb{E}_{t}\left[ \frac{u^{\prime}(d_{t+1})}{u^{\prime}(d_t)} (f(d_{t+1}) + d_{t+1}) \right]$ for a grid of $d_t$ values, and uses the result to construct a piecewise linear interpolator that approximates $T[f]$.
 
 - `solve`: this is our iterative solution procedure. It generates an initial guess $f$ and applies `priceOnePeriod` to it iteratively. At each application, it constructs a measure of how much the candidate pricing function changed. Once changes between successive iterations are small enough, it declares that the solution has converged.
-<!-- #endregion -->
+
 
 # A computational representation of the problem and its solution.
 
@@ -281,8 +281,8 @@ plt.figure()
 plt.plot(dGrid, LowCRRAEcon.EqPfun(dGrid), label="Low CRRA")
 plt.plot(dGrid, HighCRRAEcon.EqPfun(dGrid), label="High CRRA")
 plt.legend()
-plt.xlabel("$d_t$");
-plt.ylabel("$P_t$");
+plt.xlabel("$d_t$")
+plt.ylabel("$P_t$")
 ```
 
 # Testing our analytical solutions
@@ -313,8 +313,8 @@ plt.figure()
 plt.plot(dGrid, aSol(dGrid), "*", label="Analytical solution")
 plt.plot(dGrid, logUtilEcon.EqPfun(dGrid), label="Numerical solution")
 plt.legend()
-plt.xlabel("$d_t$");
-plt.ylabel("$P^*(d_t)$");
+plt.xlabel("$d_t$")
+plt.ylabel("$P^*(d_t)$")
 ```
 
  ## Case 2: I.I.D dividends
@@ -352,8 +352,8 @@ plt.figure()
 plt.plot(dGrid, aSolIID(dGrid), "*", label="Analytical solution")
 plt.plot(dGrid, iidEcon.EqPfun(dGrid), label="Numerical solution")
 plt.legend()
-plt.xlabel("$d_t$");
-plt.ylabel("$P^*(d_t)$");
+plt.xlabel("$d_t$")
+plt.ylabel("$P^*(d_t)$")
 plt.show()
 ```
 
@@ -401,8 +401,8 @@ plt.figure()
 plt.plot(dGrid, a_sol_rw(dGrid), "*", label="Analytical solution")
 plt.plot(dGrid, rw_econ.EqPfun(dGrid), label="Numerical solution")
 plt.legend()
-plt.xlabel("$d_t$");
-plt.ylabel("$P^*(d_t)$");
+plt.xlabel("$d_t$")
+plt.ylabel("$P^*(d_t)$")
 plt.show()
 ```
 
@@ -436,7 +436,7 @@ for n in ns:
 # Plot both
 plt.plot(dGrid, aSolIID(dGrid), "*", label="Analytical solution")
 plt.legend()
-plt.xlabel("$d_t$");
-plt.ylabel("$P^*(d_t)$");
+plt.xlabel("$d_t$")
+plt.ylabel("$P^*(d_t)$")
 plt.show()
 ```

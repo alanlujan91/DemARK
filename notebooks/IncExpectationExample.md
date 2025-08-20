@@ -284,7 +284,7 @@ AggWealthRatio, Lorenz, Gini, Avg_MPC = runRoszypalSchlaffmanExperiment(
 
 # Plot the Lorenz curve
 print("The Lorenz curve for assests is")
-plt.plot(Lorenz[0], Lorenz[1]);
+plt.plot(Lorenz[0], Lorenz[1])
 plt.xlabel("Wealth percentile")
 plt.ylabel("Cumulative wealth share")
 plt.xlim([0.0, 1.0])
